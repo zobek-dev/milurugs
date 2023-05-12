@@ -1,0 +1,225 @@
+<product-main>
+  <div class="wrapper">
+    <div class="my-4">
+      {% render 'breadcrumb' %}
+    </div>
+    <div class="grid relative grid-cols-1 md:grid-cols-4 md:gap-4 lg:gap-6">
+      <div class="left col-span-1 md:col-span-2 overflow-hidden md:sticky md:top-24 md:self-start">
+        <div class="product-carousel relative mb-4">
+          <ul class="swiper-wrapper">
+            {% for media in product.media %}
+              {% case media.media_type %}
+                {% when 'image' %}
+                  <li class="swiper-slide">
+                    <img src="{{ media | img_url: '800x' }}" loading="lazy" class="aspect-square object-center object-cover" width="{{ media.width }}" height="{{ media.height }}">
+                  </li> 
+                {% when 'video' %}
+                  <li class="swiper-slide">
+                    {{ media | video_tag: controls: true }} 
+                  </li>
+              {% endcase %}
+            {% endfor %}  
+          </ul>
+        </div>
+        <div class="hidden md:block product-thumbnail relative" data-slides="{{ product.media.size }}">
+          <ul class="swiper-wrapper">
+            {% for media in product.media %}
+              {% case media.media_type %}
+                {% when 'image' %}
+                  <li class="swiper-slide">
+                    {{ media | image_url: width: 300, height: 300 | image_tag: loading: 'lazy', class: 'object-cover object-center aspect-square' }}
+                  </li>
+                {% when 'video' %}
+                  <li class="swiper-slide">
+                    {{ media | video_tag: controls: true }} 
+                  </li>
+              {% endcase %}  
+            {% endfor%}  
+          </ul>
+        </div>
+      </div>
+      <div class="col-span-1 md:col-span-2 md:pt-12">
+        <div class="product-info">
+          <form action="{{ routes.cart_add_url }}" method="POST" id="Form-add-{{ product.selected_or_first_available_variant.id }}">
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          </form>
+          <h1 class="text-2xl font-semibold uppercase font-[24px] mb-2">
+            {{ product.title | escape }}
+          </h1>
+          <a href="#looxReviews">
+            <div class="loox-rating mb-2" data-id="{{ product.id }}" data-rating="{{ product.metafields.loox.avg_rating }}" data-raters="{{ product.metafields.loox.num_reviews }}"></div>
+          </a>
+          <div class="flex gap-x-2 items-center mb-2">
+            <h3 class="font-semibold text-[30px] tracking-[1.5px] leading-[1.1]">{{ product.price | money }}</h3>
+            {% if product.compare_at_price_max > product.price %}
+              <s class="text-[12px] tracking-[1px]">{{ product.compare_at_price_max | money }}</s>
+            {% endif %}
+          </div>
+          <div>
+            <span class="text-xs tracking-[1px]">Stock: {% unless product.available %}agotado.{% else %}{{ product.selected_or_first_available_variant.inventory_quantity }} unidades.{% endunless %}</span>  
+            <p class="text-sm tracking-[1px] mt-2 mb-4">Paga hasta en 6 cuotas sin interés con Mercado Pago.</p>
+          </div> 
+          <div class="grid grid-cols-3 gap-2 mb-6 max-w-[450px]">
+            <quantity-selector class="col-span-1">
+              <div class="border border-gray-400 flex rounded-[2px]">
+                <button name="minus" class="w-1/4 flex justify-center items-center py-4 hover:bg-[#A8A191]">
+                  {% render 'svg-icon-minus', class: 'w-[10px] pointer-events-none' %}
+                  <span class="sr-only">Restar uno</span>
+                </button>
+                <input type="number" name="quantity" class="text-center w-2/4 bg-transparent" min="1" value="1" form="Form-add-{{ product.selected_or_first_available_variant.id }}">
+                <button name="plus" class="w-1/4 flex justify-center items-center py-4 hover:bg-[#A8A191]">
+                  {% render 'svg-icon-plus', class: 'w-[10px] pointer-events-none' %}
+                  <span class="sr-only">Aumentar en uno</span>
+                </button>
+              </div>
+            </quantity-selector>
+            <button type="submit" 
+              name="add" 
+              class="col-span-2 block border border-transparent tracking-[2.5px] uppercase text-sm rounded-[2px] text-white font-bold transition-opacity transition-500 ease-in-out {% unless product.available %}bg-gray-400{% else %}bg-[#A8A191] hover:opacity-70{% endunless%}" form="Form-add-{{ product.selected_or_first_available_variant.id }}" {% unless product.available %}disabled{% endunless %}>
+              {% unless product.available %}
+                Agotado
+              {% else %}  
+                Agregar al carro
+              {% endunless %}
+            </button>
+          </div>  
+          <div>
+            <h2 class="mb-4 font-livvic font-medium tracking-[1px] uppercase text-[20px] leading-[1.1]">Descripción</h2> 
+            <div class="description">
+              {{ product.description }}
+            </div>
+            <details class="border-t border-b border-gray-400 pr-4 pt-4 my-8 tab-size">
+              <summary class="flex justify-between items-center cursor-pointer pb-4">
+                <span class="uppercase text-sm tracking-[1.5px] font-bold pr-4">Cambios o Devoluciones</span>
+                {% render 'svg-caret', class: 'w-4' %}
+              </summary>
+              <div class="tracking-[1.5px] text-sm pb-4">
+                El cambio o devolución debe solicitarse dentro de los primeros 10 días posteriores a la compra. Se hará devolución de dinero a través de una reversa en la plataforma de pago. Con Tarjeta de crédito se aplicará el descuento del 2,95% correspondiente a la comisión Transbank.  Esto dentro de un plazo de 15 días hábiles desde el momento de la entrega del producto físico a nuestra Tienda.
+              </div>
+            </details>
+          </div>
+          {% if product.tags contains 'Living' or product.tags contains 'comedor' or product.tags contains 'Dormitorio' %}
+            <h3 class="mt-12 mb-2 text-[20px] tracking-[1.5px] font-livvic font-medium uppercase">¿Como ubicar tu alfombra?</h3>
+          {% endif %}
+            
+          {% for tag in product.tags %}
+            {% if tag contains 'Living' or tag contains 'comedor' or tag contains 'Dormitorio' %}
+              <h4 class="my-4 tracking-[1.5px] font-livvic font-medium uppercase">{{ tag }}</h4>
+              {% case tag %}
+                {% when 'Dormitorio' %}
+                  <img src="https://cdn.shopify.com/s/files/1/2423/2085/files/CAMA-KING-02_800x.png?v=1664687032" alt="{{ tag }}" class="w-3/4 lg:w-1/2" width="800" height="481" loading="lazy">
+                {% when 'Living' %} 
+                  <img src="https://cdn.shopify.com/s/files/1/2423/2085/files/LIVING-02_800x.png?v=1664682136" alt="{{ tag }}" class="w-3/4 lg:w-1/2" width="800" height="481" loading="lazy">
+                {% when 'comedor' %}
+                  <img src="https://cdn.shopify.com/s/files/1/2423/2085/files/COMEDOR-4-PERSONAS_800x.png?v=1664685148" alt="{{ tag }}" class="w-3/4 lg:w-1/2" width="800" height="481" loading="lazy">                      
+              {% endcase %}
+            {% endif %}  
+          {% endfor %}
+        </div>
+        {% if section.settings.upsell_product != blank %}
+      <upsell-component>
+        <div>
+          <h2 class="my-4 text-[20px] tracking-[1.5px] font-livvic font-medium uppercase">Lleva tu Antideslizante</h2>
+          <div class="max-w-[150px]">
+            {% assign upsell_product = all_products[section.settings.upsell_product] %}
+            <form action="{{ routes.cart_add_url }}" method="POST" id="Form_{{ upsell_product.selected_or_first_available_variant.id }}">
+              <input type="hidden" name="id" value="{{ upsell_product.selected_or_first_available_variant.id }}">
+              <input type="hidden" name="quantity" value="1">
+            </form>
+            <img src="{{ upsell_product.featured_image | image_url: width: 100 }}" alt="{{ upsell_product.title | escape }}" width="100" height="{{ 100 | divided_by: upsell_product.featured_image.aspect_ratio | ceil }}" class="mx-auto" loading="lazy">
+            <span class="block text-sm uppercase tracking-[1.5px] font-medium my-2 leading-tight line-clamp-2 text-center">{{ upsell_product.title | escape }}</span>
+            <span class="block text-sm tracking-[1.5px] font-light text-center mb-2">{{ upsell_product.price | money }}</span>
+            <button type="submit" class="btn-upselling block my-1 mx-auto bg-[#A8A191] w-max py-2 px-4 text-[#fff] tracking-[1.5px] font-semibold text-xs uppercase transition-opacity duration-200 ease-in-out hover:opacity-70" name="add" form="Form_{{ upsell_product.selected_or_first_available_variant.id }}">Agregar</button>
+          </div>
+        </div>
+      </upsell-component>
+      {% endif %}
+      </div>
+  </div>
+</product-main>
+
+
+{%- liquid
+    if product.selected_or_first_available_variant.featured_media
+      assign seo_media = product.selected_or_first_available_variant.featured_media
+    else
+      assign seo_media = product.featured_media
+    endif
+-%}
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "name": {{ product.title | json }},
+    "url": {{ request.origin | append: product.url | json }},
+    {% if seo_media -%}
+      "image": [
+        {{ seo_media | image_url: width: seo_media.preview_image.width | prepend: "https:" | json }}
+      ],
+    {%- endif %}
+    "description": {{ product.description | strip_html | json }},
+    {% if product.selected_or_first_available_variant.sku != blank -%}
+      "sku": {{ product.selected_or_first_available_variant.sku | json }},
+    {%- endif %}
+    "brand": {
+      "@type": "Brand",
+      "name": {{ product.vendor | json }}
+    },
+    "offers": [
+      {%- for variant in product.variants -%}
+        {
+          "@type" : "Offer",
+          {%- if variant.sku != blank -%}
+            "sku": {{ variant.sku | json }},
+          {%- endif -%}
+          {%- if variant.barcode.size == 12 -%}
+            "gtin12": {{ variant.barcode }},
+          {%- endif -%}
+          {%- if variant.barcode.size == 13 -%}
+            "gtin13": {{ variant.barcode }},
+          {%- endif -%}
+          {%- if variant.barcode.size == 14 -%}
+            "gtin14": {{ variant.barcode }},
+          {%- endif -%}
+          "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+          "price" : {{ variant.price | divided_by: 100.00 | json }},
+          "priceCurrency" : {{ cart.currency.iso_code | json }},
+          "url" : {{ request.origin | append: variant.url | json }}
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  }
+</script>
+
+
+
+{% comment %} {% assign shopify_store_country  = 'CL' %}
+              onclick="function(){
+                dataLayer.push({ 'ecommerce': null });
+                dataLayer.push({   
+                  'event': 'add_to_cart',
+                  'ecommerce': {
+                    'currency': '{{ shop.currency }}',
+                    'value':{{ product.price  | times: 0.01}},  
+                    'items': [{
+                      'item_id':{{ product.id }},
+                      'id': 'shopify_{{shopify_store_country}}_{{ product.id }}_{{ product.selected_or_first_available_variant.id }}',
+                      'google_business_vertical': 'retail',
+                      'item_name': '{{ product.title | remove: "'" | remove: '"' }}',
+                    }]
+                  }
+	              })
+              }" {% endcomment %}
+{% schema %}
+  {
+    "name": "main-product",
+    "settings": [
+      {
+        "type": "product",
+        "id": "upsell_product",
+        "label": "Selecciona producto para el uselling"
+      }
+    ]
+  }
+{% endschema %}

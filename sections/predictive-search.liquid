@@ -1,0 +1,41 @@
+{%- if predictive_search.performed -%}
+  <div id="predictive-search-results">
+    {%- if predictive_search.resources.products.size > 0 -%}
+      <h3 id="predictive-search-products" class="tracking-[1.5px] px-2 py-2">
+        Productos
+      </h3>
+    {%- endif -%}
+    <ul id="predictive-search-results-list" class="predictive-search__results-list" role="listbox" aria-labelledby="predictive-search-products">
+      {%- for product in predictive_search.resources.products -%}
+        <li class="predictive-search__list-item border-b border-gray-400" role="option">
+          <a href="{{ product.url }}" class="predictive-search__item flex flex-row gap-2 items-center hover:bg-gray-200 px-2 py-2 transition-colors duration-300 ease-in-out" tabindex="-1">
+            {%- if product.featured_media != blank -%}
+              <img class="predictive-search__image"
+                src="{{ product.featured_media | img_url: '150x' }}"
+                alt="{{ product.featured_media.alt }}"
+                width="50"
+                height="{{ 50 | divided_by: product.featured_media.preview_image.aspect_ratio }}"
+                loading="lazy"
+              >
+            {%- endif -%}
+            <div class="predictive-search__item-content">
+              {%- if settings.predictive_search_show_vendor -%}
+                <span class="visually-hidden tracking-[1.5px]">Vendor</span>
+                <div class="predictive-search__item-vendor tracking-[1.5px]">{{ product.vendor }}</div>
+              {%- endif -%}
+              <span class="predictive-search__item-heading tracking-[1.5px]">{{ product.title }}</span>
+              {%- if settings.predictive_search_show_price -%}
+                {% comment %}Render price{% endcomment %}
+              {%- endif -%}
+            </div>
+          </a>
+        </li>
+      {%- endfor -%}
+      <li class="predictive-search__list-item" role="option">
+        <button class="tracking-[1.5px] py-2 hover:bg-gray-200 px-2 transition-colors duration-300 ease-in-out w-full" tabindex="-1">
+          Buscar para <strong>“{{ predictive_search.terms }}”</strong>
+        </button>
+      </li>
+    </ul>
+  </div>
+{%- endif -%}

@@ -1,0 +1,95 @@
+<div class="wrapper">
+  <section class="my-4 py-2 lg:my-8 lg:py-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <div class="col-span-1 flex flex-col justify-center items-start">
+      <h2 class="font-livvic text-center lg:text-left mb-8 tracking-[1px] text-[25px] lg:text-[30px] uppercase leading-none max-w-[565px]">¿Necesitas asesoría para elegir tu alfombra?</h2>
+      <p class="tracking-[1px] text-sm mb-4">
+        Si requieres de una asesoría para escoger la alfombra perfecta para tu espacio, traenos fotos y/o planos, en MILÚ te ayudaremos con la elección. Podemos asesorarte en cuanto a medidas, estilos, diseños y colores basandónos en tu espacio y gustos.
+      </p>
+    </div>
+    <div class="col-span-1">
+      <img 
+        src="{{ section.settings.image_asesoria | img_url: 'master' }}" 
+        alt="{{ section.settings.image_asesoria.alt | escape }}" 
+        height="{{ section.settings.image_asesoria.height }}"
+        width="{{ section.settings.image_asesoria.width }}" 
+        loading="lazy"
+      >
+    </div>
+  </section>
+  <section class="my-4 py-2 lg:my-8 lg:py-4">
+    <ul role="list" class="grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-[1440px] mx-auto">
+      <li class="text-center px-4">
+        <img 
+          src="{{ section.settings.icon_asesoria | img_url: '40x' }}" 
+          alt="{{ section.settings.icon_asesoria.alt | escape }}" 
+          width="38.76"
+          height="37.6" 
+          loading="lazy"
+          class="block mb-2 mx-auto"
+        >
+        <h2 class="font-medium tracking-[1.5px] uppercase text-xl mb-2">Asesoría online</h2>
+        <p class="tracking-[1px] text-sm mb-4">
+          ¡Queremos orientarte en la elección! Completa el formulario y mándanos tus fotos, medidas, colores y te asesoramos a distancia.
+        </p>
+        <a href="https://wa.me/56939496775/?text=Hola%21%20Me%20interesa%20una%20asesoría%20para%20realizar%20mi%20compra%2E" class="block uppercase tracking-[1.5px] py-2 px-4 bg-[#A8A191] my-4 lg:my-8 mx-auto w-max text-sm font-medium transition-all duration-500 ease-in-out hover:opacity-50" target="_blank" rel="noopener noreferrer">
+          Agenda aquí tu asesoría
+        </a>  
+      </li>
+      <li class="text-center px-4">
+        <img 
+          src="{{ section.settings.icon_casa | img_url: '40x' }}" 
+          alt="{{ section.settings.icon_casa.alt | escape }}" 
+          height="34.17"
+          width="34.17" 
+          loading="lazy"
+          class="block mb-2 mx-auto"
+        >
+        <h2 class="font-medium tracking-[1.5px] uppercase text-xl mb-2">Pruébala en casa</h2>
+        <p class="tracking-[1px] text-sm mb-4">
+          ¡No hay problema! Puedes elegir las alfombras que te gustan y llevarlas a tu casa para ver cómo se verán! No hay mejor forma de saberlo que viendo la alfombra elegida en tu propio espacio. 
+        </p>
+        <a href="https://wa.me/56939496775/?text=Hola,%20me%20interesa%20agendar%20una%20prueba%20en%20mi%20casa%2E" class="block uppercase tracking-[1.5px] py-2 px-4 bg-[#A8A191] my-4 mx-auto w-max text-sm font-medium transition-all duration-500 ease-in-out hover:opacity-50" target="_blank" rel="noopener noreferrer">
+          Agenda aquí tu prueba
+        </a>  
+      </li>
+    </ul>
+  </section>
+  <section class="my-4 py-2 lg:my-8 lg:py-4 lg:px-8 max-w-[1100px] mx-auto">
+    <p class="tracking-[1px] text-sm mb-4">
+      Tenemos dos sistemas de prueba: 
+    </p>
+    <p class="tracking-[1px] text-sm mb-4">
+      1.- Vamos a dejar las alfombras a la puerta de tu casa y tu mismo las pruebas! Podemos dejarlas de un día para otro y así tienes tiempo para decidir! Si eliges esta opción, no incluye ayuda para instalación!
+    </p>
+    <p class="tracking-[1px] text-sm mb-4">
+      2.- Agendamos prueba con ayuda! Podemos agendar una prueba en tu casa, donde nuestro equipo va a ayudarte a instalar las alfombras!
+    </p>  
+    <p class="tracking-[1px] text-sm mb-4 font-medium uppercase">
+      IMPORTANTE : PARA AMBAS OPCIONES TENEMOS UN MÁXIMO DE 3 ALFOMBRAS.
+    </p>
+  </section>
+</div>
+
+
+{% schema %}
+{
+  "name": "Main Asesorías",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_asesoria",
+      "label": "Imagen Asesoría"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_asesoria",
+      "label": "Icono Asesoría"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_casa",
+      "label": "Icono Casa"
+    }
+  ]
+}
+{% endschema %}

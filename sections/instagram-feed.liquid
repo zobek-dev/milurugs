@@ -1,0 +1,35 @@
+
+<div class="wrapper">
+  <div class="my-8 py-4">
+    <h2 class="font-livvic font-[400] tracking-[2.5px] uppercase text-[20px] lg:text-[30px] leading-none">{{ section.settings.title | escape }}</h2>
+    {% for block in section.blocks %}
+      {% render block %}
+    {% endfor %}  
+  </div>
+</div>
+{% schema %}
+{
+  "name": "instagram-feed",
+  "settings":[
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titulo para la sección",
+      "default": "Inspírate junto a nosotras y síguenos..."
+    }
+  ],
+  "limit": 1,
+  "max_blocks": 1,
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets":[
+    {
+      "name": "Instagram Feed",
+      "category": "List"
+    }
+  ]
+}
+{% endschema %}

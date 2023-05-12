@@ -1,0 +1,550 @@
+<main-tips>
+  <div class="wrapper">
+    <div class="flex gap-2 justify-center items-center mx-auto mb-2 mt-8">
+      <button id="show-cuidado" class="button-tips" aria-label="Cuidado y mantención" aria-selected="true">
+        Cuidado y mantención
+      </button>
+      <button id="show-ubicar" class="button-tips" aria-label="Ubicar tu alfombra">
+        Cómo ubicar tu alfombra
+      </button>
+    </div>
+  
+    <div id="ubicar" class="mb-8 pb-4 hidden">
+      <section class="">
+        <h2 class="uppercase font-livvic text-[25px] lg:text-[35px] py-4 text-center max-w-[860px] mx-auto">¿Cómo ubicar tu alfombra?</h2>
+        <p class="text-center tracking-[1px] text-sm mb-4 max-w-[860px] mx-auto">
+          Estos tips pueden ayudarte a lograr un diseño de tus ambientes que fluya bien, esto hará que tus espacios se sientan acogedores y con un buen diseño.<br>
+          Al momento de elegir tu alfombra Milú, recuerda siempre asegurarte de que las puertas y closets abran correctamente y que elementos de tu casa como chimeneas o muebles de gran tamaño no estén dentro de la superficie que quieres cubrir con tu alfombra.
+        </p>
+      </section>
+  
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 my-4 py-2 lg:my-8 lg:py-4">
+        <div class="row-start-1 row-end-2 lg:row-start-auto lg:row-end-auto flex flex-col justify-center">
+          <h2 class="font-livvic text-[25px] lg:text-[35px] uppercase mb-4">
+            Living & Sala de Estar
+          </h2>
+          <p class="tracking-[1px] text-sm mb-4">
+            Al momento de elegir una alfombra para tu living o sala de estar, asegúrate de elegir una que sea adecuada para el espacio que tienes. En el caso de elegir una alfombra grande, prefiere una medida donde los sofás queden al menos la mitad encima, donde cualquier silla o banqueta quede parcial o totalmente sobre la alfombra. Los sillones modulares se ven mejor cuando quedan sobre la alfombra con al menos 20 cms de alfombra por debajo del sillón. Si prefieres tener una alfombra más pequeña que quede centrada, deja todos los sillones a una distancia pareja de la alfombra , con las patas delanteras sobre esta y asegúrate que sea una medida adecuada para la mesa de centro. Si tu mesa de centro es muy grande, ten en cuenta la medida para que no cubra completamente la alfombra.
+          </p>
+          <a href="/collections/living" role="button" class="py-2 leading-none w-max uppercase tracking-[1.5px] text-sm border-b border-black mb-4 font-medium">
+            Ver Colección Living&nbsp;+
+          </a>
+        </div>
+        <div class="row-start-2 row-end-3 lg:row-start-auto lg:row-end-auto flex justify-start lg:justify-end">
+          <img 
+            src="{{ section.settings.image_living | img_url: 'master' }}" 
+            alt="{{ section.settings.image_living.alt }}" 
+            width="{{ section.settings.image_living.width }}" 
+            height="{{ section.settings.image_living.height }}" 
+            loading="lazy"
+          >
+        </div>
+      </section>
+      <div class="slider-living relative py-2 my-2 lg:py-4 lg:my-8 overflow-hidden">
+        <div class="flex justify-end lg:py-4">
+          <div class="flex gap-4">
+            <button class="hidden lg:block disabled:opacity-25 transition-opacity duration-500 hover:opacity-50 ease-out" id="living-prev" aria-label="colección anterior">
+              {% render 'svg-arrow', class: 'w-8 rotate-180' %}
+              <span class="sr-only">previous</span>
+            </button>
+            <button class="hidden lg:block disabled:opacity-25 transition-opacity duration-500 hover:opacity-50 ease-out" id="living-next" aria-label="colección siguiente">
+              {% render 'svg-arrow', class: 'w-8' %}
+              <span class="sr-only">next</span>
+            </button>
+          </div>
+        </div>
+        <ul class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% if block.type == 'slide-living' %} 
+            <li class="swiper-slide">
+              <img src="{{ block.settings.slide_living | img_url: '800x' }}" 
+                alt="{{ block.settings.slide_living.alt | escape }}" 
+                width="{{ block.settings.slide_living.width }}" 
+                height="{{ block.settings.slide_living.height }}"
+                loading="lazy" 
+              >
+            </li>
+            {% endif %} 
+          {% endfor %}  
+        </ul>
+        <div id="livingScrollBar" class="swiper-scrollbar"></div>
+      </div>
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 my-4 py-2 lg:my-8 lg:py-4">
+        <div class="col-span-1 flex justify-start row-start-2 row-end-3 lg:row-start-auto lg:row-end-auto ">
+          <img 
+            src="{{ section.settings.image_comedor | img_url: 'master' }}" 
+            alt="{{ section.settings.image_comedor.alt }}" 
+            width="{{ section.settings.image_comedor.width }}" 
+            height="{{ section.settings.image_comedor.height }}" 
+            loading="lazy"
+          >
+        </div>
+        <div class="col-span-1 flex flex-col justify-center row-start-1 row-end-2 lg:row-start-auto lg:row-end-auto ">
+          <h2 class="font-livvic text-[25px] lg:text-[35px] uppercase mb-4">
+            Comedor
+          </h2>
+          <p class="tracking-[1px] text-sm mb-4">
+            El mejor tamaño bajo una mesa de comedor, es aquel que quede 50 a 70 cms alrededor de la mesa y sillas. Una alfombra redonda bajo una mesa de comedor redonda acentuará la forma de la mesa y le dará una línea de diseño coherente a tus espacios.
+          </p>
+          <a href="/collections/comedor" role="button" class="py-2 leading-none w-max uppercase tracking-[1.5px] text-sm border-b border-black mb-4 font-medium">
+            Ver Colección Comedor&nbsp;+
+          </a>
+        </div>
+      </section>
+      <div class="slider-comedor relative py-2 my-2 lg:py-4 lg:my-8 overflow-hidden">
+        <div class="flex justify-end lg:py-4">
+          <div class="flex gap-4">
+            <button class="hidden lg:block disabled:opacity-25 transition-opacity duration-500 hover:opacity-50 ease-out" id="comedor-prev" aria-label="colección anterior">
+              {% render 'svg-arrow', class: 'w-8 rotate-180' %}
+              <span class="sr-only">previous</span>
+            </button>
+            <button class="hidden lg:block disabled:opacity-25 transition-opacity duration-500 hover:opacity-50 ease-out" id="comedor-next" aria-label="colección siguiente">
+              {% render 'svg-arrow', class: 'w-8' %}
+              <span class="sr-only">next</span>
+            </button>
+          </div>
+        </div>
+        <ul class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% if block.type == 'slide-comedor' %} 
+            <li class="swiper-slide">
+              <img src="{{ block.settings.comedor_slide | img_url: '800x' }}" 
+                alt="{{ block.settings.comedor_slide.alt | escape }}" 
+                width="{{ block.settings.comedor_slide.width }}" 
+                height="{{ block.settings.comedor_slide.height }}"
+                loading="lazy" 
+              >
+            </li>
+            {% endif %} 
+          {% endfor %}  
+        </ul>
+        <div id="comedorScrollBar" class="swiper-scrollbar"></div>
+      </div>
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 my-4 py-2 lg:my-8 lg:py-4">
+        <div class="col-span-1 flex justify-start row-start-2 row-end-3 lg:row-start-auto lg:row-end-auto ">
+          <img 
+            src="{{ section.settings.image_dormitorio | img_url: 'master' }}" 
+            alt="{{ section.settings.image_dormitorio.alt }}" 
+            width="{{ section.settings.image_dormitorio.width }}" 
+            height="{{ section.settings.image_dormitorio.height }}" 
+            loading="lazy"
+          >
+        </div>
+        <div class="col-span-1 flex flex-col justify-center row-start-1 row-end-2 lg:row-start-auto lg:row-end-auto ">
+          <h2 class="font-livvic text-[25px] lg:text-[35px] uppercase mb-4">
+            Dormitorio
+          </h2>
+          <p class="tracking-[1px] text-sm mb-4">
+            En los dormitorios se usan alfombras de diversos tamaños, todo depende del ambiente y estilo que tengas. Puedes usar alfombras mas chicas, pueden ser puestas en cada lado de la cama, o solo a uno, eso le da calidez a tu dormitorio, creando un espacio suave y cálido al momento de levantarte.
+          </p> 
+          <p class="tracking-[1px] text-sm mb-4">
+            Para un look más innovador, puedes usar una alfombra grande, debajo de la cama con un espacio generoso a la vista a los pies y lados de la cama. Deja los veladores fuera de la superficie de la alfombra para destacarla mejor y realzar el sentimiento de espacio.
+          </p>
+          <a href="/collections/dormitorio" role="button" class="py-2 leading-none w-max uppercase tracking-[1.5px] text-sm border-b border-black mb-4 font-medium">
+            Ver Colección Comedor&nbsp;+
+          </a>
+        </div>
+      </section>
+      <div class="slider-dormitorio relative py-2 my-2 lg:py-4 lg:my-8 overflow-hidden">
+        <div class="flex justify-end lg:py-4">
+          <div class="flex gap-4">
+            <button class="hidden lg:block disabled:opacity-25 transition-opacity duration-500 hover:opacity-50 ease-out" id="dormitorio-prev" aria-label="colección anterior">
+              {% render 'svg-arrow', class: 'w-8 rotate-180' %}
+              <span class="sr-only">previous</span>
+            </button>
+            <button class="hidden lg:block disabled:opacity-25 transition-opacity duration-500 hover:opacity-50 ease-out" id="dormitorio-next" aria-label="colección siguiente">
+              {% render 'svg-arrow', class: 'w-8' %}
+              <span class="sr-only">next</span>
+            </button>
+          </div>
+        </div>
+        <ul class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% if block.type == 'slide-dormitorio' %} 
+            <li class="swiper-slide">
+              <img src="{{ block.settings.dormitorio_slide | img_url: '800x' }}" 
+                alt="{{ block.settings.dormitorio_slide.alt | escape }}" 
+                width="{{ block.settings.dormitorio_slide.width }}" 
+                height="{{ block.settings.dormitorio_slide.height }}"
+                loading="lazy" 
+              >
+            </li>
+            {% endif %} 
+          {% endfor %}  
+        </ul>
+        <div id="dormitorioScrollBar" class="swiper-scrollbar"></div>
+      </div>
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 my-4 py-2 lg:my-8 lg:py-4">
+        <div class="col-span-1 flex justify-start row-start-2 row-end-3 lg:row-start-auto lg:row-end-auto ">
+          <img 
+            src="{{ section.settings.image_infantil | img_url: 'master' }}" 
+            alt="{{ section.settings.image_infantil.alt }}" 
+            width="{{ section.settings.image_infantil.width }}" 
+            height="{{ section.settings.image_infantil.height }}" 
+            loading="lazy"
+          >
+        </div>
+        <div class="col-span-1 flex flex-col justify-center row-start-1 row-end-2 lg:row-start-auto lg:row-end-auto ">
+          <h2 class="font-livvic text-[25px] lg:text-[35px] uppercase mb-4">
+            Dormitorio Infantil
+          </h2>
+          <p class="tracking-[1px] text-sm mb-4">
+            Además de entregar suavidad y una sensación de calidez, las alfombras en los dormitorios de los niños dan el toque de color y diseño. Puedes ubicar tu alfombra levemente bajo la cama o cuna de forma que el lugar donde los niños se bajan de la cama quede cubierto. En un dormitorio con más de una cama, puedes poner tu alfombra entre las camas para conectarlas visualmente y crear un espacio central. Las alfombras redondas mas pequeñas, funcionan perfecto en piezas de niños y bebés bajo o al lado de la cama o cuna, además hacen que el espacio se vea más acogedor. Para alfombras rectangulares, una medida standard es de 1.9x1.4 mts. las que a lo largo quedan igual que la cama, generando unidad entre los elementos.
+          </p> 
+          <a href="/collections/kids" role="button" class="py-2 leading-none w-max uppercase tracking-[1.5px] text-sm border-b border-black mb-4 font-medium">
+            Ver Colección Niños&nbsp;+
+          </a>
+        </div>
+      </section>
+      <div class="slider-infantil relative py-2 my-2 lg:py-4 lg:my-8 overflow-hidden">
+        <div class="flex justify-end lg:py-4">
+          <div class="flex gap-4">
+            <button class="hidden lg:block disabled:opacity-25 transition-opacity duration-500 hover:opacity-50 ease-out" id="infantil-prev" aria-label="colección anterior">
+              {% render 'svg-arrow', class: 'w-8 rotate-180' %}
+              <span class="sr-only">previous</span>
+            </button>
+            <button class="hidden lg:block disabled:opacity-25 transition-opacity duration-500 hover:opacity-50 ease-out" id="infantil-next" aria-label="colección siguiente">
+              {% render 'svg-arrow', class: 'w-8' %}
+              <span class="sr-only">next</span>
+            </button>
+          </div>
+        </div>
+        <ul class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% if block.type == 'infantil-slide' %} 
+            <li class="swiper-slide">
+              <img src="{{ block.settings.dormitorio_infantil | img_url: '800x' }}" 
+                alt="{{ block.settings.dormitorio_infantil.alt | escape }}" 
+                width="{{ block.settings.dormitorio_infantil.width }}" 
+                height="{{ block.settings.dormitorio_infantil.height }}"
+                loading="lazy" 
+              >
+            </li>
+            {% endif %} 
+          {% endfor %}  
+        </ul>
+        <div id="infantilScrollBar" class="swiper-scrollbar"></div>
+      </div>
+    </div> 
+  
+    <div id="cuidado" class="">
+      <section class="lg:py-8 py-4">
+        <h2 class="font-livvic uppercase text-[20px] lg:text-[30px] tracking-[1.5px] mx-auto max-w-[766px] text-center mb-2">
+          8 tips para el ciudado & mantención de tu alfombra
+        </h2>
+        <p class="text-sm tracking-[1px] mx-auto max-w-[900px] text-center">
+          Para cuidar y mantener en el timepo tu alfombra MILÚ te dejamos ocho tips que te ayudarán
+        </p>
+      </section>
+      <ul class="block max-w-[1440px] px-4 lg:px-8 mx-auto text-center">
+        <li class="inline-block max-w-[300px] mx-4 mb-8 text-center align-top">
+          <img 
+            src="{{ section.settings.icon_aspiradora | img_url: '90x' }}" 
+            alt="{{ section.settings.icon_aspiradora.alt | escape }}" 
+            width="85" 
+            height="60" 
+            loading="lazy" 
+            class="mx-auto block"
+          >
+          <h2 class="text-xl tracking-[1.5px] uppercase font-medium border-b border-black py-2">Tip 1</h2>
+          <p class="text-sm tracking-[1px] mt-2">Usa la aspiradora para quitar la mayor cantidad de polvo del suelo y de la alfombra, aspira de abajo hacia arriba y luego de arriba hacia abajo.</p>
+        </li>
+        <li class="inline-block max-w-[300px] mx-4 mb-8 lg:mb-4 text-center align-top">
+          <img 
+            src="{{ section.settings.icon_agua | img_url: '80x' }}" 
+            alt="{{ section.settings.icon_agua.alt | escape }}" 
+            width="85" 
+            height="60" 
+            loading="lazy" 
+            class="mx-auto block"
+          >
+          <h2 class="text-xl tracking-[1.5px] uppercase font-medium border-b border-black py-2">Tip 2</h2>
+          <p class="text-sm tracking-[1px] mt-2">
+            En un recipiente has una mezcla de agua y detergente líquido para ropa.
+          </p>
+        </li>
+        <li class="inline-block max-w-[300px] mx-4 mb-8 lg:mb-4 text-center align-top">
+          <img 
+            src="{{ section.settings.icon_trapo | img_url: '80x' }}" 
+            alt="{{ section.settings.icon_trapo.alt | escape }}" 
+            width="85" 
+            height="60"
+            loading="lazy"
+            class="mx-auto block" 
+          >
+          <h2 class="text-xl tracking-[1.5px] uppercase font-medium border-b border-black py-2">Tip 3</h2>
+          <p class="text-sm tracking-[1px] mt-2">
+            Absorbe un poco de la mezcla con un paño limpio y humedece la mancha para limpiarla, usa el paño para limpiar la mancha tratando de no extenderla.
+          </p>
+        </li>
+        <li class="inline-block max-w-[300px] mx-4 mb-8 lg:mb-4 text-center align-top">
+          <img 
+            src="{{ section.settings.icon_cepillo | img_url: '80x' }}" 
+            alt="{{ section.settings.icon_cepillo.alt | escape }}" 
+            width="85" 
+            height="85"
+            loading="lazy"
+            class="mx-auto block mt-4"    
+          >
+          <h2 class="text-xl tracking-[1.5px] uppercase font-medium border-b border-black pb-2 pt-4 mb-2">Tip 4</h2>
+          <p class="text-sm tracking-[1px] mt-2">
+            Si la mancha no se quita, deja actuar la mezcla durante 5 minutos y luego usa un cepillo muy suave o el mismo paño para desmanchar en diferentes direcciones.
+          </p>
+        </li>
+        <li class="inline-block max-w-[300px] mx-4 mb-8 lg:mb-4 text-center align-top">
+          <img 
+            src="{{ section.settings.icon_toalla | img_url: '80x' }}" 
+            alt="{{ section.settings.icon_toalla.alt | escape }}" 
+            width="85" 
+            height="60"
+            loading="lazy" 
+            class="mx-auto block"  
+          >
+          <h2 class="text-xl tracking-[1.5px] uppercase font-medium border-b border-black py-2">Tip 5</h2>
+          <p class="text-sm tracking-[1px] mt-2">
+            Usa una toalla para absorber el exceso de agua de la parte superior e inferior de la alfombra y evitar que se ensucie.
+          </p>
+        </li>
+        <li class="inline-block max-w-[300px] mx-4 mb-8 lg:mb-4 text-center align-top">
+          <img 
+            src="{{ section.settings.icon_gotas | img_url: '80x' }}" 
+            alt="{{ section.settings.icon_gotas.alt | escape }}" 
+            width="85" 
+            height="60"
+            loading="lazy"
+            class="mx-auto block" 
+          >
+          <h2 class="text-xl tracking-[1.5px] uppercase font-medium border-b border-black py-2">Tip 6</h2>
+          <p class="text-sm tracking-[1px] mt-2">
+            Lava las partes limpias de la alfombra solo usando agua y pasando el paño para que no quede una diferencia de color en el resto de la alfombra.
+          </p>
+        </li>
+        <li class="inline-block max-w-[300px] mx-4 mb-8 lg:mb-4 text-center align-top">
+          <img 
+            src="{{ section.settings.icon_sol | img_url: '80x' }}" 
+            alt="{{ section.settings.icon_sol.alt | escape }}" 
+            width="85" 
+            height="60"
+            loading="lazy"
+            class="mx-auto block"  
+          >
+          <h2 class="text-xl tracking-[1.5px] uppercase font-medium border-b border-black py-2">Tip 7</h2>
+          <p class="text-sm tracking-[1px] mt-2">
+            Asegúrate de quitar bien el exceso de detergente y de secar bien tu alfombra. Déjala extendida y espera que esté completamente seca para que no se formen hongos ni quede humedad.
+          </p>
+        </li>
+      </ul>
+      <div class="max-w-[900px] px-4 lg:mx-auto flex-col lg:flex-row flex gap-x-4 bg-[#A8A191] py-8 my-12">
+          {% render 'svg-blink', class: 'w-[50px] lg:w-[200px] mx-auto' %}
+          <div class="flex flex-col justify-center mt-8">
+            <h3 class="text-xl text-center lg:text-left font-medium uppercase tracking-[1.5px] mb-2">Tip especial</h3>
+            <hr class="border-b border-black w-full lg:w-[30%]">
+            <p class="text-sm tracking-[1px] mt-4">
+              TIP! Para lavar una alfombra de fibras naturales puedes poner debajo de la alfombra un pedazo de plástico con una toalla, luego desmanchar con ayuda de un cepillo suave o paño y una mezcla de agua jabonosa. Cuando termines de limpiar la alfombra tendrás que quitar el exceso de agua y ponerla a secar.
+            </p>
+          </div>   
+      </div>
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 my-4 py-2 lg:my-8 lg:py-4">
+        <div class="row-start-1 row-end-2 lg:row-start-auto lg:row-end-auto flex flex-col justify-center">
+          <h2 class="font-livvic text-[25px] lg:text-[35px] uppercase mb-4">
+            Alfombras de Fieltro
+          </h2>
+          <p class="tracking-[1px] text-sm mb-4">
+            La materia prima que utilizamos para nuestras alfombras de fieltro, es lana pura de primera calidad procedente de Nueva Zelanda, con la que nuestro equipo en Nepal elabora alfombras resistentes y de gran calidad. La lana repele de manera natural la suciedad y los líquidos, por lo que las alfombras de bolas de fieltro son muy fáciles de limpiar, además de ofrecer una resistencia y durabilidad sin rival.Mantener limpia tu alfombra es muy fácil, solo tienes que pasar la aspiradora y sacudirla de vez en cuando. Las partículas de polvo que encontrarás debajo son restos de jabón del proceso de afieltrado y desaparecen rápido.
+          </p>
+          <h3 class="font-livvic text-base uppercase mb-4">Tratamiento de manchas y líquidos</h3>
+          <p class="tracking-[1px] text-sm mb-4">
+            Evita mojar tu alfombra Milú, pero si esto ocurre, no te preocupes, son cosas que pasan. Usa un paño con jabón y absorbe el exceso de líquido. Es importante frotar con cuidado. Continúa hasta que la mancha desaparezca o disminuya. ¿No has conseguido eliminarla siguiendo los pasos de arriba? Acude a un servicio de limpieza profesional de alfombras. Es importante mencionar que las alfombras MILÚ son hechas de 100% lana y teñidas artesanalmente, por lo que no se deben usar productos que puedan ser dañinos al material. Si aun así la mancha no se elimina, no todo está perdido. Nuestras alfombras son reversibles, así que puedes darle la vuelta y usarla por el otro lado.
+          </p>
+          <a href="/collections/fieltro" role="button" class="py-2 leading-none w-max uppercase tracking-[1.5px] text-sm border-b border-black mb-4 font-medium">
+            Ver Colección Fieltro&nbsp;+
+          </a>
+        </div>
+        <div class="row-start-2 row-end-3 lg:row-start-auto lg:row-end-auto flex justify-end">
+          <img 
+            src="{{ section.settings.fieltro | img_url: 'master' }}" 
+            alt="{{ section.settings.fieltro.alt }}" 
+            width="{{ section.settings.fieltro.width }}" 
+            height="{{ section.settings.fieltro.height }}" 
+            loading="lazy"
+          >
+        </div>
+      </section>
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 my-4 py-2 lg:my-8 lg:py-4">
+        <div class="col-span-1 flex justify-start row-start-2 row-end-3 lg:row-start-auto lg:row-end-auto">
+          <img 
+            src="{{ section.settings.polipropileno | img_url: 'master' }}" 
+            alt="{{ section.settings.polipropileno.alt }}" 
+            width="{{ section.settings.polipropileno.width }}" 
+            height="{{ section.settings.polipropileno.height }}" 
+            loading="lazy"
+          >
+        </div>    
+        <div class="col-span-1 flex flex-col justify-center row-start-1 row-end-2 lg:row-start-auto lg:row-end-auto">
+          <h2 class="font-livvic text-[25px] lg:text-[35px] uppercase mb-4">
+            Alfombras de Polipropinelo
+          </h2>
+          <p class="tracking-[1px] text-sm mb-4">
+            Nuestra línea de alfombras de PP es hecha a partir de fibras plásticas de textura suave. Son fibras eco-amigables y duraderas. Las alfombras de PP son lavables, fáciles de mantener y recomendadas para áreas de alto tráfico. Puedes manguerearlas, lavarlas con agua jabonosa y paño húmedo o una esponja suave. Luego dejarlas secar estiradas, a la sombra ya que con mucha exposición al sol pueden perder el color o variar los tonos originales.
+          </p>
+          <a href="/collections/polipropileno" role="button" class="py-2 leading-none w-max uppercase tracking-[1.5px] text-sm border-b border-black mb-4 font-medium">
+            Ver Colección Polipropileno&nbsp;+
+          </a>
+        </div>  
+      </section>
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 my-4 py-2 lg:my-8 lg:py-4">
+        <div class="flex flex-col justify-center row-start-1 row-end-2 lg:row-start-auto lg:row-end-auto">
+          <h2 class="font-livvic text-[25px] lg:text-[35px] uppercase mb-4">
+            Alfombras de Cañamo
+          </h2>
+          <p class="tracking-[1px] text-sm mb-4">
+            Las alfombras Milú de 100% cáñamo, son hechas totalmente a mano a partir de fibras naturales. La técnica es de hilado de la fibra, trenzado y luego se unen trenza a trenza con nylon o hilo tapicero. Al ser fibras naturales, su color puede variar y tener diferentes tonalidades en una misma alfombra, lo que sin duda las hace únicas. Para mantener tu alfombra de cáñamo en perfecto estado te recomendamos que no la expongas a la humedad y si es con color, que no quede expuesta directamente al sol. Para limpiarla, puedes aspirarla todos los días, sacudirla y desmanchar con un poco de agua jabonosa y un paño húmedo. 
+          </p>
+          <p class="tracking-[1px] text-sm mb-4 font-medium">
+            Te recomendamos que NO la cepilles y NO la sumerjas ya que al ser fibras 100% naturales, el exceso de agua las puede dañar.
+          </p>
+          <a href="/collections/canamo" role="button" class="py-2 leading-none w-max uppercase tracking-[1.5px] text-sm border-b border-black mb-4 font-medium">
+            Ver Colección Cañamo&nbsp;+
+          </a>
+        </div>
+        <div class="flex justify-end row-start-2 row-end-3 lg:row-start-auto lg:row-end-auto">
+          <img 
+            src="{{ section.settings.canamo | img_url: 'master' }}" 
+            alt="{{ section.settings.canamo.alt }}" 
+            width="{{ section.settings.canamo.width }}" 
+            height="{{ section.settings.canamo.height }}" 
+            loading="lazy"
+          >
+        </div>
+      </section>
+      <div class="max-w-[900px] lg:mx-auto flex flex-col p-8 bg-[#A8A191] my-12">
+        <h3 class="font-livvic tracking-[1.5px] text-center uppercase mb-4 lg:mb-8 text-xl lg:text-4xl">Importante</h3>
+        <p class="text-sm tracking-[1px]">
+          Es importante mencionar que todas nuestras alfombras son hechas a mano a partir de fibras naturales o recicladas por lo que hay que tener en consideración que mantenerlas en buen estado depende del cuidado que le des a tu Milú. Los productos hechos a mano siempre son más delicados que los productos fabricados a máquina en serie. Todas nuestras alfombras son hechas a mano por grupos de talentosos artesanos en diferentes partes del mundo, quienes trabajan con amor y dedicación para hacer que cada una de las Milú sea única.
+        </p>
+      </div>
+    </div>
+  </div>
+</main-tips>
+
+{% schema %}
+{
+  "name": "Main Tips",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_living",
+      "label": "Imagen Living & Sala de estar"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_comedor",
+      "label": "Imagen Comedor"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_dormitorio",
+      "label": "Imagen Dormitorio"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_infantil",
+      "label": "Imagen Infantil"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_aspiradora",
+      "label": "aspiradora"
+    }, {
+      "type": "image_picker",
+      "id": "icon_agua",
+      "label": "agua"
+    }, {
+      "type": "image_picker",
+      "id": "icon_trapo",
+      "label": "trapo"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_cepillo",
+      "label": "cepillo"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_toalla",
+      "label": "toalla"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_gotas",
+      "label": "gotas"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_sol",
+      "label": "sol"
+    },
+    {
+      "type": "image_picker",
+      "id": "fieltro",
+      "label": "Alfombra de fieltro"
+    },
+    {
+      "type": "image_picker",
+      "id": "polipropileno",
+      "label": "Alfombra de polipropileno"
+    },
+    {
+      "type": "image_picker",
+      "id": "canamo",
+      "label": "Alfombra de cañamo"
+    }
+  ],
+  "blocks":[
+    {
+      "name": "Living slide",
+      "type": "slide-living",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "slide_living",
+          "label": "Imagen de Living"
+        }
+      ]
+    },
+    {
+      "name": "Comedor Slide",
+      "type": "slide-comedor",
+      "settings":[
+        {
+          "type": "image_picker",
+          "id": "comedor_slide",    
+          "label": "Imagen de Comedor"
+        }
+      ]
+    },
+    {
+      "name": "Dormitorio Slide",
+      "type": "slide-dormitorio",
+      "settings":[
+        {
+          "type": "image_picker",
+          "id": "dormitorio_slide",    
+          "label": "Imagen de Dormitorio"
+        }
+      ]
+    },
+    {
+      "name": "Infantil Slide",
+      "type": "infantil-slide",
+      "settings":[
+        {
+          "type": "image_picker",
+          "id": "dormitorio_infantil",    
+          "label": "Imagen de Dormitorio"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

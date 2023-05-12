@@ -1,0 +1,28 @@
+<div class="h-[250px] w-full bg-cover bg-no-repeat bg-center" {% if section.settings.image != blank %}style="background-image: url({{ section.settings.image | img_url: 'master' }})"{% endif %}>
+  <div class="h-full w-full flex flex-col justify-center items-center text-white bg-gray-500 bg-opacity-30">
+    <h1 class="font-livvic font-semibold uppercase text-4xl lg:text-6xl tracking-[1px]">
+      Contacto
+    </h1>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="mt-4 pt-2">
+    <p class="tracking-[1px] leading-[1.2] text-center">
+      ¿Tienes alguna duda? Escribenos y resolveremos tus inquietudes. 
+    </p>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Page Contact",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen del heading"
+    }
+  ]
+}
+{% endschema %}

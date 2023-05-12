@@ -1,0 +1,17 @@
+{
+  "shopify": {
+    "checkout": {
+      "contact": {
+        "zip_code_label": "Código Postal (OMITIR)",
+        "zip_code_placeholder": "Código Postal (OMITIR)",
+        "postal_code_label": "Código Postal (OMITIR)",
+        "postal_code_placeholder": "Código Postal (OMITIR)",
+        "address2_label": "Rut",
+        "optional_address2_label": "Rut",
+        "city_label": "Comuna",
+        "postcode_label": "Código Postal (OMITIR)",
+        "postcode_placeholder": "Código Postal (OMITIR)"
+      }
+    }
+  }
+}

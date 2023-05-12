@@ -1,0 +1,39 @@
+<nav aria-label="navegación" role="navigation">
+  <ul class="flex justify-center items-center gap-4" role="list">
+    {% if paginate.previous.is_link %}
+      <li>
+        <a href="{{ paginate.previous.url }}" aria-label="página anterior" title="Página anterior">
+          {% render 'svg-previous', class: 'w-2' %}
+          <span class="sr-only">Pagina anterior</span>
+        </a>
+      </li>
+    {% endif %}
+    {% for part in paginate.parts %}
+      {% if part.is_link %}
+        <li>
+          <a href="{{ part.url }}" class="page-link" aria-label="Ir a página {{ part.title | escape }}" title="Ir a página {{ part.title | escape }}">
+            {{ part.title | escape }}
+          </a>
+        </li>
+      {% else %}
+        {% if part.title == paginate.current_page %}
+          <li aria-current="page">
+            <span class="page-link">{{ part.title | escape }}</span>
+          </li>
+        {% else %}
+          <li>
+            <span class="page-link">{{ part.title | escape }}</span>
+          </li>   
+        {% endif %}         
+      {% endif %}
+    {% endfor %}
+    {% if paginate.next.is_link %}
+    <li>
+      <a href="{{ paginate.next.url }}" aria-label="página siguiente" title="Página siguiente">
+        {% render 'svg-next', class: 'w-2' %}
+        <span class="sr-only">Página siguiente</span>
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+</nav>

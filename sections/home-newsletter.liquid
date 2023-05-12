@@ -1,0 +1,77 @@
+<div class="my-8 py-8">
+  <div class="wrapper">
+    <div class="grid lg:grid-cols-2 gap-8">
+      <div>
+        <img 
+          src="{{ section.settings.image | img_url: 'master' }}" 
+          alt="milurugs alfombras" 
+          width="{{ section.settings.image.width }}"
+          height="{{ section.settings.image.height }}"
+          loading="lazy"
+          class="object-cover object-center aspect-[4/3]"
+        >
+      </div>
+      <div class="flex flex-col justify-center">
+        <h2 class="font-livvic text-[30px] lg:text-[35px] uppercase mb-4 leading-[1.2]">Únete a nuestro newsletter</h2>
+        <p class="text-sm tracking-[1px] mb-8 leading-[1.2]">Sé el primero en enterarte de todas nuestras novedades y consejos suscribiendote a nuestro newsletter</p>
+        {%- form 'customer', id: 'ContactFooter', class: 'w-full max-w-[500px]' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <div class="">
+          <div class="border border-gray-400 focus-within:border-black flex w-full">
+            <input
+              id="NewsletterForm--{{ section.id }}"
+              type="email"
+              name="contact[email]"
+              class="border-none outline-none flex-1 px-2 py-2 placeholder:text-black placeholder:text-xs lg:placeholder:text-sm placeholder:tracking-[1px] bg-[#e5e1d8]" 
+              value="{{ form.email }}"
+              aria-required="true"
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="email"
+              {% if form.errors %}
+                autofocus
+                aria-invalid="true"
+                aria-describedby="ContactHome-error"
+              {% elsif form.posted_successfully? %}
+                aria-describedby="ContactHome-success"
+              {% endif %}
+              placeholder="Ingresa tu correo electrónico"
+              required
+            >
+            <button type="submit" class="flex w-[100px] justify-center items-center outline-none bg-[#A8A191] py-2 transition-all duration-500 ease-in-out hover:opacity-50" name="commit" id="Subscribe" aria-label="Suscribirse al newsletter">
+              {% render 'svg-arrow-large' %}
+              <span class="sr-only">Enviar</span>
+            </button>
+          </div>
+          {%- if form.errors -%}
+          <small class="block text-red-900 tracking-[1.5] text-sm my-4" id="ContactHome-error">Ha ocurrido, un error intente nuevamente {{ form.errors.messages['email'] }}</small>
+          {%- endif -%}
+        </div>
+        {%- if form.posted_successfully? -%}
+          <h3 class="tracking-[1.5px] text-sm text-gray-600 my-p" id="ContactHome-success" tabindex="-1" autofocus>Gracias por suscribirte a nuestro newsletter</h3>
+        {%- endif -%} 
+      {%- endform -%}
+      </div>
+    </div>
+  </div> 
+</div>
+
+{% schema %}
+{
+  "name": "newsletter",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Cargar imagen en el newsletter"
+    }
+  ],
+  "presets": [
+    {
+      "name":"newsletter",
+      "category": "newsletter"
+    }  
+  ]
+}
+{% endschema %}

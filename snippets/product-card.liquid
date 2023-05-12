@@ -1,0 +1,107 @@
+{%- liquid
+  assign on_sale = false
+  assign month = 30 | times: 24 | times: 60 | times: 60
+  assign date_created = product_card.created_at | date: "%Y-%m-%d"
+  assign dead_line = "now" | date: "%s" | minus: month | date: "%Y-%m-%d"
+  if product_card.compare_at_price_max > product_card.price
+    assign on_sale = true
+  endif
+
+  for coll in product_card.collections
+    if coll.title == 'Venta de Bodega' or coll.title == 'VENTA BODEGA'
+      assign no_friday = true
+      break
+    endif
+  endfor
+-%}
+
+<li class="{{ class }} group">
+  <div class="relative border border-gray-200 overflow-hidden">
+    <a href="{{ product_card.url }}">
+      {%- if on_sale -%}
+        {% assign percentage = product_card.compare_at_price_max | minus: product_card.price | times: 100 | divided_by: product_card.compare_at_price_max %}
+        <span class="absolute bg-[rgba(0,0,0,0.6)] left-0 bottom-2 text-white text-sm uppercase bottom-left tracking-[1.5px] py-2 px-4 z-[9] font-semibold rounded-tr-[15px] rounded-br-[15px]">{{ percentage }}% OFF</span>  
+      {%- endif -%}
+      {%- if date_created > dead_line -%}
+        <span class="absolute bg-[rgba(0,0,0,0.6)] right-2 top-2 text-white text-sm uppercase tracking-[1.5px] py-2 px-4 z-[9] font-semibold rounded-[15px]">new arrivals</span>  
+      {%- endif -%}
+      {% unless product_card.available %}
+        <div class="absolute bg-black bg-opacity-50 text-white w-full h-full flex justify-center items-center uppercase z-[8] tracking-[1.5px] font-semibold text-base"> 
+          Agotado
+        </div>
+      {% endunless %}
+      {%- comment -%} {% unless no_friday and on_sale %}
+        <div class="absolute top-2 left-2 z-[9] bg-[#121212]">
+          {% render 'svg-blackfriday', class: 'w-[88px] h-[32.8px] lg:w-[121px] lg:h-[45px]' %}
+        </div>
+      {% endunless %} {%- endcomment -%}
+      {% if product_card.images.size > 1 %}
+      <img 
+        src="{{ product_card.featured_image | img_url: '500x' }}" 
+        alt="{{ product_card.title }}" 
+        width="{{ product_card.images[0].width }}"
+        height="{{ product_card.images[0].height }}"
+        class="aspect-square object-cover object-center transition-all duration-700 ease-in group-hover:invisible group-hover:z-[-1] group-hover:opacity-0"
+        loading="lazy"
+      >
+      <img 
+        src="{{ product_card.images[1] | img_url: '500x'}}" 
+        alt="{{ product_card.title }}"
+        width="{{ product_card.images[1].width }}"
+        height="{{ product_card.images[1].height }}"
+        class="aspect-square object-cover object-center absolute w-full h-full top-0 left-0 invisible transition-all duration-500 opacity-0 group-hover:opacity-100 ease-in z-[-1] group-hover:z-[1] group-hover:visible"
+        loading="lazy"
+      >
+      {% else %}
+      <img 
+        src="{{ product_card.images[0] | img_url: '450x' }}" 
+        alt="{{ product_card.title }}" 
+        width="{{ product_card.images[0].width }}"
+        height="{{ product_card.images[0].height }}"
+        class="aspect-square object-cover object-center"
+        loading="lazy"
+      >     
+      {% endif %}
+    </a>
+  </div>
+  <div class="flex flex-col">
+    <form action="/cart/add" id="Form-Add-{{ product_card.selected_or_first_available_variant.id }}">
+      <input type="hidden" name="id" value="{{ product_card.selected_or_first_available_variant.id }}">
+    </form>
+    <h3 class="uppercase text-sm font-semibold tracking-[1.5px] line-clamp-2 my-2 leading-tight group-hover:opacity-50 transition-opacity duration-500 ease-in-out">
+      <a href="{{ product_card.url }}">
+        {{ product_card.title | escape }}
+      </a>
+    </h3>
+    <div class="flex gap-4 mb-2 items-center">
+      <h4 class="block text-base font-semibold tracking-[1.5px] leading-none">
+        {{ product_card.price | money }}
+      </h4>
+      {% if on_sale %}
+      <s class="tracking-[1.5px] text-[12px] leading-none">
+        {{ product_card.compare_at_price_max | money }}
+      </s>
+      {% endif %}
+    </div>
+    <div class="grid grid-cols-6 gap-2">
+      <quantity-selector class="col-span-4">
+        <div class="border border-gray-400 flex rounded-[2px]">
+          <button class="w-1/4 flex justify-center items-center py-4 hover:bg-[#A8A191]" aria-label="Reducir en uno {{ product_card.title | escape }}" role="button" name="minus">
+            {% render 'svg-icon-minus', class: 'w-[10px] pointer-events-none' %}
+            <span class="sr-only">Restar uno</span>
+          </button>
+          <input type="number" class="text-center w-2/4 bg-transparent" name="quantity" form="Form-Add-{{ product_card.selected_or_first_available_variant.id }}" min="1" value="1">
+          <button class="w-1/4 flex justify-center items-center py-4 hover:bg-[#A8A191]" aria-label="Aumentar en uno {{ product_card.title | escape }}" role="button" name="plus">
+            {% render 'svg-icon-plus', class: 'w-[10px] pointer-events-none' %}
+            <span class="sr-only">Aumentar en uno</span>
+          </button>
+        </div>
+      </quantity-selector>
+      <button type="submit" name="add" form="Form-Add-{{ product_card.selected_or_first_available_variant.id }}" class="col-span-2 text-white font-medium  transition-opacity duration-500 ease-in-out rounded-[2px] {% if product_card.available == false %}bg-gray-400{% else %}bg-[#A8A191] hover:opacity-70{% endif %}" {%- unless product_card.available -%}disabled{%- endunless -%}>
+        {%- render 'svg-cart', class: 'inline-block w-[20px] h-[20px]' -%}
+        <span class="sr-only">agregar al carro</span>
+      </button>
+    </div>
+  </div>
+</li>
+

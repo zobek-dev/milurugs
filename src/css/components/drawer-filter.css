@@ -1,0 +1,19 @@
+.filter-modal{
+  @apply fixed invisible z-[999] left-0 top-0 w-[100vw] h-full flex justify-end transition-all duration-500 ease-in bg-gray-500 bg-opacity-75;
+}
+
+.filter-modal.active{
+  @apply visible;
+}
+
+.filter-modal__overlay{
+  @apply block fixed top-0 right-0 left-0 bottom-0;
+}
+
+.filter-modal__inner{
+  @apply h-full w-[350px] max-w-[90vw] border-l border-gray-400 bg-[#E5E1D8] translate-x-full transition-transform duration-500 ease-in-out px-4 py-4;
+}
+
+.filter-modal.active .filter-modal__inner{
+  @apply translate-x-0;
+} 

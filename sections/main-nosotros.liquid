@@ -1,0 +1,122 @@
+<section class="w-full h-[350px] lg:h-[500px] bg-cover bg-no-repeat bg-center relative" {% if section.settings.image_heading != blank %}style="background-image: url({{ section.settings.image_heading | img_url: 'master'}})"{% endif %}>
+  <div class="w-full h-full flex flex-col justify-center items-center absolute top-0 left-0 bg-gray-500 bg-opacity-10 text-white">
+    <h2 class="font-livvic font-medium text-[22px] lg:text-[50px] tracking-[1px] bg-black bg-opacity-[35%] text-white leading-none py-4 lg:py-8 px-4 lg:px-8 rounded-[50px]">Love your Rugs</h2>
+  </div>
+</section>
+<div class="wrapper">
+  <article class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 my-4 py-4 lg:my-8 lg:py-8">
+    <div class="col-span-1  flex flex-col justify-center">
+      <h1 class="font-livvic font-medium text-[30px] lg:text-[35px] tracking-[1.5px] mb-6 uppercase leading-none">
+        Nosotras
+      </h1>
+      <p class="tracking-[1px] text-sm lg:text-[sm] mb-4">
+        El 2015, damos vida a Milú, convencidas de que el diseño, los procesos artesanales y los materiales nobles pueden crear grandes elementos de decoración, que nos hagan VIVIR y SENTIR los espacios de nuestra casa.
+      </p>
+      <p class="tracking-[1px] text-sm lg:text-[sm] mb-4">  
+        Cuando comenzamos en el mundo de las alfombras, nos encontramos con infinitas alternativas de creación, diseño y materialidades naturales que junto a nuestras inspiraciones de diseño lograrían un sello único y atemporal.
+      </p>
+      <p class="tracking-[1px] text-sm lg:text-[sm] mb-4">
+        Nuestras alfombras comprenden procesos sustentables, creadas para formar parte de los diferentes estilos de decoración y ser puestas a prueba por el paso del tiempo. Tenemos un alto standard y proceso de mejora continua en cuanto a diseño, materialidad, producción, medio ambiente y responsabilidad social para así hacer de Milú una marca consciente y transparente presente en cada uno de sus hogares.
+      </p>
+    </div>
+    <div class="col-span-1 flex justify-center items-center rounded-[25px] overflow-hidden">
+      <img 
+        src="{{ section.settings.image_article | img_url: 'master' }}" 
+        alt="{{ section.settings.image_article.alt }}" 
+        width="{{ section.settings.image_article.width }}" 
+        height="{{ section.settings.image_article.height }}" 
+        loading="lazy"
+      >
+    </div>
+  </article>
+  <section class="my-4 py-4 lg:my-8 lg:py-8">
+    <h2 class="font-livvic uppercase text-center tracking-[1.5px] text-base lg:text-[30px] mb-4 lg:mb-12">
+      Milú es una marca consciente y transparente
+    </h2>
+    <ul role="list" class="px-4 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <li class="flex flex-col justify-start items-center gap-4 xl:px-8">
+        <img 
+          src="{{ section.settings.manos | img_url: '90x' }}" 
+          alt="{{ section.settings.manos.alt }}" 
+          width="{{ section.settings.manos.width }}" 
+          height="{{ section.settings.manos.height }}" 
+          loading="lazy" 
+        >
+        <p class="text-sm tracking-[1px] text-center">
+          Todas nuestras alfombras son <strong class="font-medium">hechas a mano</strong> elaboradas con fibras naturales, por lo que cuidar tu MILÚ es fundamental.
+        </p>
+      </li>
+      <li class="flex flex-col justify-start items-center gap-4 xl:px-8">
+        <img 
+          src="{{ section.settings.rama | img_url: '90x' }}" 
+          alt="{{ section.settings.rama.alt }}" 
+          width="{{ section.settings.rama.width }}" 
+          height="{{ section.settings.rama.height }}" 
+          loading="lazy" 
+        >
+        <p class="text-sm tracking-[1px] text-center">
+          Al comprar una MILÚ, estás apoyando el comercio justo y la utilización de <strong class="font-medium">materiales nobles y sustentables</strong>.
+        </p>
+      </li> 
+      <li class="flex flex-col justify-start items-center gap-4 xl:px-8">
+        <img 
+          src="{{ section.settings.alfombra | img_url: '90x' }}" 
+          alt="{{ section.settings.alfombra.alt }}" 
+          width="{{ section.settings.alfombra.width }}" 
+          height="{{ section.settings.alfombra.height }}" 
+          loading="lazy" 
+        >
+        <p class="text-sm tracking-[1px] text-center">
+          Nuestras alfombras están lejos de cualquier proceso industrial, muchas son únicas en su color y tejido al ser cada una un <strong class="font-medium">producto 100% artesanal</strong>.
+        </p>
+      </li>      
+    </ul>
+  </section>
+  <section class="mb-10 mt-4 lg:mt-0 lg:mb-20 py-4 lg:py-8">
+    <img 
+      src="{{ section.settings.equipo | img_url: '1600x' }}" 
+      alt="Nuestro equipo milÜ" 
+      loading="lazy" class="w-full" 
+      width="{{ section.settings.equipo.width }}" 
+      height="{{ section.settings.equipo.height }}">
+  </section>
+</div>
+
+
+{% schema %}
+{
+  "name": "Nosotros",
+  "settings": [
+    {
+      "type":"image_picker",
+      "id": "image_heading",
+      "label": "Imagen del Heading"
+    },
+    {
+      "type":"image_picker",
+      "id": "image_article",
+      "label": "imagen del artículo (Nosotras)"
+    },
+    {
+      "type": "image_picker",
+      "id": "manos",
+      "label": "Imagen de manos corazón (icono)"
+    },
+    {
+      "type": "image_picker",
+      "id": "rama",
+      "label": "Imagen de Rama (icono)"
+    },
+    {
+      "type": "image_picker",
+      "id": "alfombra",
+      "label": "Imagen de Alfombra (icono)"
+    },
+    {
+      "type": "image_picker",
+      "id": "equipo",
+      "label": "Imagen del equipo"
+    }    
+  ]
+}
+{% endschema %}

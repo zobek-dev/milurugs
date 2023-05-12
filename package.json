@@ -1,0 +1,28 @@
+{
+  "name": "mediahuella-basetheme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx mix watch",
+    "watch": "theme watch --allow-live",
+    "deploy": "theme deploy --allow-live",
+    "production": "npx mix --production",
+    "get": "theme get"
+  },
+  "keywords": [],
+  "author": "Zobek-dev",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "autoprefixer": "^10.4.8",
+    "laravel-mix": "^6.0.49",
+    "postcss": "^8.4.16",
+    "tailwindcss": "^3.1.8"
+  },
+  "dependencies": {
+    "@fancyapps/ui": "^4.0.31",
+    "simplycountdown.js": "^1.7.0",
+    "swiper": "^8.4.2"
+  }
+}

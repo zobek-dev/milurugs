@@ -1,0 +1,50 @@
+<search-modal class="search-modal" role="dialog">
+  <div class="search-drawer">
+    <div class="search-modal__overlay"></div>
+    <div class="search-modal__inner">
+      <div class="max-w-[780px] container mx-auto flex items-center">
+        <predictive-search class="w-full">
+          <form action="{{ routes.search_url }}" method="get" role="search" class="w-full">
+            <div class="flex items-center w-full gap-x-4">
+              <div class="flex w-[90%] justify-between relative group border-b border-gray-400 focus-within:border-b-2 focus-within:border-gray-900">
+                <input
+                  id="Search"
+                  type="search"
+                  name="q"
+                  class="flex-1 py-2 px-2 border-none outline-none bg-transparent placeholder:tracking-[1px] placeholder:text-gray-900 tracking-[1.5px]"
+                  placeholder="Buscar en la tienda"
+                  value="{{ search.terms | escape }}"
+                  {%- if settings.predictive_search_enabled -%}
+                    role="combobox"
+                    aria-expanded="false"
+                    aria-owns="predictive-search-results-list"
+                    aria-controls="predictive-search-results-list"
+                    aria-haspopup="listbox"
+                    aria-autocomplete="list"
+                    autocorrect="off"
+                    autocomplete="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                  {%- endif -%}
+                >
+                <input name="options[prefix]" type="hidden" value="last">
+                <input type="hidden" name="type" value="product">
+                <button type="submit" class="flex justify-center items-center">
+                  {% render 'svg-search', class: 'w-[24px]' %}
+                </button>
+                <div id="predictive-search" class="w-full absolute top-full left-0 bg-[#E5E1D8] rounded-sm shadow-2xl" tabindex="-1"></div>
+              </div>
+              <button type="button" class="-m-2 p-2 text-gray-900 hover:text-gray-500" id="search-modal-close">
+                <span class="sr-only">Cerrar la barra de búsqueda</span>
+                <!-- Heroicon name: outline/x -->
+                <svg class="h-[24px] w-[24px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </form>
+        </predictive-search>  
+      </div>
+    </div>
+  </div>
+</search-modal>

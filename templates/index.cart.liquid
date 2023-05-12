@@ -1,0 +1,10 @@
+{% layout none %}
+
+<script data-options type="application/json">
+  {
+    "item_count": {{ cart.item_count | json }},
+    "cart_total": {{ cart.total_price | money | json }}
+  }
+</script>
+
+{% render 'cart-form' %}

@@ -1,0 +1,36 @@
+{
+  "current": {
+    "favicon": "shopify:\/\/shop_images\/negro.png",
+    "social_facebook_link": "https:\/\/www.facebook.com\/milurugs",
+    "social_instagram_link": "https:\/\/www.instagram.com\/milurugs\/",
+    "checkout_logo_image": "shopify:\/\/shop_images\/LOGO-MILU-EN-ALTA-SIN-FONDO_b62a09cd-3ddf-4fed-82a1-71c7d5637bd5.gif",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "large",
+    "checkout_body_background_color": "#e5e1d8",
+    "checkout_sidebar_background_color": "#e5e1d8",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#a8a191",
+    "checkout_button_color": "#a8a191",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "coll": "home-spray"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {}
+      },
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "address": "Av. Luis Pasteur 6411, local 10-11 - 2° piso, Vitacura, Santiago.",
+          "address_url": "https:\/\/www.google.com\/maps\/place\/Mil%C3%BA+Rug+Studio\/@-33.3828256,-70.5722636,15z\/data=!4m5!3m4!1s0x0:0x66cee21564a37ca0!8m2!3d-33.3828256!4d-70.5722636"
+        }
+      }
+    },
+    "content_for_index": []
+  }
+}

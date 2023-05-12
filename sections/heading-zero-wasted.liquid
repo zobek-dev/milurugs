@@ -1,0 +1,21 @@
+<div class="w-full  h-[350px] lg:h-[500px] bg-cover bg-no-repeat bg-center relative" style="background-image: url({{ section.settings.heading_image | img_url: 'master' }})">
+  <div class="w-full h-full flex flex-col justify-center items-start absolute top-0 left-0 bg-gray-500 bg-opacity-10 text-white">
+    <h1 class="font-livvic font-medium text-[22px] lg:text-[50px] uppercase leading-none bg-black bg-opacity-[35%] py-4 lg:py-8 px-4 lg:px-8 rounded-tr-[80px] rounded-br-[80px]">
+      Zero Waste Rugs
+    </h1>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Heading Zero Wasted",
+  "tag": "section",
+  "settings": [
+    {
+      "type":"image_picker",
+      "id": "heading_image",
+      "label": "Imagen para el heading"
+    }
+  ] 
+}
+{% endschema %}

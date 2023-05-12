@@ -1,0 +1,66 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Mediahuella-Milurugs",
+    "theme_version": "1.0.0",
+    "theme_author": "Mediahuella",
+    "theme_documentation_url": "https:\/\/mediahuella.com\/documentation",
+    "theme_support_url": "https:\/\/mediahuella.com\/support"
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "Insertar un favicon en formato png cuadrado, se mostrará en vivo en una resolución 32x32 px"
+      }
+    ]
+  },
+  {
+    "name": "Redes Sociales",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Agrega tus redes sociales"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter",
+        "info": "Inserta el link de tu twitter ej: https:\/\/twitter.com\/mediahuella"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook",
+        "info": "Inserta el link de tu página de facebook ej: https:\/\/fecebook.com\/mediahuella"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": "Pinterest",
+        "info": "Inserta el link de tu página de pinterest ej: https:\/\/pinterest.com\/pinterest"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram",
+        "info": "Inserta el link de tu página de Instagram ej: https:\/\/instagram.com\/mediahuella"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok_link",
+        "label": "Tiktok",
+        "info": "Inserta el link de tu página de tiktok ej: https:\/\/tiktok.com\/mediahuella"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": "Youtube",
+        "info": "Inserta el link de tu canal de youtube ej: https:\/\/youtube.com\/mediahuella"
+      }
+    ]
+  }
+]

@@ -1,0 +1,141 @@
+<drawer-filter class="filter-modal" role="dialog" id="filter-modal" aria-labelledby="open-drawer-filter">
+  <div class="filter-drawer">
+    <div class="filter-modal__overlay"></div>
+    <div class="filter-modal__inner flex flex-col">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="uppercase tracking-[1.5px] text-base font-bold">Filtrar</h2>
+        <button id="close-drawer-filter" aria-label="Cerrar el modal">
+          <svg class="h-[24px] w-[24px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+          <span class="sr-only">Cerrar</span>
+        </button>
+      </div>
+      <div class="active-filters pb-2" id="active-mobile">
+        <a href="
+        {% if data_template == 'collection' %}
+        {{ object_data.url }}?sort_by={{ object_data.sort_by }}
+        {% else %}
+        {{ routes.search_url }}?sort_by={{ object_data.sort_by }}&q={{ object_data.terms }}{% endif %}" 
+        class="active-filters__clear py-1 bg-transparent inline-flex border border-gray-400 px-2 w-max rounded-[18px] tracking-[1.5px] text-xs mr-1 mb-1 hover:opacity-70 transition-opacity ease-in-out duration-500" 
+        role="button"
+        >
+          Eliminar Todos
+        </a>
+    
+        {%- for filter in object_data.filters -%}
+          {%- if filter.type == "price_range" -%}
+            {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+              <a class="active-filters__remove-filter py-1 bg-transparent inline-flex border border-gray-400 px-2 w-max rounded-[18px] tracking-[1.5px] text-xs mr-1 mb-1 hover:opacity-70 transition-opacity ease-in-out duration-500" href="{{ filter.url_to_remove }}">
+                {%- assign min_value = filter.min_value.value | default: 0 -%}
+                {%- assign max_value = filter.max_value.value | default: filter.range_max -%}
+                {{ min_value | money }} - {{ max_value | money }} X
+              </a>
+            {%- endif -%}
+          {%- else -%}
+            {%- for filter_value in filter.active_values -%}
+              <a class="active-filters__remove-filter py-1 bg-transparent inline-flex border border-gray-400 px-2 w-max rounded-[18px] tracking-[1.5px] text-xs mr-1 mb-1 hover:opacity-70 transition-opacity ease-in-out duration-500" href="{{ filter_value.url_to_remove }}">
+                {{ filter.label }}: {{ filter_value.label }} X
+              </a>
+            {%- endfor -%}
+          {%- endif- %}
+        {%- endfor -%}
+      </div>
+    
+      
+      <div class="flex-1 overflow-y-scroll">
+        <filter-form {% if data_template == 'collection' %}data-handle="{{ object_data.handle }}"{% else %}data-handle="{{ routes.search_url }}"{% endif %}  data-template="{{ data_template }}">
+          <form class="filter-form" id="Filter-Mobile">
+            {% if data_template == 'search' %}
+              <input type="hidden" name="q" value="{{ object_data.terms }}">
+              <input name="options[prefix]" type="hidden" value="last">
+              <input type="hidden" name="type" value="product">
+            {% endif %}
+            {%- for filter in object_data.filters -%}
+              <details class="filter-group border-b border-gray-400">
+                <summary class="filter-group-summary flex justify-between items-center py-4 cursor-pointer hover:opacity-70 transition-opacity duration-500 ease-in-out">
+                  <div>
+                    <span class="font-medium tracking-[1.5px] text-sm uppercase">{{ filter.label }}</span>
+          
+                    {%- if filter.active_values.size > 0 -%}
+                      <span>({{ filter.active_values.size }})</span>
+                    {%- endif -%}
+                  </div>
+                  <span>
+                    {% render 'svg-icon-plus', class: 'w-[10px] icon-plus' %}
+                    {% render 'svg-icon-minus', class: 'w-[10px] icon-minus hidden' %}
+                  </span>
+                </summary>
+          
+                <div class="filter-group-display mb-4">
+                  {%- case filter.type -%}
+                    {%- when 'boolean' or 'list' -%}
+                      <ul class="filter-group-display__list">
+                        {%- for filter_value in filter.values -%}
+                          <li class="filter-group-display__list-item py-1">
+                            <label for="Filter-Mobile-{{ filter.param_name }}-{{ forloop.index }}" class="text-sm tracking-[1.5px]">
+                            <input type="checkbox"
+                              name="{{ filter_value.param_name }}"
+                              value="{{ filter_value.value }}"
+                              id="Filter-Mobile-{{ filter.param_name }}-{{ forloop.index }}"
+                              {% if filter_value.active -%}checked{%- endif %}
+                              {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}
+                              class="inline-block mr-2 accent-transparent cursor-pointer"
+                            >{{ filter_value.label }}</label>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    {%- when 'price_range' -%}
+                      <div class="filter-group-display__price-range">
+                        <div class="flex gap-x-4 items-center">
+                          <div class="filter-group-display__price-range-from">
+                            <label for="Filter-Mobile-{{ filter.min_value.param_name }}" class="text-sm">De</label>
+                            <div class="border border-gray-400 px-2 py-2 bg-transparent">
+                              <span class="text-sm">{{ cart.currency.symbol }}</span>
+                              <input name="{{ filter.min_value.param_name }}"
+                                id="Filter-Mobile-{{ filter.min_value.param_name }}"
+                                {% if filter.min_value.value -%}
+                                  value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                                {%- endif %}
+                                type="number"
+                                placeholder="0"
+                                min="0"
+                                max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                                class="placeholder:text-sm outline-none border-none bg-transparent"
+                              >    
+                            </div>
+                          </div>
+                          <div class="filter-group-display__price-range-to">
+                            <label for="Filter-Mobile-{{ filter.max_value.param_name }}" class="text-sm">Para</label>
+                            <div class="border border-gray-400 px-2 py-2 bg-transparent">
+                              <span class="text-sm">{{ cart.currency.symbol }}</span>        
+                              <input name="{{ filter.max_value.param_name }}"
+                                id="Filter-Mobile-{{ filter.max_value.param_name }}"
+                                {% if filter.max_value.value -%}
+                                  value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+                                {%- endif %}
+                                type="number"
+                                placeholder="{{ filter.range_max | money_without_currency }}"
+                                min="0"
+                                max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                                class="placeholder:text-sm outline-none border-none bg-transparent"
+                              >
+                            </div>  
+                          </div>
+                        </div> 
+                      </div>
+                  {%- endcase -%}
+                </div>
+              </details>
+            {%- endfor -%} 
+          </form>  
+        </filter-form>
+      </div>
+      <div class="filter-group-display__submit pt-4 border-t border-gray-400">
+        <button type="submit" class="block bg-gray-900 text-white border border-transparent uppercase tracking-[1.5px] px-4 py-2 transition-opacity duration-500 ease-in-out hover:opacity-50 text-sm" role="button" form="Filter-Mobile">
+          Filtrar
+        </button>
+      </div>        
+    </div>
+  </div>
+</drawer-filter>

@@ -1,0 +1,50 @@
+<div class="wrapper">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-8 items-center my-4 pt-12 lg:py-4 lg:my-4">
+    <div class="">
+      <h2 class="font-livvic uppercase leading-none text-[26px] lg:text-[30px] mb-8 relative title-with-effect tracking-[2.5px]">Nuevas<br> tendencias</h2>
+      <small class="block uppercase tracking-[1px] font-bold text-sm mb-2">Creadas para formar parte de los diferentes estilos</small>
+      <p class="tracking-[1px] text-[13px] md:text-sm mb-4 text-justify">
+        Nuestras alfombras comprenden procesos sustentables, creadas para formar parte de los diferentes estilos de decoración y ser puestas a prueba por el paso del tiempo. Tenemos un alto standar y proceso de mejora continua en cuanto a diseño, materialidad, producción, medio ambiente y responsabilidad social para asi hacer de MILÚ una marca consciente y transparente en cada uno de sus hogares.
+      </p>
+      <a href="{{ section.settings.link}}" class="text-sm mx-auto lg:mx-0 font-semibold tracking-[1.5px] block py-1 w-max uppercase border-b border-black transition-opacity duration-500 ease-out hover:opacity-50 mt-8">
+        Mira nuestra colección +
+      </a>
+    </div>
+    <div>
+      <img 
+        src="{{ section.settings.image | img_url: '800x' }}" 
+        alt="{{ section.settings.image.alt | escape }}" 
+        width="800"
+        height="{{ 800 | divided_by: section.settings.image.aspect_ratio }}"
+        loading="lazy"
+        class="object-cover object-center"
+      >
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Nuevas tendencias",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen para la sección"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Enlace para el link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "nuevas tendencias",
+      "category": "text"
+    }
+  ]
+}
+{% endschema %}

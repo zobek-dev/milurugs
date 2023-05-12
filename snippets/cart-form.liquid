@@ -1,0 +1,123 @@
+<div id="drawer-form" class="h-full w-full relative">
+  <div id="drawer-loader" class="hidden absolute top-0 left-0 h-full w-full z-[9999] bg-gray-500 bg-opacity-30 justify-center items-center">
+    <style>
+      .loader {
+        border: 4px solid #f3f3f3; /* Light grey */
+        border-top: 4px solid #000000; /* Blue */
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        animation: spin 2s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+    <div class="loader"></div>
+  </div>
+  {% if cart == empty %}
+    <div class="flex flex-col justify-center items-center h-full w-full">
+      {% render 'svg-cart', class: 'w-[24px] h-[24px]' %}
+      <h3 class="my-4">Su carrito está vacío</h3>
+      <a href="{{ routes.all_products_collection_url }}" role="button" class="block w-max px-4 py-2 tracking-[1.5px] uppercase text-sm border border-gray-900 transition-opacity duration-500 ease-in-out hover:opacity-50">
+        Continuar Comprando
+      </a>
+    </div>
+  {% endif %}
+
+  {% if cart != empty %}
+    <cart-items>
+      <form action="{{ routes.cart_url }}" novalidate id="Cart-Drawer-Form" method="post">
+        <div>
+          <table role="table" class="w-full block">
+            <thead role="rowgroup" class="inline-table w-full sticky top-0 z-[9999]  bg-[#E5E1D8] border-b border-gray-200">
+              <tr role="row">
+                <th role="columnheader" class="w-0 p-0 pb-4">
+                  <span class="sr-only">Imagen del producto</span>
+                </th>
+                <th role="columnheader" scope="col" class="uppercase font-normal text-sm tracking-[1.5px] w-1/2 pl-0 text-left">
+                  Producto
+                </th>
+                <th role="columnheader" scope="col" class="uppercase font-normal text-sm tracking-[1.5px] w-1/2 pr-0 text-right">
+                  Total
+                </th>
+                <th role="columnheader" class="w-0 p-0 pb-4">
+                  <span class="sr-only">Cantidad</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody role="rowgroup" class="block w-full">
+              {% for item in cart.items %}
+                <tr role="row" class="grid grid-cols-4 gap-x-4 gap-y-2 py-4 cart-item" style="grid-rows-template: repeat(2, auto);">
+                  <td role="cell" class="cart-item__media row-span-2 pt-2">
+                    {% if item.image %}
+                      <a href="{{ item.url }}" tabindex="-1" aria-hidden="true"></a>
+                      <img src="{{ item.image | image_url: width: 300 }}" alt="{{ item.image.alt | escape }}" loading="lazy" width="150" height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}" class="">
+                    {% endif %}
+                  </td>
+                  <td role="cell" class="cart-item__details col-start-2 col-end-4 pt-2">
+                    <a href="{{ item.url }}" class="text-sm lg:text-base uppercase tracking-[1.5px] font-medium mb-2 block leading-tight line-clamp-2">{{ item.product.title | escape }}
+                    </a>
+
+                    {% if item.original_price != item.final_price %}
+                      <div class="flex items-center gap-1">
+                        <s class="text-xs tracking-[1.5px] font-light">
+                          {{ item.origina_price | money }}
+                        </s>
+                        <span class="text-sm tracking-[1.5px] font-light">
+                          {{ item.final_price | money }}
+                        </span>
+                      </div>
+                    {% else %}
+                      <div class="text-sm tracking-[1.5px] font-light">
+                        {{ item.original_price | money }}
+                      </div>
+                    {% endif %}
+                  </td>
+                  <td role="cell" class="cart-item__price-wrapper flex justify-end pt-2">
+                    {% if item.original_line_price != item.final_line_price %}
+                      <div class="flex gap-1 items-center">
+                        <s class="text-xs tracking-[1.5px]">
+                          {{ item.original_line_price | money }}
+                        </s>
+                        <span class="text-sm lg:text-base tracking-[1.5px] font-bold">
+                          {{ item.final_line_price | money }}
+                        </span>
+                      </div>
+                    {% else %}
+                      <span class="text-sm lg:text-base tracking-[1.5px] font-bold">
+                        {{ item.original_line_price | money }}
+                      </span>
+                    {% endif %}
+                  </td>
+                  <td role="cell" class="cart-item__quantity col-start-2 col-end-5 flex gap-4 items-center">
+                    <input-drawer-quantity>
+                      <div class="flex items-center border border-gray-500 focus-within:border-gray-900 focus-within:shadow-xl w-[150xp] lg:w-[180px]">
+                        <button name="minus" type="button" aria-label="Quitar un {{ item.product.title | escape }}" class="flex justify-center items-center w-3/12 px-2 py-2">
+                          {% render 'svg-icon-minus', class: 'w-[12px] pointer-events-none' %}
+                          <span class="sr-only">Restar</span>
+                        </button>
+                        <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" aria-label="Cantidad para {{ item.product.title | escape }}" id="Drawer-quantity-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}" class="w-6/12 py-2 bg-transparent text-center border-none outline-none">
+                        <button name="plus" type="button" aria-label="Agregar un {{ item.product.title | escape }}" class="flex justify-center items-center w-3/12 px-2 py-2">
+                          {% render 'svg-icon-plus', class: 'w-[12px] pointer-events-none' %}
+                          <span class="sr-only">Sumar</span>
+                        </button>
+                      </div>
+                    </input-drawer-quantity>
+                    <cart-remove-button>
+                      <button type="button" class="mr-4" aria-label="Quitar el producto - {{ item.title | escape }}">
+                        {% render 'svg-remove', class: 'w-[20px]' %}
+                      </button>
+                    </cart-remove-button>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </form>
+    </cart-items>
+  {% endif %}
+</div>

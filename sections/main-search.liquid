@@ -1,0 +1,196 @@
+<!-- {% liquid
+  echo search.performed | append: '<br>'
+  echo search.results_count | append: '<br>' 
+  echo search.types.size | append: '<br>' 
+%} -->
+<main-search>
+  <div class="wrapper">
+    <div class="flex flex-col h-min-[100vh]">
+      {% paginate search.results by 12 %}
+      <div class="h-[150px] flex w-full justify-center flex-col items-center">
+        <h1 class="mb-8 tracking-[1.5px] uppercase">Resultados para: <strong>"{{ search.terms }}"</strong></h1>
+        <div class="border border-gray-400 w-full max-w-[550px] p-2 focus-within:border-black">
+          <form action="/search" method="get" role="search" class="flex">
+            <input type="search" name="q" value="{{ search.terms | escape }}" class="outline-none border-none w-11/12 tracking-[1.5px] bg-[#E5E1D8]">
+            <input name="options[prefix]" type="hidden" value="last">
+            <input type="hidden" name="type" value="product">
+            <button type="submit" class="w-1/12 flex justify-end" aria-label="Búscar">
+              {% render 'svg-search' %}
+              <span class="sr-only">Búscar</span>
+            </button>
+          </form>
+        </div> 
+      </div>
+      {% if search.performed and search.results_count > 0 %}
+        <div>
+        <div class="py-6 flex justify-between items-center">
+          <button class="flex items-center gap-x-1 lg:hidden border border-gray-400 px-2 py-2 leading-tight transition-all duration-500 ease-in-out hover:opacity-50 hover:border-gray-900 text-sm lg:text-base" id="open-drawer-filter" aria-expanded="false" aria-label="Abrir los filtros">
+            <span>Filtrar</span>
+            {% render 'svg-icon-filter', class: 'w-4' %}
+          </button>
+          <div class="hidden lg:flex">
+            <div class="active-filters" id="active-desktop">
+              <a href="{{ routes.search_url }}?sort_by={{ search.sort_by }}&q={{ search.terms }}" class="active-filters__clear py-1 bg-[#E5E1D8] inline-flex border border-gray-500 px-8 w-max rounded-[18px] tracking-[1.5px] text-sm mr-1 mb-1 hover:opacity-70 transition-opacity ease-in-out duration-500" role="button">Eliminar Todos</a>
+            
+              {%- for filter in search.filters -%}
+                {%- if filter.type == "price_range" -%}
+                  {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+                    <a class="active-filters__remove-filter py-1 bg-[#E5E1D8] inline-flex border border-gray-500 px-8 w-max rounded-[18px] tracking-[1.5px] text-sm mr-1 mb-1 hover:opacity-70 transition-opacity ease-in-out duration-500" href="{{ filter.url_to_remove }}">
+                      {%- assign min_value = filter.min_value.value | default: 0 -%}
+                      {%- assign max_value = filter.max_value.value | default: filter.range_max -%}
+                      {{ min_value | money }} - {{ max_value | money }} X
+                    </a>
+                  {%- endif -%}
+                {%- else -%}
+                  {%- for filter_value in filter.active_values -%}
+                    <a class="active-filters__remove-filter py-1 bg-[#E5E1D8] inline-flex border border-gray-500 px-8 w-max rounded-[18px] tracking-[1.5px] text-sm mr-1 mb-1 hover:opacity-70 transition-opacity ease-in-out duration-500" href="{{ filter_value.url_to_remove }}">
+                      {{ filter.label }}: {{ filter_value.label }} X
+                    </a>
+                  {%- endfor -%}
+                {%- endif- %}
+              {%- endfor -%}
+            </div>
+          </div>
+          <select id="sort-by" class="border border-gray-400 py-2 bg-[#E5E1D8] hover:opacity-70 transition-opacity ease-in-out duration-500 text-sm lg:text-base">
+            {% assign sort_by = search.sort_by | default: search.default_sort_by %}
+          
+            {% for option in search.sort_options %}
+              <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>
+                {{ option.name }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-4">
+          <aside class="hidden lg:block lg:col-span-1 pr-8 sticky top-20 self-start">
+            <h2 class="text-xl font-semibold tracking-[1.5px] uppercase py-4 border-b border-gray-300">Filtrar</h2>
+            <filter-form data-template="{{ template }}" data-handle="{{ routes.search_url }}">
+              <form class="filter-form" id="Filter-Desktop" method="GET">
+                <input type="hidden" name="q" value="{{ search.terms }}">
+                <input name="options[prefix]" type="hidden" value="last">
+                <input type="hidden" name="type" value="product">
+                {%- for filter in search.filters -%}
+                  <details class="filter-group border-b border-gray-300">
+                    <summary class="filter-group-summary flex justify-between items-center py-4 xl:py-[20px] cursor-pointer hover:opacity-70 transition-opacity duration-500 ease-in-out">
+                      <div>
+                        <span class="font-medium tracking-[1.5px] uppercase text-sm xl:text-base">{{ filter.label }}&nbsp;</span>
+                      
+                        {%- if filter.active_values.size > 0 -%}
+                          <span>({{ filter.active_values.size }})</span>
+                        {%- endif -%}
+                      </div>
+                      <span>
+                        {% render 'svg-icon-plus', class: 'w-[12px] xl:w-4 icon-plus' %}
+                        {% render 'svg-icon-minus', class: 'w-[12px] xl:w-4 icon-minus hidden' %}
+                      </span>
+                    </summary>
+                  
+                    <div class="filter-group-display mb-4">
+                      {%- case filter.type -%}
+                        {%- when 'boolean' or 'list' -%}
+                          <ul class="filter-group-display__list">
+                            {%- for filter_value in filter.values -%}
+                              <li class="filter-group-display__list-item py-1">
+                                <label for="Filter-Desktop-{{ filter.param_name }}-{{ forloop.index }}" class="text-sm xl:text-base tracking-[1.5px]">
+                                <input type="checkbox"
+                                  name="{{ filter_value.param_name }}"
+                                  value="{{ filter_value.value }}"
+                                  id="Filter-Desktop-{{ filter.param_name }}-{{ forloop.index }}"
+                                  {% if filter_value.active -%}checked{%- endif %}
+                                  {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}
+                                  class="inline-block mr-2 accent-transparent cursor-pointer"
+                                >{{ filter_value.label }}</label>
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                        {%- when 'price_range' -%}
+                          <div class="filter-group-display__price-range">
+                            <div class="flex gap-x-4 items-center">
+                              <div class="filter-group-display__price-range-from">
+                                <label for="Filter-Desktop-{{ filter.min_value.param_name }}">De</label>
+                                <div class="border border-gray-400 px-2 py-2 bg-white flex items-center">
+                                  <span class="text-xs xl:text-base">{{ cart.currency.symbol }}</span>
+                                  <input name="{{ filter.min_value.param_name }}"
+                                    id="Filter-Desktop-{{ filter.min_value.param_name }}"
+                                    {% if filter.min_value.value -%}
+                                      value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                                    {%- endif %}
+                                    type="number"
+                                    placeholder="0"
+                                    min="0"
+                                    max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                                    class="placeholder:text-xs placeholder:xl:text-base"
+                                  >    
+                                </div>
+                              </div>
+                              <div class="filter-group-display__price-range-to">
+                                <label for="Filter-Desktop-{{ filter.max_value.param_name }}">Para</label>
+                                <div class="border border-gray-400 px-2 py-2 bg-white flex items-center">
+                                  <span class="text-xs xl:text-base">{{ cart.currency.symbol }}</span>        
+                                  <input name="{{ filter.max_value.param_name }}"
+                                    id="Filter-Desktop-{{ filter.max_value.param_name }}"
+                                    {% if filter.max_value.value -%}
+                                      value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+                                    {%- endif %}
+                                    type="number"
+                                    placeholder="{{ filter.range_max | money_without_currency }}"
+                                    min="0"
+                                    max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                                    class="placeholder:text-xs placeholder:xl:text-base"
+                                  >
+                                </div>  
+                              </div>
+                            </div> 
+                          </div>
+                      {%- endcase -%}
+                    </div>
+                  </details>
+                {%- endfor -%}
+                <noscript>  
+                  <div class="filter-group-display__submit">
+                    <button type="submit" class="block bg-[#D8D0BE] text-black border border-transparent uppercase tracking-[1.5px] px-4 py-2 transition-opacity duration-500 ease-in-out hover:opacity-50" role="button">
+                      Filtrar
+                    </button>
+                  </div>
+                </noscript>      
+              </form>
+              
+            </filter-form>
+          </aside>
+          <div class="col-span-1 lg:col-span-3 relative" id="product-grid-container">
+            <div id="loading-overlay" class="hidden absolute z-[9] top-0 left-0 bottom-0 right-0 bg-gray-500 bg-opacity-50 justify-center items-center">
+            </div>
+            <ul class="grid grid-cols-2 lg:grid-cols-3 gap-4 py-4 lg:py-8">
+              {% for item in search.results %}
+                {% render 'product-card',
+                  product_card: item,
+                  data_template: template
+                %} 
+              {% endfor %}
+            </ul>
+            {% if paginate.pages > 1 %}
+            <div class="py-4 lg:py-8 px-4 lg:px-8">
+              {% render 'pagination', paginate: paginate %}  
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        </div>  
+      {% else %}
+        <div class="w-full flex flex-col justify-center items-center text-center flex-1">
+          <h2 class="tracking-[1.5px]">No se encontraron productos para <strong class="font-medium">"{{ search.terms }}"</strong></h2>
+          <p class="tracking-[1.5px]">revisa tú ortografía o</p> 
+          <a href="/collections/all/" class="block mx-auto my-8 uppercase tracking-[1.5px] text-sm py-2 px-4 border border-black transition-all duration-500 ease-in-out hover:opacity-50 ">
+            Visita Nuestros Productos
+          </a>
+        </div> 
+      {% endif %}  
+      {% endpaginate %}
+    </div>
+  </div>
+</main-search>
+
+{% render 'drawer-filter',
+  object_data: search 
+  data_template: template
+%}  

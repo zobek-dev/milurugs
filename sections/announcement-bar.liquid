@@ -1,0 +1,44 @@
+<div class="w-full bg-[#A8A191] text-white border-b-[1.5px] py-1">
+  <div class="wrapper">
+    <div class="flex justify-between items-center py-2">
+      <a href="{{ section.settings.address_url }}" target="_blank" rel="noopener noreferrer" class="gap-x-1 flex items-center group">
+        {% render 'svg-casa', class: 'w-[18px] h-[18px]' %}
+        <span class="hidden lg:inline text-[13px] font-medium uppercase tracking-[1.5px] transition-all duration-500 ease-linear hover:opacity-70 group-hover:underline group-hover:underline-offset-2">
+          {{ section.settings.address }}
+        </span>
+        <span class="block lg:hidden text-[13px] font-medium uppercase tracking-[1.5px] transition-all duration-500 ease-linear hover:opacity-70 group-hover:underline group-hover:underline-offset-2">Encuéntranos</span>
+      </a>
+      <div class="flex gap-x-2 items-center">
+        <span class="text-[13px] font-medium uppercase tracking-[1.5px] transition-all duration-500 ease-linear hover:opacity-70 group-hover:underline group-hover:underline-offset-2">Contáctanos</span>
+        <a href="https://wa.me/56939496775/?text=Hola%21,%20tengo%20la%20siguiente%20duda" target="_blank" rel="noopener noreferrer" aria-label="whatsapp" class="hover:opacity-50 transition-opacity duration-300 ease-in-out">
+          <span class="sr-only">Whatsapp</span>
+          {% render 'svg-wsp', class: 'w-[18px] h-[18px]' %}
+        </a>
+        <a href="https://www.instagram.com/milurugs/" target="_blank" rel="noopener noreferrer" aria-label="instagram" class="hover:opacity-50 transition-opacity duration-300 ease-in-out">
+          <span class="sr-only">Instagram</span>
+          {% render 'svg-instagram', class: 'w-[18px] h-[18px]' %}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "address",
+      "label": "Inserta la dirección",
+      "default": "Av. Luis Pasteur 6411, local 10-11 - 2° piso, Vitacura, Santiago."
+    },
+    {
+      "type": "url",
+      "id": "address_url",
+      "label": "Inserta el link de la dirección"
+    }
+  ]
+}
+{% endschema %}
+
+{% comment %} https://www.google.com/maps/place/Mil%C3%BA+Rug+Studio/@-33.3828256,-70.5722636,15z/data=!4m5!3m4!1s0x0:0x66cee21564a37ca0!8m2!3d-33.3828256!4d-70.5722636 {% endcomment %}

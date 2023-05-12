@@ -1,0 +1,72 @@
+<featured-collection>
+  <div class="my-4 lg:my-8">
+    <div class="wrapper">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="uppercase font-livvic text-[26px] lg:text-[30px] tracking-[2.5px]">Colecciones</h2>
+        <div class="flex gap-4">
+          <button class="hidden lg:block disabled:opacity-25 transition-opacity duration-500 hover:opacity-50 ease-out" id="col-prev" aria-label="colección anterior">
+            {% render 'svg-arrow', class: 'w-8 rotate-180' %}
+            <span class="sr-only">previous</span>
+          </button>
+          <button class="hidden lg:block disabled:opacity-25 transition-opacity duration-500 hover:opacity-50 ease-out" id="col-next" aria-label="colección siguiente">
+            {% render 'svg-arrow', class: 'w-8' %}
+            <span class="sr-only">next</span>
+          </button>
+        </div>
+      </div>
+      <div class="collection-carousel relative mb-2 lg:mb-4 overflow-hidden">
+        <ul class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% assign coll = collections[block.settings.collection] %}
+            <li class="swiper-slide">
+              <a href="{{ coll.url }}" class="group" aria-label="Ir a la collección {{ coll.title | escape }}">
+                <img 
+                  src="{{ block.settings.image | img_url: '600x' }}" 
+                  alt="{{ coll.title | escape }}" 
+                  loading="lazy" 
+                  class="group-hover:opacity-70 transition-opacity duration-500 ease-in"
+                  width="{{ block.settings.image.width }}"
+                  height="{{ block.settings.image.height }}"
+                >
+                <h3 class="my-2 font-medium tracking-[1.5px] uppercase text-base lg:text-[20px]">
+                  {{ coll.title | escape }}
+                </h3>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+        <div class="swiper-scrollbar lg:hidden" style="bottom: -12px;"></div>
+      </div>
+    </div> 
+  </div>
+</featured-collection>
+{% schema %}
+{
+  "name": "Featured collections",
+  "tag": "section",
+  "blocks": [ 
+    {
+      "name": "collection slide",
+      "type": "slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Cargar una imagen para la colección"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Elije una colección"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured collection",
+      "category": "carousel"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,151 @@
+{
+  "sections": {
+    "heading": {
+      "type": "heading-tips",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/555555698547.png"
+      }
+    },
+    "main": {
+      "type": "main-tips",
+      "blocks": {
+        "f2c084d2-a82a-4378-9397-812df0a42210": {
+          "type": "slide-living",
+          "settings": {
+            "slide_living": "shopify:\/\/shop_images\/LIVING.png"
+          }
+        },
+        "b7984bf3-3f2d-4ebf-967d-5411203972ad": {
+          "type": "slide-living",
+          "settings": {
+            "slide_living": "shopify:\/\/shop_images\/LIVING-02.png"
+          }
+        },
+        "7c31063d-7bca-40c7-b42a-78d6e6fc1b4c": {
+          "type": "slide-living",
+          "settings": {
+            "slide_living": "shopify:\/\/shop_images\/LIVING-03.png"
+          }
+        },
+        "15be24e3-b376-4fb6-a6e8-12d4bfa6339d": {
+          "type": "slide-living",
+          "settings": {
+            "slide_living": "shopify:\/\/shop_images\/LIVING-04.png"
+          }
+        },
+        "1239a976-c658-4649-b1ae-6ff2d041cca7": {
+          "type": "slide-living",
+          "settings": {
+            "slide_living": "shopify:\/\/shop_images\/LIVING-05.png"
+          }
+        },
+        "c2ef891b-8915-426d-acff-8d799a545316": {
+          "type": "slide-comedor",
+          "settings": {
+            "comedor_slide": "shopify:\/\/shop_images\/COMEDOR-4-PERSONAS.png"
+          }
+        },
+        "8b43badf-6af6-4436-98c7-9e8b4e7d443a": {
+          "type": "slide-comedor",
+          "settings": {
+            "comedor_slide": "shopify:\/\/shop_images\/COMEDOR-6-PERSONAS-REDONDA.png"
+          }
+        },
+        "ba82ce15-36e7-4d12-9a65-bb3446963a03": {
+          "type": "slide-dormitorio",
+          "disabled": true,
+          "settings": {
+            "dormitorio_slide": "shopify:\/\/shop_images\/CAMA-PLAZA-Y-MEDIA-02.png"
+          }
+        },
+        "bd1a2ea2-1964-41c2-ba75-1fddb9c62620": {
+          "type": "slide-comedor",
+          "settings": {
+            "comedor_slide": "shopify:\/\/shop_images\/COMEDOR-6-PERSONAS.png"
+          }
+        },
+        "65aa1ac3-0141-4fa8-9390-cd359c2aeff8": {
+          "type": "slide-dormitorio",
+          "disabled": true,
+          "settings": {
+            "dormitorio_slide": "shopify:\/\/shop_images\/CAMA-PLAZA-Y-MEDIA.png"
+          }
+        },
+        "ddb62172-9424-4374-bf18-f365672ca642": {
+          "type": "slide-comedor",
+          "settings": {
+            "comedor_slide": "shopify:\/\/shop_images\/COMEDOR-8-PERSONAS.png"
+          }
+        },
+        "f5419d3f-382f-4ee4-a927-ddcc48553b6a": {
+          "type": "slide-dormitorio",
+          "settings": {
+            "dormitorio_slide": "shopify:\/\/shop_images\/CAMA-DOS-PLAZAS-02.png"
+          }
+        },
+        "133dadc3-0759-4700-a31f-14b6adb3b3aa": {
+          "type": "slide-dormitorio",
+          "settings": {
+            "dormitorio_slide": "shopify:\/\/shop_images\/CAMA-2-PLAZA.png"
+          }
+        },
+        "90d62374-f05f-471d-b5b2-d7d27da9a7cb": {
+          "type": "slide-dormitorio",
+          "settings": {
+            "dormitorio_slide": "shopify:\/\/shop_images\/CAMA-KING-02.png"
+          }
+        },
+        "84fe1663-bc6c-4de9-af68-9b3aed2a2efc": {
+          "type": "infantil-slide",
+          "settings": {
+            "dormitorio_infantil": "shopify:\/\/shop_images\/CAMA-PLAZA-Y-MEDIA.png"
+          }
+        },
+        "4d72aaa3-97c7-4b19-99c9-3cef7b73cbe7": {
+          "type": "infantil-slide",
+          "settings": {
+            "dormitorio_infantil": "shopify:\/\/shop_images\/CAMA-PLAZA-Y-MEDIA-02.png"
+          }
+        }
+      },
+      "block_order": [
+        "f2c084d2-a82a-4378-9397-812df0a42210",
+        "b7984bf3-3f2d-4ebf-967d-5411203972ad",
+        "7c31063d-7bca-40c7-b42a-78d6e6fc1b4c",
+        "15be24e3-b376-4fb6-a6e8-12d4bfa6339d",
+        "1239a976-c658-4649-b1ae-6ff2d041cca7",
+        "c2ef891b-8915-426d-acff-8d799a545316",
+        "8b43badf-6af6-4436-98c7-9e8b4e7d443a",
+        "ba82ce15-36e7-4d12-9a65-bb3446963a03",
+        "bd1a2ea2-1964-41c2-ba75-1fddb9c62620",
+        "65aa1ac3-0141-4fa8-9390-cd359c2aeff8",
+        "ddb62172-9424-4374-bf18-f365672ca642",
+        "f5419d3f-382f-4ee4-a927-ddcc48553b6a",
+        "133dadc3-0759-4700-a31f-14b6adb3b3aa",
+        "90d62374-f05f-471d-b5b2-d7d27da9a7cb",
+        "84fe1663-bc6c-4de9-af68-9b3aed2a2efc",
+        "4d72aaa3-97c7-4b19-99c9-3cef7b73cbe7"
+      ],
+      "settings": {
+        "image_living": "shopify:\/\/shop_images\/living-sala-de-estar.png",
+        "image_comedor": "shopify:\/\/shop_images\/comedor.png",
+        "image_dormitorio": "shopify:\/\/shop_images\/dormitorio.png",
+        "image_infantil": "shopify:\/\/shop_images\/dormitorio-infantil.png",
+        "icon_aspiradora": "shopify:\/\/shop_images\/aspiradora.png",
+        "icon_agua": "shopify:\/\/shop_images\/vaso.png",
+        "icon_trapo": "shopify:\/\/shop_images\/manocontoalla.png",
+        "icon_cepillo": "shopify:\/\/shop_images\/icono.png",
+        "icon_toalla": "shopify:\/\/shop_images\/toalla.png",
+        "icon_gotas": "shopify:\/\/shop_images\/agua.png",
+        "icon_sol": "shopify:\/\/shop_images\/sol.png",
+        "fieltro": "shopify:\/\/shop_images\/fieltro.png",
+        "polipropileno": "shopify:\/\/shop_images\/polipropileno.png",
+        "canamo": "shopify:\/\/shop_images\/canamo.png"
+      }
+    }
+  },
+  "order": [
+    "heading",
+    "main"
+  ]
+}

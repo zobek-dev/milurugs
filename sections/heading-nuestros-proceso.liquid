@@ -1,0 +1,19 @@
+<div class="w-full h-[350px] lg:h-[500px] bg-cover bg-no-repeat bg-center relative" {% if section.settings.image != blank %}style="background-image: url({{ section.settings.image | img_url: 'master' }})"{% endif %}>
+  <div class="w-full h-full flex flex-col justify-center items-start absolute top-0 left-0  text-white">
+    <h1 class="font-livvic font-medium text-[22px] lg:text-[50px] uppercase leading-none text-center pl-8 pr-8 lg:pr-24 py-4 lg:py-8 bg-black bg-opacity-[35%] rounded-tr-[80px] rounded-br-[80px] text-white">
+      Nuestros procesos
+    </h1>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Heading Nuestros procesos",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen para el heading"
+    }
+  ]
+}
+{% endschema %}

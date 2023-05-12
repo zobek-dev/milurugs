@@ -1,0 +1,120 @@
+<footer class="bg-[#A8A191] pt-12 pb-6">
+  <div class="wrapper">
+    <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <div class="flex flex-col gap-8">
+        <div>
+          {% render 'svg-logo-milu', class: 'w-[150px]' %}
+        </div>
+        <div>
+          <h3 class="tracking-[2.5px] uppercase font-semibold">Siguenos en</h3>
+          {% render 'social-list' %}
+        </div>
+      </div>
+      <div class="flex flex-col gap-8">
+        <div>
+          <h3 class="tracking-[2.5px] uppercase font-semibold mb-2">
+            Contáctanos
+          </h3>
+          <ul role="list">
+            <li>
+              <a href="mailto:hola@milurugs.com" class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50" rel="noopener noreferrer">hola@milurugs.com</a>
+            </li>
+            <li>
+              <a href="https://wa.me/56992135612/?text=Hola,%20tengo%20la%20siguiente%20duda%20sobre%20las%20alfombras%20de%20milurugs" class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50" target="_blank" rel="noopener noreferrer">Escribenos aquí</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="tracking-[2.5px] uppercase font-semibold mb-2">
+            Encuentranos
+          </h3>
+          <ul>
+            <li>
+              <a href="https://www.google.cl/maps/place/C.+Luis+Pasteur+6411,+Vitacura,+Regi%C3%B3n+Metropolitana/@-33.3830775,-70.5746521,17z/data=!3m1!4b1!4m5!3m4!1s0x9662c929b8ebd327:0x5e19251b37f0840d!8m2!3d-33.3830775!4d-70.5724634?shorturl=1" target="_blank" rel="noopener nofererrer" class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50">
+                Luis Pasteur 6411 local 10 y 11,<br>
+                segundo piso, Vitacura, Santiago,
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div>
+          <h3 class="tracking-[2.5px] uppercase font-semibold mb-2">
+            Información
+          </h3>
+          <ul role="list">
+            <li>
+              <a href="/pages/contacto" class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50">Contacto</a>
+            </li>
+            <li>
+              <a href="/pages/nosotras" class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50">Sobre Nosotras</a>
+            </li>
+            <li>
+              <a href="/pages/faq-preguntas-frecuentes" class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50">Preguntas Frecuentes</a>
+            </li>
+            <li>
+              <a href="/pages/como-contratar" class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50">Cómo Comprar</a>
+            </li>
+            <li>
+              <a href="/pages/despacho" class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50">Despachos</a>
+            </li>
+            <li>
+              <a href="/pages/asesorias-1" class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50">Asesorías</a>
+            </li>
+            <li>
+              <a href="/pages/reviews" class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50">Reviews</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="flex flex-col gap-8">
+          <div>
+            <h3 class="tracking-[2.5px] uppercase font-semibold mb-2">
+              Políticas
+            </h3>
+            <ul role="list">
+              <li>
+                <a href="/pages/cambios-y-devoluciones" class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50">Cambios y devoluciones</a>
+              </li>
+              <li>
+                <a href="/pages/terminos-y-condiciones" class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50">Términos y condiciones</a>
+              </li>
+            </ul>
+          </div>
+          <div class="flex gap-x-4">
+            <div>
+              <img src="https://cdn.shopify.com/s/files/1/2423/2085/files/logo-diseno-interior-milu_Mesa_de_trabajo_1.png?v=1655987045" alt="asociación de diseño interior" width="90" height="60" loading="lazy">
+            </div> 
+            <div>
+              <img src="https://cdn.shopify.com/s/files/1/2423/2085/files/Sello_Confianza_Ecommerce_CCS-01.png?v=1655987045" alt="camara de comercio de santiago" width="50" height="67" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <h3 class="tracking-[2.5px] uppercase font-semibold mb-2">
+            Métodos de pago
+          </h3>
+          <ul role="list">
+            <li class="tracking-[1.5px] text-sm">Tarjetas Débito/Crédito</li>
+            <li class="my-1"> 
+              <img src="https://cdn.shopify.com/s/files/1/2423/2085/files/mercadopago-logo_1.png?v=1655989849" alt="mercado pago" loading="lazy" width="122" height="33">
+            </li>
+            <li class="tracking-[1.5px] text-sm">Hasta 6 coutas sin interés</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-20 mb-2 text-center">
+      <p class="text-xs tracking-[1.5px]">&copy; {{ "now" | date: "%Y" }} MILÚRUGS | diseñado y desarrollado por <a href="https://www.mediahuella.com" target="_blank" rel="noopener noreferrer" class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50 font-bold"> Mediahuella</a></p>
+    </div>
+  </div>
+</footer>
+{% schema %}
+{
+  "name":"footer"
+}
+{% endschema %}

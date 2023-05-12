@@ -1,0 +1,51 @@
+<featured-articles>
+  <div class="wrapper my-4 py-2 lg:my-8 lg:py-4">
+    <div class="articles-carousel relative overflow-hidden">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="font-livvic font-[400] tracking-[2.5px] uppercase text-[26px] lg:text-[30px] leading-none">Mira nuestro blog</h2>
+        <div class="flex gap-4">
+          <button class="hidden lg:block disabled:opacity-25 transition-opacity duration-500 hover:opacity-50 ease-out articles-prev" id="col-prev" aria-label="articulo anterior" role="button">
+            {% render 'svg-arrow', class: 'w-8 rotate-180' %}
+            <span class="sr-only">previous</span>
+          </button>
+          <button class="hidden lg:block disabled:opacity-25 transition-opacity duration-500 hover:opacity-50 ease-out articles-next" id="col-next" aria-label="artículo siguiente" role="button">
+            {% render 'svg-arrow', class: 'w-8' %}
+            <span class="sr-only">next</span>
+          </button>
+        </div>
+      </div>
+      <ul class="swiper-wrapper">
+        {% for article in blogs[section.settings.blog].articles limit: 8 %}
+        {% render 'article-card', 
+          card_article: article,
+          class: 'swiper-slide'  
+        %}
+        {% endfor %}
+      </ul>
+      <div class="swiper-scrollbar lg:hidden" style="bottom:-12px;"></div> 
+    </div>
+    <a href="/blogs/blog" role="button" class="block bg-[#A8A191] uppercase tracking-[2.5px] font-semibold w-max text-sm mx-auto my-8 px-8 py-2 text-white transition-all duration-500 ease-out hover:opacity-70">
+      Ver más articulos
+    </a> 
+  </div>
+</featured-articles>
+
+{% schema %}
+{
+  "name": "Featured Articles",
+  "tag": "section",
+  "settings":[
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Selecciona un blog"
+    }
+  ],
+  "presets":[
+    {
+      "name": "Featured Articles",
+      "category":"articles"
+    }
+  ]
+}
+{% endschema %}

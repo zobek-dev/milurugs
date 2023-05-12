@@ -1,0 +1,96 @@
+<countdown-modal id="CountdownModal">
+  <div class="fixed bg-black bg-opacity-30 top-0 left-0 w-full h-full z-[999999] countdown-overlay flex justify-center items-center">
+    <div class="countdown-inner block bg-[#A8A191] lg:w-[45vw] w-[80vw] py-4 px-4">
+      <div class="head flex justify-end items center mb-2">
+        <button aria-label="cerrar el modal" id="Close">
+          <svg class="h-[28px] w-[28px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-1 gap-4 items-center">
+        <div class="col-span-1 lg:col-span-1">
+          <h2 class="font-bold leading-[1.1] mb-4 tracking-[1px] text-[24px] lg:text-[32px] text-center lg:text-left">
+            {{ section.settings.title | escape }}
+          </h2>
+          <p class="leading-[1.1] tracking-[1.5px] text-sm mb-4">
+            {{ section.settings.text }}
+          </p>
+          <h3 class="uppercase text-[15px] tracking-[1px] my-4 font-semibold">
+            {{ section.settings.date }}
+          </h3>
+          <div id="Count" class="grid grid-cols-4 gap-2 mb-4 max-w-[256px]"></div>
+          <a href="{{ section.settings.link }}" class="font-bold uppercase block text-white py-2 px-12 w-full lg:w-max lg:mx-auto text-center bg-black">Ver Alfombras</a>
+        </div>
+        <div class="hidden lg:col-span-1">
+          <img src="{{ section.settings.image | img_url: '300x' }}" alt="{{ section.settings.image.alt | escape }}" loading="lazy" class="object-cover object-center">
+        </div>
+      </div> 
+    </div>
+  </div>
+</countdown-modal>
+
+<style>
+  .simply-section div{
+    display:flex;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+  .simply-amount{
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+    text-align: center;
+  }
+
+  .simply-word{
+    font-size:10px;
+    text-align: center;
+  }
+</style>
+
+
+{% schema %}
+{
+  "name": "Cuenta atrás",
+  "limit": 1,
+  "settings":[
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Ingresa el titulo",
+      "default":"Un título para el evento"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "inserta una imagen"
+    },
+    { 
+      "type": "text",
+      "id": "text",
+      "label": "Texto del cuerpo del modal"
+    },
+    {
+      "type": "text",
+      "id": "date",
+      "label": "Inserta la fecha en palabras"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link del boton"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cuenta atrás",
+      "category": "home"
+    }
+  ]
+}
+{% endschema %}

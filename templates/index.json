@@ -1,0 +1,328 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-index",
+      "settings": {}
+    },
+    "1663774475734792c4": {
+      "type": "slideshow",
+      "blocks": {
+        "400ad0e6-ddd1-47f9-bb19-36d3fd938e36": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image_mobile": "shopify:\/\/shop_images\/iPhone_14_Pro_2.png",
+            "image_tablet": "shopify:\/\/shop_images\/iPhone_14_Pro_1.png",
+            "image_desktop": "shopify:\/\/shop_images\/Web_1920_3.png",
+            "link": "shopify:\/\/collections\/last",
+            "alt_text": ""
+          }
+        },
+        "45a64cad-5357-4515-91aa-edbaedf4df6c": {
+          "type": "slide",
+          "settings": {
+            "image_mobile": "shopify:\/\/shop_images\/m3.jpg",
+            "image_tablet": "shopify:\/\/shop_images\/m2.jpg",
+            "image_desktop": "shopify:\/\/shop_images\/m-1.jpg",
+            "link": "shopify:\/\/collections\/all",
+            "alt_text": ""
+          }
+        },
+        "444e356a-c831-4bf2-a17d-5556da8ad730": {
+          "type": "slide",
+          "settings": {
+            "image_mobile": "shopify:\/\/shop_images\/banner_milurugs-03.png",
+            "image_tablet": "shopify:\/\/shop_images\/banner_milurugs_v-02.jpg",
+            "image_desktop": "shopify:\/\/shop_images\/banner_milurugs-01.jpg",
+            "link": "shopify:\/\/collections\/polipropileno",
+            "alt_text": ""
+          }
+        },
+        "62601f05-23b8-41b7-8307-e1f524fd69c2": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image_mobile": "shopify:\/\/shop_images\/Mesa_de_trabajo_18.jpg",
+            "image_tablet": "shopify:\/\/shop_images\/Mesa_de_trabajo_17.jpg",
+            "image_desktop": "shopify:\/\/shop_images\/Mesa_de_trabajo_16.jpg",
+            "link": "shopify:\/\/collections\/last",
+            "alt_text": ""
+          }
+        },
+        "d083b03b-a473-4aee-bf81-26a672369f05": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image_mobile": "shopify:\/\/shop_images\/iPhone_13_12_Pro_1.jpg",
+            "image_tablet": "shopify:\/\/shop_images\/Mesa_de_trabajo_8.jpg",
+            "image_desktop": "shopify:\/\/shop_images\/D1_1.jpg",
+            "link": "shopify:\/\/collections\/last",
+            "alt_text": "Comenzo black friday"
+          }
+        },
+        "406bfde3-28b1-458a-953c-6b6b60079084": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image_mobile": "shopify:\/\/shop_images\/Web_1920_3.jpg",
+            "image_tablet": "shopify:\/\/shop_images\/Web_1920_1.jpg",
+            "image_desktop": "shopify:\/\/shop_images\/Mesa_de_trabajo_2.jpg",
+            "link": "shopify:\/\/collections\/canamo",
+            "alt_text": ""
+          }
+        },
+        "62396003-1546-4306-a35e-aa89443bbe31": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image_mobile": "shopify:\/\/shop_images\/D2_4eba3071-f894-4212-9881-f1be79233f9b.jpg",
+            "image_tablet": "shopify:\/\/shop_images\/banner_tablet.png",
+            "image_desktop": "shopify:\/\/shop_images\/Diseno_sin_titulo.png",
+            "link": "shopify:\/\/collections\/tencel",
+            "alt_text": ""
+          }
+        },
+        "fc4b2a43-79f6-4349-af7e-28eb52843476": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image_mobile": "shopify:\/\/shop_images\/400x460.png",
+            "image_tablet": "shopify:\/\/shop_images\/830x600.png",
+            "image_desktop": "shopify:\/\/shop_images\/2000x700.png",
+            "link": "shopify:\/\/collections\/all",
+            "alt_text": ""
+          }
+        },
+        "a15c8fab-3c5e-4cca-ae2c-6b6f8ed36249": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image_mobile": "shopify:\/\/shop_images\/01m_0ed98d8b-de45-4882-ac62-80c03681231e.png",
+            "image_tablet": "shopify:\/\/shop_images\/01t_1.png",
+            "image_desktop": "shopify:\/\/shop_images\/01d_73d89fc6-c421-47b5-a971-a4dbd5855a6b.png",
+            "link": "shopify:\/\/collections\/preventa",
+            "alt_text": "Ver collección 2022, Encuentra el estilo que te identifica"
+          }
+        },
+        "21e6632a-1282-4c8b-8f63-4246f2360832": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image_mobile": "shopify:\/\/shop_images\/Sin_titulo-2-06.jpg",
+            "image_tablet": "shopify:\/\/shop_images\/Sin_titulo-2-05.jpg",
+            "image_desktop": "shopify:\/\/shop_images\/Sin_titulo-2_Mesa_de_trabajo_1_copia.jpg",
+            "link": "shopify:\/\/collections\/all",
+            "alt_text": "20% de oferta colección Kids"
+          }
+        },
+        "3677dc68-7997-4e42-b8a6-a6a426a2895d": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image_mobile": "shopify:\/\/shop_images\/Sin_titulo-2-03.jpg",
+            "image_tablet": "shopify:\/\/shop_images\/Sin_titulo-2-02.jpg",
+            "image_desktop": "shopify:\/\/shop_images\/Sin_titulo-2_Mesa_de_trabajo_1.jpg",
+            "link": "shopify:\/\/collections\/polipropileno",
+            "alt_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "400ad0e6-ddd1-47f9-bb19-36d3fd938e36",
+        "45a64cad-5357-4515-91aa-edbaedf4df6c",
+        "444e356a-c831-4bf2-a17d-5556da8ad730",
+        "62601f05-23b8-41b7-8307-e1f524fd69c2",
+        "d083b03b-a473-4aee-bf81-26a672369f05",
+        "406bfde3-28b1-458a-953c-6b6b60079084",
+        "62396003-1546-4306-a35e-aa89443bbe31",
+        "fc4b2a43-79f6-4349-af7e-28eb52843476",
+        "a15c8fab-3c5e-4cca-ae2c-6b6f8ed36249",
+        "21e6632a-1282-4c8b-8f63-4246f2360832",
+        "3677dc68-7997-4e42-b8a6-a6a426a2895d"
+      ],
+      "settings": {}
+    },
+    "166378393330513b1b": {
+      "type": "featured-collection",
+      "blocks": {
+        "e50beda6-2379-472a-bd76-0992f13516c0": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/living_53fe8423-87a4-4aa1-a991-2c3556cf0556.png",
+            "collection": "living"
+          }
+        },
+        "a51279c4-ce5f-4112-a6c3-22edc3bad663": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/comedor_1.png",
+            "collection": "comedor"
+          }
+        },
+        "37a1729f-64f9-4580-b1ec-284242ea3586": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/dormitorio_1.png",
+            "collection": "dormitorio"
+          }
+        },
+        "5e39de15-ccf6-449b-8d4e-91ad009eb950": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/terraza_1.png",
+            "collection": "terraza"
+          }
+        },
+        "67c92b65-6272-47d8-aca9-77cca0cef741": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/sala-de-estar_1.png",
+            "collection": "interior"
+          }
+        }
+      },
+      "block_order": [
+        "e50beda6-2379-472a-bd76-0992f13516c0",
+        "a51279c4-ce5f-4112-a6c3-22edc3bad663",
+        "37a1729f-64f9-4580-b1ec-284242ea3586",
+        "5e39de15-ccf6-449b-8d4e-91ad009eb950",
+        "67c92b65-6272-47d8-aca9-77cca0cef741"
+      ],
+      "settings": {}
+    },
+    "16638459636617b081": {
+      "type": "somos-milu-home",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/JPG_Nosotras_copia.jpg"
+      }
+    },
+    "1663853527b3ea917c": {
+      "type": "nuevas-tendencias-home",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/unnamed.jpg",
+        "link": "shopify:\/\/collections\/polipropileno"
+      }
+    },
+    "166421690781dd4bd6": {
+      "type": "featured-products",
+      "settings": {
+        "coll": "living"
+      }
+    },
+    "1663853528d0a78c4e": {
+      "type": "apps",
+      "disabled": true,
+      "blocks": {
+        "e3884db9-5e5e-43c5-8ac4-f47ffdb03792": {
+          "type": "shopify:\/\/apps\/loox-product-reviews-photos\/blocks\/loox-gallery-carousel-section\/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "maxWidth": 1100,
+            "borderRadius": 60,
+            "itemsPerView": 5,
+            "imageRatio": "1",
+            "reviewerNameColor": "#ffffff",
+            "starsColor": "#ffffff",
+            "arrows_backgroundColor": "#ffffff",
+            "arrows_iconColor": "#9a9a9a",
+            "shadow": "none",
+            "border_active": false,
+            "border_width": 2,
+            "border_color": "#000000",
+            "productIds": ""
+          }
+        }
+      },
+      "block_order": [
+        "e3884db9-5e5e-43c5-8ac4-f47ffdb03792"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "1663941725f0739e1a": {
+      "type": "zero-wasted-home",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/zerowaste.png",
+        "link": "shopify:\/\/pages\/upcycling"
+      }
+    },
+    "16639567304b37bf31": {
+      "type": "featured-articles",
+      "settings": {
+        "blog": "blog"
+      }
+    },
+    "1664194789e027bd94": {
+      "type": "home-newsletter",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/foto_de_newsletter_1.jpg"
+      }
+    },
+    "411093b9-5512-4f92-a1b8-6ad69e339e1e": {
+      "type": "instagram-feed",
+      "blocks": {
+        "cc73621d-8e5c-4f04-8835-ee9249aa41f6": {
+          "type": "shopify:\/\/apps\/instafeed-instagram-feed\/blocks\/app-block\/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "heading_size": 20,
+            "feed_width": 100,
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "cc73621d-8e5c-4f04-8835-ee9249aa41f6"
+      ],
+      "settings": {
+        "title": "Inspírate junto a nosotras y síguenos..."
+      }
+    },
+    "1664199796f28f2656": {
+      "type": "apps",
+      "blocks": {
+        "bfa2ddba-93de-4966-9616-ff2b0952c947": {
+          "type": "shopify:\/\/apps\/loox-product-reviews-photos\/blocks\/loox-agg-section\/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "only_photos": true,
+            "hide_thumbnails": true,
+            "product_handle": "",
+            "aggregated": false,
+            "data-limit": 12,
+            "maxwidth": 1440
+          }
+        }
+      },
+      "block_order": [
+        "bfa2ddba-93de-4966-9616-ff2b0952c947"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "b70887e5-0711-4799-b613-3d9ac90fd4fb": {
+      "type": "countdown",
+      "disabled": true,
+      "settings": {
+        "title": "¡Vive este BLACK FRIDAY con MILÚRUGS!",
+        "text": "Toda la web y tienda con hasta un 60% de descuentos en nuestros productos.",
+        "date": "25 de noviembre",
+        "link": "shopify:\/\/collections\/all"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1663774475734792c4",
+    "166378393330513b1b",
+    "16638459636617b081",
+    "1663853527b3ea917c",
+    "166421690781dd4bd6",
+    "1663853528d0a78c4e",
+    "1663941725f0739e1a",
+    "16639567304b37bf31",
+    "1664194789e027bd94",
+    "411093b9-5512-4f92-a1b8-6ad69e339e1e",
+    "1664199796f28f2656",
+    "b70887e5-0711-4799-b613-3d9ac90fd4fb"
+  ]
+}

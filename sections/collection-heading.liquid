@@ -1,0 +1,18 @@
+<div class="overflow-hidden h-[350px] lg:h-[500px] bg-center bg-no-repeat bg-cover w-full" {% if collection.featured_image != blank and collection.title != 'all' %}style="background-image: url({{ collection.featured_image | img_url: '2040x' }})"{% elsif collection.title == 'Productos' %}style="background-image: url(https://cdn.shopify.com/s/files/1/2423/2085/files/ver-todas-las-alfombras.png?v=1668011592)"{% endif %}>
+  <div class="flex justify-start items-center h-full w-full">
+    <h1 class="text-white font-livvic font-medium tracking-[1px] text-[22px] lg:text-[50px] uppercase pl-4 py-4 lg:py-8 pr-4 lg:pr-30 rounded-tr-[80px] rounded-br-[80px] bg-black bg-opacity-[35%] leading-none">
+      {% if collection.title == 'Productos' %}
+        Todas las Alfombras
+      {% else %}  
+        {{ collection.title | escape }}  
+      {% endif %}
+    </h1>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Heading",
+  "tag": "section"
+}
+{% endschema %}

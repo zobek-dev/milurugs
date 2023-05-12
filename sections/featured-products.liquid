@@ -1,0 +1,52 @@
+<featured-products>
+  <div class="wrapper">
+    <div class="flex justify-between items-center ">
+      <h2 class="font-livvic uppercase text-[26px] lg:text-[30px] tracking-[1.5px] my-4">
+        Rugs Destacadas
+      </h2>
+      <div class="flex gap-4">
+        <button aria-label="Avanzar un producto" class="hidden lg:block disabled:opacity-25 transition-opacity duration-500 hover:opacity-50 ease-out featured-prev">
+          {% render 'svg-arrow', class: 'w-8 rotate-180' %}
+          <span class="sr-only">previous</span>
+        </button>
+        <button aria-label="Retroceder un producto" class="hidden lg:block disabled:opacity-25 transition-opacity duration-500 hover:opacity-50 ease-out featured-next">
+          {% render 'svg-arrow', class: 'w-8' %}
+          <span class="sr-only">next</span>
+        </button>
+      </div>
+    </div>
+    <div id="featured-carousel-{{ section.id }}" data-sectionid="{{ section.id }}" class="relative mb-4 overflow-hidden">
+      <ul class="swiper-wrapper">
+        {% for product in collections[section.settings.coll].products %}
+          {% render 'product-card', 
+            product_card : product,
+            data_template : template,
+            class: 'swiper-slide'
+          %} 
+        {% endfor %}
+      </ul>
+      <div class="swiper-scrollbar lg:hidden" style="bottom:-12px;"></div>
+    </div>
+  </div>
+</featured-products>
+
+
+{% schema %}
+{
+  "name": "Featured products",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "coll",
+      "label": "Coleccion destacada"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured products",
+      "category": "list"
+    }
+  ]
+}
+{% endschema %}

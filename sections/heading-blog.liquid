@@ -1,0 +1,21 @@
+<div class="h-[300px] lg:h-[500px] w-full bg-cover bg-no-repeat bg-center" {% if section.settings.image != blank %}style="background-image: url({{ section.settings.image | img_url: 'master' }})"{% endif %}>
+  <div class="h-full w-full flex flex-col justify-center items-center text-white bg-gray-500 bg-opacity-30">
+    <h1 class="font-livvic font-medium uppercase text-[22px] lg:text-[50px] py-4 lg:py-8 px-4 lg:px-8 bg-black bg-opacity-[35%] w-max leading-none rounded-[50px]">
+      Nuestro Blog
+    </h1>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Blog-heading",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen para el heading"
+    }
+  ]
+}
+{% endschema %}

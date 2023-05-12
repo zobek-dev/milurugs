@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url(./components/custom.css);
+@import url(./components/header.css);
+@import url(./components/drawer-cart.css);
+@import url(./components/search-modal.css);
+@import url(./components/drawer-filter.css); 
+
+/*UI packages*/
+@import url(../../node_modules/swiper/swiper-bundle.min.css);
+/* @import url(@fancyapps/ui/dist/fancybox.css) */

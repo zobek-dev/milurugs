@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "heading": {
+      "type": "heading-nuestros-proceso",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/01_7e9b07f5-0872-4b40-b525-e0f2866960f0.jpg"
+      }
+    },
+    "main": {
+      "type": "main-nuestros-procesos",
+      "settings": {
+        "image_procesos": "shopify:\/\/shop_images\/PROCESOS-01.png",
+        "second_image": "shopify:\/\/shop_images\/foto-de-procesos.png",
+        "third_image": "shopify:\/\/shop_images\/PROCESOS-03.png",
+        "video_url": ""
+      }
+    }
+  },
+  "order": [
+    "heading",
+    "main"
+  ]
+}

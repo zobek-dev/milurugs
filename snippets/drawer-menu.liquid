@@ -1,0 +1,129 @@
+<div class="relative drawer-dialog" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+  {% comment %}
+    Background backdrop, show/hide based on slide-over state.
+
+    Entering: "ease-in-out duration-500"
+      From: "opacity-0"
+      To: "opacity-100"
+    Leaving: "ease-in-out duration-500"
+      From: "opacity-100"
+      To: "opacity-0"
+  {% endcomment %}
+  <div class="fixed inset-0 transition-opacity drawer-layout"></div>
+
+  <div class="fixed inset-0 overflow-hidden bg-gray-500 bg-opacity-75">
+    <div class="absolute inset-0 overflow-hidden" id="drawer-menu-layout-close">
+      <div class="pointer-events-none fixed inset-y-0 left-0 flex max-w-full pr-10">
+        {% comment %}
+          Slide-over panel, show/hide based on slide-over state.
+
+          Entering: "transform transition ease-in-out duration-500 sm:duration-700"
+            From: "-translate-x-full"
+            To: "translate-x-0"
+          Leaving: "transform transition ease-in-out duration-500 sm:duration-700"
+            From: "translate-x-0"
+            To: "-translate-x-full"
+        {% endcomment %}
+        <div class="pointer-events-auto w-screen max-w-md drawer-container">
+          <div class="flex h-full flex-col overflow-y-scroll bg-[#E5E1D8] shadow-xl">
+            <div class="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
+              <div class="flex items-start justify-between">
+                <div class="text-lg font-medium text-gray-900" id="slide-over-title">
+                  {% render 'svg-logo-milu', class: 'w-[100px]' %}
+                </div>
+                <div class="ml-3 flex h-7 items-center">
+                  <button type="button" class="-m-2 p-2 text-gray-900 hover:text-gray-600" id="close-drawer-menu">
+                    <span class="sr-only">Cerrar menú</span>
+                    <svg class="h-[24px] w-[24px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="mt-16">
+                <div class="flow-root">
+                  <ul role="list" class="-my-6 divide-y divide-gray-200 relative">
+                    {% for link in linklists.main-menu.links %}
+                      {% if link.links.size > 0 %}
+                        <li class="mb-2">
+                          <details class="submenu__detail">
+                            <summary class="flex justify-between items-center uppercase tracking-[1.5px] text-[15px] font-bold">
+                              <span>{{ link.title | escape }}</span>
+                              {% render 'svg-icon-plus', class: 'w-[12px] icon-plus' %}
+                              {% render 'svg-icon-minus', class: 'w-[12px] icon-minus' %}
+                            </summary>      
+                            <ul class="absolute left-0 top-0 w-full h-full bg-[#E5E1D8] border">
+                              <div class="flex justify-between items-center mb-3">
+                                <h3 class="uppercase font-bold tracking-[2.5px] text-[15px]">
+                                  {{ link.title | escape }}
+                                </h3>
+                                {% comment %}
+                                Esto queda pendiente
+                                {% endcomment %}
+                                <button class="close-submenu text-[15px] tracking-[2.5px] uppercase">
+                                  <-
+                                  <span>Volver</span>
+                                </button>
+                              </div>
+                              {% for childlink in link.links %}
+                              {% if childlink.links.size > 0 %}
+                              <li class="mb-2">
+                                <details class="submenu__detail">
+                                  <summary class="flex justify-between items-center uppercase tracking-[1.5px] text-[14px] font-bold">
+                                    <span>{{ childlink.title | escape }}</span>
+                                    {% render 'svg-icon-plus', class: 'w-[12px] icon-plus' %}
+                                    {% render 'svg-icon-minus', class: 'w-[12px] icon-minus' %}
+                                  </summary>
+                                  <ul class="my-2">
+                                    {% for grandchildlink in childlink.links %}
+                                      <li class="mb-2">
+                                        <a href="{{ grandchildlink.url }}" class="uppercase tracking-[1.5px] text-[13px]">
+                                          {{ grandchildlink.title | escape }}
+                                        </a>
+                                      </li>
+                                    {% endfor %}
+                                    <li class="mb-2">
+                                      <a href="{{ routes.all_products_collection_url }}" class="uppercase tracking-[1.5px] text-[13px] font-semibold">
+                                        Ver todas
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </details>
+                              </li>
+                              {% else %}
+                              <li class="mb-2">
+                                <a href="{{ childlink.url }}" class="uppercase tracking-[1.5px] text-[14px]">
+                                  {{ childlink.title | escape }}
+                                </a>
+                              </li>        
+                              {% endif %}  
+                              {% endfor %}  
+                            </ul>
+                          </details>
+                        </li>
+                      {% else %}
+                        <li class="mb-2">
+                          <a href="{{ link.url }}" class="uppercase tracking-[1.5px] text-[15px]">
+                            {{ link.title | escape }}
+                          </a>
+                        </li>  
+                      {% endif %}  
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="border-t border-gray-900 py-3 mx-4 sm:px-6">
+              <h3 class="uppercase font-semibold tracking-[2.5px] mb-2 text-[15px]">Síguenos en:</h3>
+              {% render 'social-list' %}
+              <h3 class="uppercase font-semibold tracking-[2.5px] my-2 text-[15px]">Contáctanos</h3>
+              <a href="mailto:hola@milurugs.com" class="block text-sm hover:underline hover:underline-offset-2">hola@milurugs.com</a>
+              <a href="https://wa.me/56992135612/?text=Hola,%20tengo%20la%20siguiente%20duda%20sobre%20las%20alfombras%20de%20milurugs" class="block text-sm hover:underline hover:underline-offset-2" target="_blank" link="noopener noreferrer">Escribenos aquí</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

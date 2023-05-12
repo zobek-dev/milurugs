@@ -1,0 +1,78 @@
+<slideshow-home>
+  <div class="slideshow-swiper min-h-[414px] relative bg-opacity-50 overflow-hidden" data-id="{{ section.id }}">
+    <ul class="swiper-wrapper">
+      {% for block in section.blocks %}
+      {% assign slide = block.settings %}
+      <li class="swiper-slide">
+        {% if slide.link != blank %}
+        <a href="{{ slide.link }}" aria-label="{{ slide.alt_text }}">
+        {% endif %}
+          <picture>
+            <source media="(min-width: 829px)" srcset="{{ slide.image_desktop | img_url: 'master' }}">
+            <source media="(min-width: 399px)" srcset="{{ slide.image_tablet | img_url: '830x' }}">
+            <source media="(min-width: 150px)" srcset="{{ slide.image_mobile | img_url: '400x' }}">
+            <img 
+              src="{{ slide.image_desktop | img_url: 'master' }}" 
+              alt="{{ slide.alt_text | escape }}" 
+              width="{{ slide.image_desktop.width }}"
+              height="{{ slide.image_desktop.height }}"
+              {% if forloop.index != 1 %}loading="lazy"{% endif %}
+            >
+          </picture>
+        {% if slide.link != blank %}
+        </a>
+        {% endif %}
+      </li> 
+      {% endfor %} 
+    </ul>
+      
+    <div class="swiper-pagination"></div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</slideshow-home>
+{% schema %}
+{
+  "name": "slideshow",
+  "blocks": [
+    {
+      "name": "slide",
+      "type": "slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "imagen mobile"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_tablet",
+          "label": "imagen tablet"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_desktop",
+          "label": "imagen desktop" 
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "link de la diapositiva"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "texto alternativo"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slideshow",
+      "category": "slide"
+    }
+  ]
+}
+{% endschema %}

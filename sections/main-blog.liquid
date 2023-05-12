@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <div class="lg:pb-4 pb-2 mb-4 lg:mb-8">
+    <div class="my-4">
+      {% render 'breadcrumb' %}
+    </div>
+    {% paginate blog.articles by 12 %}
+      <div class="my-4 py-4">
+        <ul class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4">
+          {% for article in blog.articles %}
+            {% render 'article-card', 
+              card_article: article
+             %}
+          {% endfor %}   
+        </ul>
+      </div>
+      {% if paginate.pages > 1 %}
+        <div class="my-4">
+          {% render 'pagination', paginate: paginate %}
+        </div>  
+      {% endif %}
+      {% endpaginate %}
+  </div> 
+</div>
+
+{% schema %}
+{
+  "name": "Blog",
+  "tag": "section"
+}
+{% endschema %}

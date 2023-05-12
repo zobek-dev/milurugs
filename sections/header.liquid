@@ -1,0 +1,154 @@
+<header-component>
+  <div class="bg-[#E5E1D8] relative" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
+    <div class="wrapper">
+      <div class="header-grid py-4 xl:py-0">
+        <div class="drawer-menu">
+          <button id="btn-toggle-cart" aria-label="abrir el menú" role="button" aria-expanded="false">
+            {% render 'svg-burger' %}
+          </button>
+        </div>
+        <div class="logo">
+          <a href="{{ routes.root_url }}" aria-label="logo" role="link">
+            {% render 'svg-logo-milu', class: 'w-[120px] md:w-[150px]' %}
+          </a>
+        </div>
+        <inline-nav class="inline-menu">
+          <nav>
+            <ul class="inline-list">
+              {% for link in linklists.main-menu.links %}
+                {% if link.links.size > 0 %}
+                <li class="inline__submenu-item">
+                  <details>
+                    <summary class="uppercase tracking-[2.5px] text-[13px] gap-x-1 flex py-8 font-medium">
+                      <a href="{{ link.url }}" class="hover:underline hover:underline-offset-2 leading-none">{{ link.title | escape }}</a>
+                      {% render 'svg-icon-plus', class: 'w-[10px] plus' %}
+                      {% render 'svg-icon-minus', class: 'w-[10px] hidden minus' %}
+                    </summary>
+                    <ul class="absolute top-full w-full left-0 bg-[#E5E1D8] py-4 z-[99]">
+                      <div class="wrapper">
+                        <div class="grid-cols-7 gap-x-4  max-w-[1200px] mx-auto gap-y-6 grid">
+                          {% for childlink in link.links %}
+                          {% if childlink.links.size > 0 %}  
+                          <li class="mb-2">
+                            <a href="{{ childlink.url }}" class="block mb-4">
+                              <span class="tracking-[2.5px] font-bold uppercase hover:underline hover:underline-offset-2 text-[13px] leading-[1.1]">
+                                {{ childlink.title | escape }}
+                              </span>
+                            </a> 
+                            <ul>
+                              {% for grandchildlink in childlink.links %}
+                              <li class="mb-2">
+                                <a href="{{ grandchildlink.url }}" class="tracking-[2.5px] uppercase hover:underline hover:underline-offset-2 text-[13px]">
+                                  {{ grandchildlink.title | escape }}
+                                </a>
+                              </li>  
+                              {% endfor %}
+                              <li class="mb-2">
+                                <a href="/collections/all" class="tracking-[2.5px] uppercase hover:underline hover:underline-offset-2 text-[13px] font-semibold">
+                                  Ver todas
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                          {% else %}
+                          <li>
+                            <a href="{{ childlink.url }}" class="block mb-4">
+                              <span class="tracking-[2.5px] uppercase hover:underline hover:underline-offset-2 text-[13px]">{{ childlink.title | escape }}</span>
+                            </a>
+                          </li>    
+                          {% endif %}  
+                          {% endfor %} 
+                        </div>   
+                      </div>
+                    </ul>
+                  </details>
+                </li>
+                {% else %}
+                <li>
+                  <a href="{{ link.url }}" class="uppercase tracking-[2.5px] font-medium hover:underline hover:underline-offset-2 leading-none py-4 text-[13px]">
+                    {{ link.title | escape }}
+                  </a>
+                </li>  
+                {% endif %}
+              {% endfor %}  
+            </ul>
+          </nav>
+        </inline-nav>
+
+        <div class="icons"> 
+          <a href="{{ routes.search_url }}" class="relative text-gray-900 hover:text-gray-500" aria-label="Abrir el buscador" title="Búscar" id="search-modal-toggle" aria-expanded="false">
+            {% render 'svg-icon-search', class: 'w-[27.8px] h-[27.8px]' %}
+            <span class="sr-only">Búscar</span> 
+          </a>
+          <drawer-cart>
+            <a href="{{ routes.cart_url }}" class="relative text-gray-900 hover:text-gray-500" id="open-drawer-cart" aria-label="Abrir el carrito" title="Ir al carro" aria-expanded="false">
+              {% render 'svg-cart', class: 'w-[26.25px] h-[25.17px]' %}
+              <span class="sr-only">Carrito</span>  
+            </a>
+            {% render 'drawer-cart' %}
+          </drawer-cart>
+        </nav>
+        </div>
+      </div>
+    </div>  
+  </div>
+</header-component>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    {% if settings.logo %}
+      "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
+    {% endif %}
+    "sameAs": [
+      {{ settings.social_twitter_link | json }},
+      {{ settings.social_facebook_link | json }},
+      {{ settings.social_pinterest_link | json }},
+      {{ settings.social_instagram_link | json }},
+      {{ settings.social_tiktok_link | json }},
+      {{ settings.social_tumblr_link | json }},
+      {{ settings.social_snapchat_link | json }},
+      {{ settings.social_youtube_link | json }},
+      {{ settings.social_vimeo_link | json }}
+    ],
+    "url": {{ request.origin | append: page.url | json }}
+  }
+</script>
+
+{%- if request.page_type == 'index' -%}
+  {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": {{ shop.name | json }},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {{ potential_action_target | json }},
+        "query-input": "required name=search_term_string"
+      },
+      "url": {{ request.origin | append: page.url | json }}
+    }
+  </script>
+{%- endif -%}
+
+
+{% render 'drawer-menu' %}
+{% render 'search-modal' %}
+
+{% schema %}
+{
+  "name": "header",
+  "tag": "header",
+  "class":"header",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "coll",
+      "label": "Selecciona colección para upselling"
+    }
+  ]
+}
+{% endschema %}

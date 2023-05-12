@@ -1,0 +1,72 @@
+{%- comment -%} {% liquid 
+  assign index = article.created_at | date: '%m' | times: 1 | minus: 1 
+  assign year = article.created_at | date: '%Y'
+  assign day = article.created_at | date: '%d'
+  assign months = 'Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre' | split: ','
+  assign fixed_date = months[index]
+%} {%- endcomment -%}
+
+<article class="mx-4 lg:mx-8 pb-8">
+  <div class="mx-auto max-w-[700px]">
+    <div class="py-8">
+      {% render 'breadcrumb' %}
+    </div>
+    <img 
+      src="{{ article.image.src | img_url: '700x' }}" 
+      width="{{ article.image.src.width }}"
+      height="{{ article.image.src.height }}" 
+      loading="lazy" 
+    >
+    <h1 class="mt-8 mb-4 text-2xl tracking-[1.5px] font-dindone">{{ article.title | escape }}</h1>
+    {% comment %}
+    <small class="block text-base font-bold mb-8 tracking-[1.5px]">{{ day }} de {{ fixed_date }}, {{ year }}</small>
+    {% endcomment %}
+   
+    <div class="content tracking-[1.5px] text-sm">
+      {{ article.content }}
+    </div>
+    <div class="my-12">
+      <a href="/blogs/blog" class="block mx-auto w-max uppercase tracking-[1.5px] underline font-bold underline-offset-2 transition-opacity ease-in-out duration-500 hover:opacity-50">
+        Volver
+      </a>
+    </div>
+  </div>
+</article>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "articleBody": {{ article.content | strip_html | json }},
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": {{ request.origin | append: page.url | json }}
+    },
+    "headline": {{ article.title | json }},
+    {% if article.excerpt != blank %}
+      "description": {{ article.excerpt | strip_html | json }},
+    {% endif %}
+    {% if article.image %}
+      "image": [
+        {{ article | image_url: width: 1920 | prepend: "https:" | json }}
+      ],
+    {% endif %}
+    "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+    "dateCreated": {{ article.created_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+    "author": {
+      "@type": "Person",
+      "name": {{ article.author | json }}
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": {{ shop.name | json }}
+    }
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Main-article",
+  "tag": "section"
+}
+{% endschema %}

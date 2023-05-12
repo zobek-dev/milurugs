@@ -1,0 +1,63 @@
+<div class="wrapper">
+  <div class="grid grid-cols-1 lg:grid-cols-2 grid-rows-1 items-center lg:gap-x-12 lg:gap-y-0 gap-y-8 py-2 my-4 lg:py-4 lg:my-8"> 
+    <div class="col-span-1 lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2">
+      <h1 class="font-livvic font-medium text-[30px] xl:text-[35px] uppercase tracking-[2.5px] mb-4 leading-none">Somos milú rugs</h1>
+      <p class="text-[13px] lg:text-sm tracking-[1px] mb-4">
+        Cuando comenzamos en el mundo de las alfombras, nos encontramos con infinitas alternativas de creación, diseño y materialidades naturales que junto a nuestras inspiraciones de diseño lograrían un sello único y atemporal.
+      </p>
+      <ul class="mb-12">
+        <li class="mb-4 grid items-center gap-4" style="grid-template-columns: 88px auto auto;">
+          <div class="col-span-1">
+            {% render 'svg-manos-corazon' %}
+          </div>
+          <span class="text-[13px] lg:text-sm tracking-[1px] col-span-2">Todas nuestras alfombras son <strong>hechas a mano</strong> elaboradas con fibras naturales, por lo que cuidar tu MILÚ es fundamental.</span>
+        </li>
+        <li class="mb-4 grid items-center gap-4" style="grid-template-columns: 88px auto auto;">
+          <div class="col-span-1">
+            {% render 'svg-rama', class: 'w-[61px] h-[81px]' %}
+          </div>
+          <span class="text-[13px] lg:text-sm tracking-[1px] col-span-2">Al comprar una MILÚ, estás apoyando el comercio justo y la utilización de <strong>materiales nobles y sustentables.</strong></span>
+        </li>
+        <li class="mb-4 grid items-center gap-4" style="grid-template-columns: 88px auto auto;">
+          <div class="col-span-1">
+            {% render 'svg-alfombra' %}
+          </div>
+          <span class="block mx-auto lg:mx-0 max-w text-[13px] lg:text-sm tracking-[1px] col-span-2">Nuestras allfombras están lejos de cualquier proceso industrial, muchas son únicas en su color y tejido al ser cada una un <strong>producto 100% artesanal.</strong></span>
+        </li>
+      </ul>
+      <a href="/pages/nosotras" class="mx-auto font-semibold lg:mx-0 text-sm tracking-[1px] block py-1 w-max uppercase border-b border-black transition-opacity duration-500 ease-out hover:opacity-50">
+        Conócenos más +
+      </a>
+    </div>
+    <div class="col-span-1 lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-2 rounded-[25px] overflow-hidden">
+      <img 
+        src="{{ section.settings.image | img_url: '600x' }}" 
+        alt="{{ section.settings.image.alt }}" 
+        width="{{ section.settings.image.width }}" 
+        height="{{ section.settings.image.height }}"
+        loading="lazy"
+        class="object-cover object-center aspect-square" 
+      >
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Somos milu",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen para somos milu"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Somos Milu",
+      "category": "text"
+    }
+  ]
+}
+{% endschema %}

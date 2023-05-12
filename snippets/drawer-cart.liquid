@@ -1,0 +1,77 @@
+<div class="drawer-cart" id="drawer-cart">
+  <div class="cart-drawer">
+    <div class="drawer-cart__overlay"></div>
+    <div class="drawer-cart__inner overflow-y-scroll" role="dialog" aria-modal="true" aria-label="Carrito" tabindex="-1">
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="text-2xl font-modelica-medium font-medium uppercase tracking-[1.5px] font">Tú Carrito</h2>
+        <button id="close-drawer-cart" aria-label="Cerrar menú">
+          <span class="sr-only">Cerrar menú</span>
+          <svg class="h-[28px] w-[28px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="flex-1 overflow-y-scroll">
+        {% render 'cart-form' %}
+      </div>
+          
+      <div class="{% if cart == empty %}hidden{% endif %} pt-4 boder-t border-gray-400" id="drawer-cart-footer">
+        <div>
+          <form action="{{ routes.cart_add_url }}" method="POST" id="Prod_Upselling">
+            <input type="hidden" name="quantity" value="1">
+            <input type="hidden" name="id" value="">
+          </form>
+          <h3 class="mb-2 flex justify-between items-center text-sm tracking-[1.5px] uppercase">No olvides agregar tu home spray</h3>
+          <ul class="flex gap-x-4">
+            {% assign upselling = collections[section.settings.coll].products %}
+            {% for prod in upselling %}
+              <li>
+                <img 
+                src="{{ prod.featured_image | image_url: width: 60 }}" 
+                alt="{{ prod.title | escape }}" 
+                loading="lazy" 
+                width="60"
+                class="mx-auto" 
+                height="{{ 60 | divided_by: prod.image | ceil }}"
+                />
+                <span class="block line-clamp-2 text-center uppercase font-medium text-xs leading-tight tracking-[1.5px] my-1">{{ prod.title | escape }}</span>
+                <span class="block text-center text-xs font-light">{{ prod.price | money }}</span>
+                <button class="btn-upselling block my-2 mx-auto bg-[#A8A191] w-max py-2 px-4 text-[#fff] tracking-[1.5px] font-semibold text-xs uppercase transition-opacity duration-200 ease-in-out hover:opacity-70" data-id="{{ prod.selected_or_first_available_variant.id }}">
+                  Agregar 
+                </button>
+              </li>
+            {% endfor %}
+          </ul>
+        </div> 
+        <details class="document-type">
+          <summary class="my-4 flex justify-between items-center text-sm tracking-[1.5px] uppercase cursor-pointer">
+            <span>Comprar con factura</span>
+            {% render 'svg-caret', class: 'w-[12px]' %}
+          </summary>
+          <div class="my-4">
+            <h4 class="mb-2 uppercase tracking-[1.5px] font-medium text-xs">Tipo de documento</h4>
+            <div id="document-selector">
+              {% render 'billing-selector' %}
+            </div>
+            <div id="shipping">
+              <h4 class="py-4 uppercase tracking-[1.5px] font-medium text-xs">Dirección de envío</h4>
+              {% render 'shipping-selector' %}
+            </div>
+          </div>
+        </details>
+        <div class="flex justify-between items-center">
+          <span class="font-modelica-medium uppercase font-bold text-base tracking-[1.5px]">Subtotal:</span>
+          <span id="drawer-cart-total" class="text-base font-bold">{{ cart.total_price | money }}</span>
+        </div>
+        <div class="mt-4 flex items-center gap-1">
+          <input type="checkbox" id="Check-Terms" class="accent-black">
+          <label for="Check-Terms" class="text-[10px] sm:text-xs tracking-[1.5px]">He leído y acepto los<a href="/pages/terminos-y-condiciones" target="_blank" class="underline transition-opacity duration-500 ease-in-out hover:opacity-70 font-semibold"> términos y condiciones de servicio</a></label>
+        </div>
+        <div class="flex flex-col gap-y-1 mt-4">
+          <button type="submit" name="checkout" form="Cart-Drawer-Form" aria-label="Ir a pantallas de pago" role="button" class="w-full block bg-black text-white uppercase tracking-[1.5px] py-2 px-4 border border-transparent text-sm font-medium transition-all duration-500 ease-in-out hover:opacity-50" disabled>Ir a pagar</button>
+          <button aria-label="cerrar drawer cart" id="drawer-continue-shopping" role="button" class="w-full block bg-transparent text-black uppercase tracking-[1.5px] py-2 px-4 border border-black transition-opacity text-sm font-medium duration-500 ease-in-out hover:opacity-50">Continuar comprando</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<billing-selector>
+  <div class="flex gap-4 items-center">
+    <span>
+      <input type="radio" name="attributes[shoppingcart-tags]" value="boleta" class="accent-black" id="Documento-Boleta" form="Cart-Drawer-Form" checked>
+      <label class="text-xs tracking-[1.5px]" for="Documento-Boleta">Boleta</label>
+    </span>
+    <span>
+      <input type="radio" name="attributes[shoppingcart-tags]" value="factura" class="accent-black" form="Cart-Drawer-Form" id="Documento-Factura">
+      <label class="text-xs tracking-[1.5px]" for="Documento-Factura">Factura</label>
+    </span>
+  </div>
+  <div id="billing-form" class="hidden py-4">
+    <h3 class="uppercase text-xs tracking-[1.5px] mb-4">Datos de facturación</h3>
+    <div class="mb-2 flex flex-col">
+      <label for="rut" class="uppercase text-xs font-medium tracking-[1.5px] mb-1">RUT</label>
+      <input id="rut" type="text" name="attributes[RUT]" placeholder="Ingresa el RUT" value="{{ cart.attributes["RUT"] }}" form="Cart-Drawer-Form" class="p-2 text-xs font-medium">
+    </div>
+    <div class="mb-2 flex flex-col">
+      <label for="razon" class="uppercase text-xs font-medium tracking-[1.5px] mb-1">Razón social</label>
+      <input id="razon" type="text" name="attributes[razon]" placeholder="Ingresa tu Razón Social" value="{{ cart.attributes["razon"] }}" form="Cart-Drawer-Form" class="p-2 text-xs font-medium">
+    </div>
+    <div class="mb-2 flex flex-col">
+      <label for="giro" class="uppercase text-xs font-medium tracking-[1.5px] mb-1">Giro</label>
+      <input id="giro" type="text" name="attributes[giro]" placeholder="Ingresa tu Giro" value="{{ cart.attributes["giro"] }}" form="Cart-Drawer-Form" class="p-2 text-xs font-medium">
+    </div>
+    <div class="py-2 hidden" id="user-message">
+      <span class="text-red-700 text-xs"></span>
+    </div>
+  </div>
+</billing-selector>

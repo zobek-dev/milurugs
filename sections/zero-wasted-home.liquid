@@ -1,0 +1,40 @@
+<div class="w-full h-[400px] lg:h-[450px] bg-no-repeat lg:bg-fixed bg-cover bg-center relative my-8" style="background-image: url({{ section.settings.image | img_url: 'master' }})">
+  <div class="absolute w-full h-full bg-[rgba(0,0,0,.3)] text-white flex flex-col justify-center">
+    <div class="wrapper">
+      <div class="flex flex-col items-start justify-center">
+        <h2 class="font-livvic font-medium text-[25px] lg:text-[55px] tracking-[1.5px] uppercase sm:w-max-[603px] leading-none mb-4">Zero<br> Waste Rugs</h2>
+        <p class="text-[13px] lg:text-base font-semibold tracking-[1px] mb-4 sm:max-w-[603px]">
+          Vendemos alfombras MILÚ usadas, que se encuentran en buen estado y le damos una segunda vida. Vender productos de segunda mano, refuerza el concepto ZERO WASTED o “BASURA CERO” aportando al medio ambiente reduciendo la basura que generamos.
+        </p>
+        <p class="text-[13px] lg:text-base font-semibold tracking-[1px] mb-4 sm:max-w-[603px]">
+          Encuentra en tienda nuestra pequeña colección 2ND LIFE RUGS.
+        </p>
+        <a href="{{ section.settings.link }}" class="block bg-[#171A20] uppercase tracking-[2.5px] font-semibold w-max text-sm mx-auto mt-4 px-8 py-2 sm:mx-0 transition-opacity duration-500 ease-in-out hover:opacity-75">Más sobre zero wasted</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Zero Wasted Home",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen de fondo"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link de la sección"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Zero Wasted Home",
+      "category": "text"
+    }
+  ]
+}
+{% endschema %}

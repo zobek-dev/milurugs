@@ -1,0 +1,88 @@
+.header-grid{
+  display:grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-areas: "drawer-menu logo icons";
+  align-items: center;
+}  
+
+@media(min-width: 1280px){
+  .header-grid{
+    grid-template-columns: 150px 3fr 150px;
+    grid-template-areas: "logo inline-menu icons"
+  }
+}
+
+.drawer-menu{
+  grid-area: drawer-menu;
+  @apply block xl:hidden;
+}
+
+.logo{
+  grid-area: logo;
+  @apply flex justify-center xl:justify-start;
+}
+
+.inline-menu{
+  grid-area: inline-menu;
+  @apply hidden xl:block;
+}
+
+.icons{
+  grid-area: icons;
+  @apply flex justify-end gap-x-2
+}
+
+.inline-list{
+  @apply flex gap-x-8 items-center w-max mx-auto;
+}
+
+.drawer-layout{
+  @apply ease-in-out duration-500 opacity-0;
+}
+
+.drawer-layout.open{
+  @apply opacity-100;
+}
+
+.drawer-dialog{
+  @apply z-[99] invisible transition-all duration-500 ease-in-out;
+}
+
+.drawer-dialog.open{
+  @apply visible;
+}
+
+.drawer-container{
+  @apply transform transition ease-in-out duration-500 sm:duration-700 -translate-x-full;
+}
+ 
+.drawer-container.open{
+  @apply translate-x-0;
+}
+
+.submenu__detail > summary > .icon-minus{
+  @apply hidden;
+}
+
+.submenu__detail > summary > .icon-plus{
+  @apply block;
+}
+
+.submenu__detail[open] > summary > .icon-minus{
+  @apply block;
+}
+
+.submenu__detail[open] > summary > .icon-plus{
+  @apply hidden;
+}
+
+
+.inline__submenu-item > details[open] > summary > .plus{
+  @apply hidden;
+}
+
+.inline__submenu-item > details[open] > summary > .minus{
+  @apply block;
+}
+
+

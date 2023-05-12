@@ -1,0 +1,19 @@
+.search-modal{
+  @apply fixed invisible z-[999] left-0 top-0 w-[100vw] h-full flex flex-col justify-start transition-all duration-200 ease-in-out bg-gray-500 bg-opacity-75;
+}
+
+.search-modal.active{
+  @apply visible;
+}
+
+.search-modal__overlay{
+  @apply block fixed top-0 right-0 left-0 bottom-0;
+}
+
+.search-modal__inner{
+  @apply w-[100vw] h-[100px] border-b border-gray-400 flex bg-[#E5E1D8] -translate-y-full transition-transform duration-200 ease-in-out px-[5%];
+}
+
+.search-modal.active .search-modal__inner{
+  @apply translate-y-0;
+} 

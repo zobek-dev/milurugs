@@ -1,0 +1,103 @@
+<div class="wrapper">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 my-4 py-4 lg:my-8 lg:py-8">
+    <div class="col-span-1  flex flex-col justify-center">
+      <h2 class="font-livvic text-[25px] lg:text-[30px] tracking-[1.5px] mb-8 uppercase leading-none">Alfombras<br> hechas a mano</h2>
+      <p class="tracking-[1px] text-sm mb-4">
+        Cada una de las alfombras de nuestras colecciones propias tiene un mundo detrás, un camino desde la idea, los bocetos, elección de colores y pruebas de técnicas y combinaciones. Nos inspiramos, conversamos, pensamos en los gustos de nuestros clientes y en las tendencias en decoración alrededor del mundo. En cada etapa del diseño salen ideas nuevas que incorporamos y vamos desarrollando hasta lograr el resultado que buscamos y es ahí cuando el protagonismo de estos procesos lo tienen nuestros equipos de artesanas y artesanos.
+      </p>
+      <p class="tracking-[1px] text-sm mb-4">
+        Valoramos inmensamente su trabajo en cada parte del proceso, desde el momento en que en conjunto revisamos pruebas y muestras de nuestros diseños hasta cuando cada una de nuestras alfombras está lista para ser enviada a nuestra tienda.
+      </p>
+      <p class="tracking-[1px] text-sm mb-4">
+        ¡Cada parte del proceso es única, es detallada y artesanal!
+      </p>
+    </div>
+    <div class="col-span-1 flex justify-center items-center">
+      <img 
+        src="{{ section.settings.image_procesos | img_url: 'master' }}" 
+        alt="{{ section.settings.image_procesos.alt }}" 
+        width="{{ section.settings.image_procesos.width }}" 
+        height="{{ section.settings.image_procesos.height }}" 
+        loading="lazy"
+      >
+    </div>
+  </div>
+  <div class="my-4 py-2 lg:my-8 lg:py-4 w-full lg:w-10/12 mx-auto">
+   <h3 class="font-livvic italic text-[24px] lg:text-[30px] leading-tight tracking-[1.5px] text-center">
+    "Nuestras alfombras son completamente artesanales, no trabajamos con procesos industriales o masivos. Al contrario,cada alfombra es única y tiene a alguien detrás que se ha preocupado de obtener los resultados que hoy ven en nuestras colecciones."
+   </h3>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 mt-4 pt-4 lg:mt-8 lg:pt-8">
+    <div class="col-span-1">
+      <img 
+        src="{{ section.settings.second_image | img_url: 'master' }}" 
+        alt="{{ section.settings.second_image.alt }}" 
+        width="{{ section.settings.second_image.width }}" 
+        height="{{ section.settings.second_image.height }}" 
+        loading="lazy"
+      >
+    </div>
+    <div class="col-span-1 flex flex-col justify-center lg:justify-end items-start">
+      <p class="tracking-[1px] text-sm mb-4">
+        El teñido de las lanas es de manera manual, con herramientas y sistemas artesanales propios de cada uno de nuestros talleres, técnicas que se han heredado de una generación a otra y se mantienen gracias a la dedicación de cada uno de los artesanos que las aplica y mantiene vivas.
+      </p>
+      <p class="tracking-[1px] text-sm mb-4">
+        El secado de las fibras ya teñidas es un proceso natural, donde la fibra absorbe el color y toma su tiempo en mostrar el tono definitivo que se lucirá en cada alfombra. Los tejidos son mágicos, tienen cada uno su propia técnica y tipo de telar, hay trenzados a mano, costuras y detalles de cortes y terminaciones que se hacen paso a paso para que cada detalle sea perfecto.
+      </p>
+    </div>
+  </div>
+  <div class="my-4 py-2 lg:my-8 lg:py-8">
+    {%- comment -%} <img 
+      src="{{ section.settings.third_image | img_url: 'master' }}" 
+      alt="{{ section.settings.third_image.alt }}" 
+      width="{{ section.settings.third_image.width }}" 
+      height="{{ section.settings.third_image.height }}" 
+      loading="lazy"
+      class="block mx-auto"
+    > {%- endcomment -%}
+    {%- comment -%} {% if section.settings.video_url != blank%}
+      <video autoplay loop muted playsinline>
+        <source src="{{ section.settings.video_url }}" type="video/mp4">
+        No se puede reproducir video en tu navegador
+      </video>
+    {% else %}
+      <img 
+        src="{{ section.settings.third_image | img_url: 'master' }}" 
+        alt="{{ section.settings.third_image.alt }}" 
+        width="{{ section.settings.third_image.width }}" 
+        height="{{ section.settings.third_image.height }}" 
+        loading="lazy"
+        class="block mx-auto"
+      /> 
+    {% endif %} {%- endcomment -%}
+    <div style="padding:75% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/769123326?h=731af5e73a&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Weaving Process"></iframe></div><script src="https://player.vimeo.com/api/player.js" defer></script>
+  </div>
+</div> 
+
+{% schema %}
+{
+  "name": "Main Nuestros Procesos",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_procesos",
+      "label":"Imagen para alfombra Hecha a mano"
+    },
+    {
+      "type": "image_picker",
+      "id": "second_image",
+      "label": "Imagen de la segunda sección"
+    },
+    {
+      "type": "image_picker",
+      "id": "third_image",
+      "label": "Imagen final"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "Insertar url del video (https://url-del-video)"
+    }
+  ]
+}
+{% endschema %}

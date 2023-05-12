@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "heading": {
+      "type": "heading-blog",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/blog.png"
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {}
+    }
+  },
+  "order": [
+    "heading",
+    "main"
+  ]
+}

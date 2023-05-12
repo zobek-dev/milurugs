@@ -1,0 +1,28 @@
+<shipping-selector>
+  <div class="flex flex-col mb-2">
+    <label for="select-province" class="uppercase text-xs font-medium tracking-[1.5px]">Región</label>
+    <select name="[shipping_address][city]" id="select-province" class="p-2 text-xs font-medium">
+      <option selected disabled>Selecciona una Region</option>
+      <option value="AP">Arica y Parinacota</option>
+      <option value="TA">Tarapacá</option>
+      <option value="AT">Atacama</option>
+      <option value="CO">Coquimbo</option>
+      <option value="VS">Valparaíso</option>
+      <option value="RM">Metropolitana</option>
+      <option value="LI">O'Higgins</option>
+      <option value="ML">Maule</option>
+      <option value="NB">Ñuble</option>
+      <option value="BI">Bíobío</option>
+      <option value="AR">Araucanía</option>
+      <option value="LR">Los Ríos</option>
+      <option value="LL">Los Lagos</option>
+      <option value="AI">Aysen</option>
+      <option value="MA">Magallanes</option>
+    </select>
+  </div>
+  <div class="flex-col hidden mb-2" id="comuna-interfase">
+    <label for="select-city" class="uppercase text-xs font-medium tracking-[1.5px]">Ciudad</label>
+    <select name="[shipping_address][province]" id="select-city" class="p-2 text-xs font-medium">
+    </select>
+  </div>
+</shipping-selector>
