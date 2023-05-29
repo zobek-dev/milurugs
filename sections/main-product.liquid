@@ -85,9 +85,28 @@
           </div>  
           <div>
             <h2 class="mb-4 font-livvic font-medium tracking-[1px] uppercase text-[20px] leading-[1.1]">Descripción</h2> 
-            <div class="description">
+            <div class="description mb-8">
               {{ product.description }}
             </div>
+
+            {% if section.settings.upsell_product != blank %}
+            <upsell-component>
+          <div>
+            <h2 class="my-4 text-[20px] tracking-[1.5px] font-livvic font-medium uppercase">Lleva tu Antideslizante</h2>
+            <div class="max-w-[150px]">
+              {% assign upsell_product = all_products[section.settings.upsell_product] %}
+              <form action="{{ routes.cart_add_url }}" method="POST" id="Form_{{ upsell_product.selected_or_first_available_variant.id }}">
+                <input type="hidden" name="id" value="{{ upsell_product.selected_or_first_available_variant.id }}">
+                <input type="hidden" name="quantity" value="1">
+              </form>
+              <img src="{{ upsell_product.featured_image | image_url: width: 100 }}" alt="{{ upsell_product.title | escape }}" width="100" height="{{ 100 | divided_by: upsell_product.featured_image.aspect_ratio | ceil }}" class="mx-auto" loading="lazy">
+              <span class="block text-sm uppercase tracking-[1.5px] font-medium my-2 leading-tight line-clamp-2 text-center">{{ upsell_product.title | escape }}</span>
+              <span class="block text-sm tracking-[1.5px] font-light text-center mb-2">{{ upsell_product.price | money }}</span>
+              <button type="submit" class="btn-upselling block my-1 mx-auto bg-[#A8A191] w-max py-2 px-4 text-[#fff] tracking-[1.5px] font-semibold text-xs uppercase transition-opacity duration-200 ease-in-out hover:opacity-70" name="add" form="Form_{{ upsell_product.selected_or_first_available_variant.id }}">Agregar</button>
+            </div>
+          </div>
+            </upsell-component>
+          {% endif %}
             <details class="border-t border-b border-gray-400 pr-4 pt-4 my-8 tab-size">
               <summary class="flex justify-between items-center cursor-pointer pb-4">
                 <span class="uppercase text-sm tracking-[1.5px] font-bold pr-4">Cambios o Devoluciones</span>
@@ -116,24 +135,6 @@
             {% endif %}  
           {% endfor %}
         </div>
-        {% if section.settings.upsell_product != blank %}
-      <upsell-component>
-        <div>
-          <h2 class="my-4 text-[20px] tracking-[1.5px] font-livvic font-medium uppercase">Lleva tu Antideslizante</h2>
-          <div class="max-w-[150px]">
-            {% assign upsell_product = all_products[section.settings.upsell_product] %}
-            <form action="{{ routes.cart_add_url }}" method="POST" id="Form_{{ upsell_product.selected_or_first_available_variant.id }}">
-              <input type="hidden" name="id" value="{{ upsell_product.selected_or_first_available_variant.id }}">
-              <input type="hidden" name="quantity" value="1">
-            </form>
-            <img src="{{ upsell_product.featured_image | image_url: width: 100 }}" alt="{{ upsell_product.title | escape }}" width="100" height="{{ 100 | divided_by: upsell_product.featured_image.aspect_ratio | ceil }}" class="mx-auto" loading="lazy">
-            <span class="block text-sm uppercase tracking-[1.5px] font-medium my-2 leading-tight line-clamp-2 text-center">{{ upsell_product.title | escape }}</span>
-            <span class="block text-sm tracking-[1.5px] font-light text-center mb-2">{{ upsell_product.price | money }}</span>
-            <button type="submit" class="btn-upselling block my-1 mx-auto bg-[#A8A191] w-max py-2 px-4 text-[#fff] tracking-[1.5px] font-semibold text-xs uppercase transition-opacity duration-200 ease-in-out hover:opacity-70" name="add" form="Form_{{ upsell_product.selected_or_first_available_variant.id }}">Agregar</button>
-          </div>
-        </div>
-      </upsell-component>
-      {% endif %}
       </div>
   </div>
 </product-main>

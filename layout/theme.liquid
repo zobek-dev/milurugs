@@ -82,9 +82,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   
 </head>
-<body class="font-quicksand bg-[#E5E1D8] {% if template == 'index' %}overflow-x-hidden max-w-full{% endif %}">
+<body class="font-quicksand bg-white {% if template == 'index' %}overflow-x-hidden max-w-full{% endif %}">
     {% section 'announcement-bar' %}
-    {% section 'header' %}
+    {% section 'header' %} 
     <main id="MainContent" class="block min-h-[100vh]">
         {{ content_for_layout }}
     </main> 
