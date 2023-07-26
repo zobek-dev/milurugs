@@ -1,0 +1,60 @@
+<div class="wrapper my-8 lg:my-12">
+  <h2 class="uppercase font-livvic text-[26px] lg:text-[30px] tracking-[2.5px] mb-4">Cyber Milü</h2>
+  <ul class="grid grid-cols-2 md:grid-cols-4 gap-8"> 
+    {% for block in section.blocks %}
+      <li class="relative group">
+        {% if block.settings.image != blank %}
+          {{ block.settings.image | image_url: width: 300 | image_tag: loading: 'lazy', alt: block.settings.title, class: 'transition-opacity ease-linear duration-150 group-hover:opacity-70' }}
+        {% else %}
+          {{ 'product-1' | placeholder_svg_tag }}
+        {% endif %}
+        {% if block.settings.link != blank %}
+          <a href="{{ block.settings.link }}" class="absolute top-0 left-0 right-0 bottom-0 z-[9]"></a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% schema %}
+  {
+    "name": "Descuentos",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Título de la sección",
+        "default": "Lorem ipsum dolor"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "discount",
+        "name": "Descuento",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Imagen para descuento."
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Título del descuento."
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link de la colección."
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Descuentos"
+      }
+    ]
+  }
+{% endschema %}

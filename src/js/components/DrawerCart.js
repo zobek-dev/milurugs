@@ -92,6 +92,7 @@ export default class DrawerCart extends HTMLElement{
   }
 
   addToCart(form){
+    console.log(form)
     let formData = new FormData(form);
     this.loader.classList.remove('hidden');
     this.loader.classList.add('flex');

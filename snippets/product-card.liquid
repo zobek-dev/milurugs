@@ -30,6 +30,11 @@
           Agotado
         </div>
       {% endunless %}
+      {% if on_sale and settings.cyber %}
+        <span class="block absolute top-2 right-2 z-[9]">
+          {% render 'icon-cyber', class: '' %}
+        </span>
+      {% endif %}
       {%- comment -%} {% unless no_friday and on_sale %}
         <div class="absolute top-2 left-2 z-[9] bg-[#121212]">
           {% render 'svg-blackfriday', class: 'w-[88px] h-[32.8px] lg:w-[121px] lg:h-[45px]' %}

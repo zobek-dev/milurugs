@@ -62,5 +62,16 @@
         "info": "Inserta el link de tu canal de youtube ej: https:\/\/youtube.com\/mediahuella"
       }
     ]
+  },
+  {
+    "name": "Cyber",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cyber",
+        "label": "Activar icono de cyber",
+        "default": false
+      }
+    ]
   }
 ]
