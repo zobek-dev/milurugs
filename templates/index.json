@@ -7,18 +7,39 @@
     "1663774475734792c4": {
       "type": "slideshow",
       "blocks": {
-        "f9b347f5-07fd-4d5e-a195-e8745bf0e035": {
+        "cb60fe55-c398-426c-808f-9258cac7be0b": {
           "type": "slide",
           "settings": {
-            "image_mobile": "shopify:\/\/shop_images\/55555.png",
-            "image_tablet": "shopify:\/\/shop_images\/5555.png",
-            "image_desktop": "shopify:\/\/shop_images\/555.png",
+            "image_mobile": "shopify:\/\/shop_images\/003_e1383e42-fe6e-4f9b-8141-c66b03c0e788.png",
+            "image_tablet": "shopify:\/\/shop_images\/002_2200d8da-8f5a-47fe-a683-f49d005855c2.png",
+            "image_desktop": "shopify:\/\/shop_images\/004_4294ae3e-1c23-421e-9ac9-e980e5c5c21c.png",
+            "link": "shopify:\/\/collections\/tencel",
+            "alt_text": ""
+          }
+        },
+        "36eb6fe9-8826-48c7-bd3d-887879f434f7": {
+          "type": "slide",
+          "settings": {
+            "image_mobile": "shopify:\/\/shop_images\/006.png",
+            "image_tablet": "shopify:\/\/shop_images\/Mesa_de_trabajo_32.png",
+            "image_desktop": "shopify:\/\/shop_images\/005.png",
+            "link": "shopify:\/\/collections",
+            "alt_text": ""
+          }
+        },
+        "687f323f-6ed6-46b2-81f6-91a58b9f06d9": {
+          "type": "slide",
+          "settings": {
+            "image_mobile": "shopify:\/\/shop_images\/07.png",
+            "image_tablet": "shopify:\/\/shop_images\/06.png",
+            "image_desktop": "shopify:\/\/shop_images\/04.png",
             "link": "shopify:\/\/collections\/all",
             "alt_text": ""
           }
         },
         "bee52cc6-2f64-4473-91ec-d1cad832965e": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image_mobile": "shopify:\/\/shop_images\/Web_1920_11.png",
             "image_tablet": "shopify:\/\/shop_images\/Web_1920_9.png",
@@ -27,78 +48,25 @@
             "alt_text": ""
           }
         },
-        "315ddd1f-a85d-4f88-9b3b-098c7609027f": {
+        "2b2190ae-b050-4b44-a93b-c7f3ad59f643": {
           "type": "slide",
+          "disabled": true,
           "settings": {
-            "image_mobile": "shopify:\/\/shop_images\/Web_1920_12_207ed900-650f-4cd6-8a7c-11fe2981ff90.png",
-            "image_tablet": "shopify:\/\/shop_images\/Web_1920_10_26319597-5d74-481b-81d7-91cad6c91af2.png",
-            "image_desktop": "shopify:\/\/shop_images\/Web_1920_8_388a1267-206b-4377-8e51-b043a42ddc23.png",
-            "link": "https:\/\/www.milurugs.com\/collections\/tencel",
+            "image_mobile": "shopify:\/\/shop_images\/Web_1920_13_31373b6e-0dd7-4c08-a398-fe2bc92637ab.png",
+            "image_tablet": "shopify:\/\/shop_images\/Web_1920_11_13562b51-c4cb-4ad8-8012-7d51b7f2d175.png",
+            "image_desktop": "shopify:\/\/shop_images\/Web_1920_9_7515ede1-80e3-44c2-80e9-97b239a8da74.png",
+            "link": "shopify:\/\/collections\/polipropileno",
             "alt_text": ""
           }
         },
         "5e28feeb-d091-4231-98ee-8df6667f8efa": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image_mobile": "shopify:\/\/shop_images\/banner_milurugs-07.png",
             "image_tablet": "shopify:\/\/shop_images\/banner_milurugs-06.png",
             "image_desktop": "shopify:\/\/shop_images\/banner_milurugs-05_ee77baef-8380-46c1-9385-92ed0235c079.png",
             "link": "shopify:\/\/collections\/lana",
-            "alt_text": ""
-          }
-        },
-        "400ad0e6-ddd1-47f9-bb19-36d3fd938e36": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image_mobile": "shopify:\/\/shop_images\/iPhone_14_Pro_2.png",
-            "image_tablet": "shopify:\/\/shop_images\/iPhone_14_Pro_1.png",
-            "image_desktop": "shopify:\/\/shop_images\/Web_1920_3.png",
-            "link": "shopify:\/\/collections\/last",
-            "alt_text": ""
-          }
-        },
-        "45a64cad-5357-4515-91aa-edbaedf4df6c": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image_mobile": "shopify:\/\/shop_images\/m3.jpg",
-            "image_tablet": "shopify:\/\/shop_images\/m2.jpg",
-            "image_desktop": "shopify:\/\/shop_images\/m-1.jpg",
-            "link": "shopify:\/\/collections\/all",
-            "alt_text": ""
-          }
-        },
-        "444e356a-c831-4bf2-a17d-5556da8ad730": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image_mobile": "shopify:\/\/shop_images\/banner_milurugs-03.png",
-            "image_tablet": "shopify:\/\/shop_images\/banner_milurugs_v-02.jpg",
-            "image_desktop": "shopify:\/\/shop_images\/banner_milurugs-01.jpg",
-            "link": "shopify:\/\/collections\/polipropileno",
-            "alt_text": ""
-          }
-        },
-        "406bfde3-28b1-458a-953c-6b6b60079084": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image_mobile": "shopify:\/\/shop_images\/Web_1920_3.jpg",
-            "image_tablet": "shopify:\/\/shop_images\/Web_1920_1.jpg",
-            "image_desktop": "shopify:\/\/shop_images\/Mesa_de_trabajo_2.jpg",
-            "link": "shopify:\/\/collections\/canamo",
-            "alt_text": ""
-          }
-        },
-        "62396003-1546-4306-a35e-aa89443bbe31": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image_mobile": "shopify:\/\/shop_images\/D2_4eba3071-f894-4212-9881-f1be79233f9b.jpg",
-            "image_tablet": "shopify:\/\/shop_images\/banner_tablet.png",
-            "image_desktop": "shopify:\/\/shop_images\/Diseno_sin_titulo.png",
-            "link": "shopify:\/\/collections\/tencel",
             "alt_text": ""
           }
         },
@@ -112,33 +80,75 @@
             "link": "shopify:\/\/collections\/all",
             "alt_text": ""
           }
+        }
+      },
+      "block_order": [
+        "cb60fe55-c398-426c-808f-9258cac7be0b",
+        "36eb6fe9-8826-48c7-bd3d-887879f434f7",
+        "687f323f-6ed6-46b2-81f6-91a58b9f06d9",
+        "bee52cc6-2f64-4473-91ec-d1cad832965e",
+        "2b2190ae-b050-4b44-a93b-c7f3ad59f643",
+        "5e28feeb-d091-4231-98ee-8df6667f8efa",
+        "fc4b2a43-79f6-4349-af7e-28eb52843476"
+      ],
+      "settings": {}
+    },
+    "df25bd33-5a42-4595-b23a-d137c502c4c1": {
+      "type": "disccounts-home",
+      "disabled": true,
+      "blocks": {
+        "e6878c7b-052a-47bf-9cde-484fe384e14e": {
+          "type": "discount",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_cb8d5326-de90-4c57-881f-c3fc12f34c40.png",
+            "title": "",
+            "link": "shopify:\/\/collections\/20-de-descuento"
+          }
         },
-        "a15c8fab-3c5e-4cca-ae2c-6b6f8ed36249": {
-          "type": "slide",
+        "1432ddd7-b2e9-4657-a561-a77e529a070c": {
+          "type": "discount",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3_c868c797-11a3-44d8-8130-0ed357768059.png",
+            "title": "",
+            "link": "shopify:\/\/collections\/40-de-descuento"
+          }
+        },
+        "a206a5a5-c2f9-4943-b49f-7deda7f120c5": {
+          "type": "discount",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4.png",
+            "title": "",
+            "link": "shopify:\/\/collections\/50-de-descuento"
+          }
+        },
+        "e425854d-7320-4f78-8f3b-a8992f5f15ea": {
+          "type": "discount",
           "disabled": true,
           "settings": {
-            "image_mobile": "shopify:\/\/shop_images\/01m_0ed98d8b-de45-4882-ac62-80c03681231e.png",
-            "image_tablet": "shopify:\/\/shop_images\/01t_1.png",
-            "image_desktop": "shopify:\/\/shop_images\/01d_73d89fc6-c421-47b5-a971-a4dbd5855a6b.png",
-            "link": "shopify:\/\/collections\/preventa",
-            "alt_text": "Ver collección 2022, Encuentra el estilo que te identifica"
+            "image": "shopify:\/\/shop_images\/5.png",
+            "title": "",
+            "link": "shopify:\/\/collections\/60-de-descuento"
+          }
+        },
+        "bcc6d5aa-4b64-4407-ad0b-dd8c53d6a5a1": {
+          "type": "discount",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_04486fdb-8faf-4bbd-b3f0-1985e5b00b86.png",
+            "title": "",
+            "link": "shopify:\/\/collections\/70-de-descuento"
           }
         }
       },
       "block_order": [
-        "f9b347f5-07fd-4d5e-a195-e8745bf0e035",
-        "bee52cc6-2f64-4473-91ec-d1cad832965e",
-        "315ddd1f-a85d-4f88-9b3b-098c7609027f",
-        "5e28feeb-d091-4231-98ee-8df6667f8efa",
-        "400ad0e6-ddd1-47f9-bb19-36d3fd938e36",
-        "45a64cad-5357-4515-91aa-edbaedf4df6c",
-        "444e356a-c831-4bf2-a17d-5556da8ad730",
-        "406bfde3-28b1-458a-953c-6b6b60079084",
-        "62396003-1546-4306-a35e-aa89443bbe31",
-        "fc4b2a43-79f6-4349-af7e-28eb52843476",
-        "a15c8fab-3c5e-4cca-ae2c-6b6f8ed36249"
+        "e6878c7b-052a-47bf-9cde-484fe384e14e",
+        "1432ddd7-b2e9-4657-a561-a77e529a070c",
+        "a206a5a5-c2f9-4943-b49f-7deda7f120c5",
+        "e425854d-7320-4f78-8f3b-a8992f5f15ea",
+        "bcc6d5aa-4b64-4407-ad0b-dd8c53d6a5a1"
       ],
-      "settings": {}
+      "settings": {
+        "title": "Lorem ipsum dolor"
+      }
     },
     "166421690781dd4bd6": {
       "type": "featured-products",
@@ -312,6 +322,7 @@
   "order": [
     "main",
     "1663774475734792c4",
+    "df25bd33-5a42-4595-b23a-d137c502c4c1",
     "166421690781dd4bd6",
     "16638459636617b081",
     "166378393330513b1b",

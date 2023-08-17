@@ -3,7 +3,7 @@
     "favicon": "shopify:\/\/shop_images\/negro.png",
     "social_facebook_link": "https:\/\/www.facebook.com\/milurugs",
     "social_instagram_link": "https:\/\/www.instagram.com\/milurugs\/",
-    "cyber": true,
+    "cyber": false,
     "checkout_logo_image": "shopify:\/\/shop_images\/LOGO-MILU-EN-ALTA-SIN-FONDO_b62a09cd-3ddf-4fed-82a1-71c7d5637bd5.gif",
     "checkout_logo_position": "center",
     "checkout_logo_size": "large",

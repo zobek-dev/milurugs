@@ -32,7 +32,7 @@
       <form action="{{ routes.cart_url }}" novalidate id="Cart-Drawer-Form" method="post">
         <div>
           <table role="table" class="w-full block">
-            <thead role="rowgroup" class="inline-table w-full sticky top-0 z-[9999]  bg-[#E5E1D8] border-b border-gray-200">
+            <thead role="rowgroup" class="inline-table w-full sticky top-0 z-[9999]  bg-white border-b border-gray-200">
               <tr role="row">
                 <th role="columnheader" class="w-0 p-0 pb-4">
                   <span class="sr-only">Imagen del producto</span>
@@ -61,7 +61,7 @@
                     <a href="{{ item.url }}" class="text-sm lg:text-base uppercase tracking-[1.5px] font-medium mb-2 block leading-tight line-clamp-2">{{ item.product.title | escape }}
                     </a>
 
-                    {% if item.original_price != item.final_price %}
+                    {% comment %} {% if item.original_price != item.final_price %}
                       <div class="flex items-center gap-1">
                         <s class="text-xs tracking-[1.5px] font-light">
                           {{ item.origina_price | money }}
@@ -74,7 +74,7 @@
                       <div class="text-sm tracking-[1.5px] font-light">
                         {{ item.original_price | money }}
                       </div>
-                    {% endif %}
+                    {% endif %} {% endcomment %}
                   </td>
                   <td role="cell" class="cart-item__price-wrapper flex justify-end pt-2">
                     {% if item.original_line_price != item.final_line_price %}

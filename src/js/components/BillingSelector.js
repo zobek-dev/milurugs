@@ -1,7 +1,7 @@
 class BillingSelector extends HTMLElement{
   constructor(){
     super();
-    this.inputs = this.querySelectorAll('input[id^="Documento-"]');
+    this.inputs = this.querySelectorAll('select[id^="Documento-"]');
     this.interfase = this.querySelector('#billing-form');
     this.userMessage = this.querySelector('#user-message');
     this.rut = this.querySelector('input#rut')

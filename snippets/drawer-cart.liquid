@@ -47,19 +47,18 @@
         </div>
         {% endcomment %} 
         <details class="document-type" open>
-          <summary class="my-4 flex justify-between items-center text-sm tracking-[1.5px] uppercase cursor-pointer">
-            <span>Comprar con factura</span>
+          <summary class="my-4 flex justify-between items-center tracking-[1.5px] uppercase cursor-pointer border-t border-gray-200 pt-4">
+            <span>¿Boleta o factura?</span>
             {% render 'svg-caret', class: 'w-[12px]' %}
           </summary>
           <div class="my-4">
-            <h4 class="mb-2 uppercase tracking-[1.5px] font-medium text-xs">Tipo de documento</h4>
             <div id="document-selector">
               {% render 'billing-selector' %}
             </div>
-            <div id="shipping">
+            {% comment %} <div id="shipping">
               <h4 class="py-4 uppercase tracking-[1.5px] font-medium text-xs">Dirección de envío</h4>
               {% render 'shipping-selector' %}
-            </div>
+            </div> {% endcomment %}
           </div>
         </details>
         <div class="flex justify-between items-center">

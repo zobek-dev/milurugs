@@ -11,7 +11,7 @@
 }
 
 .drawer-cart__inner{
-  @apply h-full w-[480px] max-w-[85vw] border-l border-gray-400 bg-[#E5E1D8] translate-x-full transition-transform duration-500 ease-in-out p-4 flex flex-col;
+  @apply h-full w-[480px] max-w-[85vw] border-l border-gray-200 bg-white translate-x-full transition-transform duration-500 ease-in-out p-4 flex flex-col;
 }
 
 .drawer-cart.active .drawer-cart__inner{
