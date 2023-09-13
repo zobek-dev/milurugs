@@ -2,7 +2,7 @@
   <div class="my-4 lg:my-8">
     <div class="wrapper">
       <div class="flex justify-between items-center mb-4">
-        <h2 class="uppercase font-livvic text-[26px] lg:text-[30px] tracking-[2.5px]">Colecciones</h2>
+        <h2 class="uppercase font-livvic text-[26px] lg:text-[30px] tracking-[2.5px]">{{ section.settings.title | escape }}</h2>
         <div class="flex gap-4">
           <button class="hidden lg:block disabled:opacity-25 transition-opacity duration-500 hover:opacity-50 ease-out" id="col-prev" aria-label="colección anterior">
             {% render 'svg-arrow', class: 'w-8 rotate-180' %}
@@ -44,6 +44,14 @@
 {
   "name": "Featured collections",
   "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Lorem ipsum dolor"
+    }
+  ], 
   "blocks": [ 
     {
       "name": "collection slide",

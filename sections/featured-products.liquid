@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="flex justify-between items-center ">
       <h2 class="font-livvic uppercase text-[26px] lg:text-[30px] tracking-[1.5px] my-4">
-        Rugs Destacadas
+        {{ section.settings.title | escape }}
       </h2>
       <div class="flex gap-4">
         <button aria-label="Avanzar un producto" class="hidden lg:block disabled:opacity-25 transition-opacity duration-500 hover:opacity-50 ease-out featured-prev">
@@ -40,6 +40,12 @@
       "type": "collection",
       "id": "coll",
       "label": "Coleccion destacada"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Lorem ipsum dolor"
     }
   ],
   "presets": [

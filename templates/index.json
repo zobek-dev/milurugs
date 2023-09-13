@@ -1,5 +1,53 @@
 {
   "sections": {
+    "166378393330513b1b": {
+      "type": "featured-collection",
+      "blocks": {
+        "e50beda6-2379-472a-bd76-0992f13516c0": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/living_53fe8423-87a4-4aa1-a991-2c3556cf0556.png",
+            "collection": "living"
+          }
+        },
+        "a51279c4-ce5f-4112-a6c3-22edc3bad663": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/comedor_1.png",
+            "collection": "comedor"
+          }
+        },
+        "37a1729f-64f9-4580-b1ec-284242ea3586": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/dormitorio_1.png",
+            "collection": "dormitorio"
+          }
+        },
+        "5e39de15-ccf6-449b-8d4e-91ad009eb950": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/terraza_1.png",
+            "collection": "terraza"
+          }
+        },
+        "67c92b65-6272-47d8-aca9-77cca0cef741": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/sala-de-estar_1.png",
+            "collection": "interior"
+          }
+        }
+      },
+      "block_order": [
+        "e50beda6-2379-472a-bd76-0992f13516c0",
+        "a51279c4-ce5f-4112-a6c3-22edc3bad663",
+        "37a1729f-64f9-4580-b1ec-284242ea3586",
+        "5e39de15-ccf6-449b-8d4e-91ad009eb950",
+        "67c92b65-6272-47d8-aca9-77cca0cef741"
+      ],
+      "settings": {}
+    },
     "main": {
       "type": "main-index",
       "settings": {}
@@ -91,11 +139,11 @@
         "5e28feeb-d091-4231-98ee-8df6667f8efa",
         "fc4b2a43-79f6-4349-af7e-28eb52843476"
       ],
+      "disabled": true,
       "settings": {}
     },
     "df25bd33-5a42-4595-b23a-d137c502c4c1": {
       "type": "disccounts-home",
-      "disabled": true,
       "blocks": {
         "e6878c7b-052a-47bf-9cde-484fe384e14e": {
           "type": "discount",
@@ -146,6 +194,7 @@
         "e425854d-7320-4f78-8f3b-a8992f5f15ea",
         "bcc6d5aa-4b64-4407-ad0b-dd8c53d6a5a1"
       ],
+      "disabled": true,
       "settings": {
         "title": "Lorem ipsum dolor"
       }
@@ -162,53 +211,15 @@
         "image": "shopify:\/\/shop_images\/web2.jpg"
       }
     },
-    "166378393330513b1b": {
-      "type": "featured-collection",
-      "blocks": {
-        "e50beda6-2379-472a-bd76-0992f13516c0": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/living_53fe8423-87a4-4aa1-a991-2c3556cf0556.png",
-            "collection": "living"
-          }
-        },
-        "a51279c4-ce5f-4112-a6c3-22edc3bad663": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/comedor_1.png",
-            "collection": "comedor"
-          }
-        },
-        "37a1729f-64f9-4580-b1ec-284242ea3586": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/dormitorio_1.png",
-            "collection": "dormitorio"
-          }
-        },
-        "5e39de15-ccf6-449b-8d4e-91ad009eb950": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/terraza_1.png",
-            "collection": "terraza"
-          }
-        },
-        "67c92b65-6272-47d8-aca9-77cca0cef741": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/sala-de-estar_1.png",
-            "collection": "interior"
-          }
-        }
-      },
-      "block_order": [
-        "e50beda6-2379-472a-bd76-0992f13516c0",
-        "a51279c4-ce5f-4112-a6c3-22edc3bad663",
-        "37a1729f-64f9-4580-b1ec-284242ea3586",
-        "5e39de15-ccf6-449b-8d4e-91ad009eb950",
-        "67c92b65-6272-47d8-aca9-77cca0cef741"
-      ],
-      "settings": {}
+    "beb613ec-dfc4-4677-9354-ce1cbe915386": {
+      "type": "image-banner",
+      "settings": {
+        "image_desktop": "shopify:\/\/shop_images\/aromas-escritorio.jpg",
+        "image_tablet": "shopify:\/\/shop_images\/aromas-tablet.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/banner_aromatizadores_Mobile_cad9debb-ecfa-4c41-ad07-0d40420fbc31.png",
+        "alt_text": "Aromatiza tus ambientes y textiles con nuestros home spray - ver aromas",
+        "link": "https:\/\/www.milurugs.com\/collections\/home-spray"
+      }
     },
     "1663853527b3ea917c": {
       "type": "nuevas-tendencias-home",
@@ -219,7 +230,6 @@
     },
     "1663853528d0a78c4e": {
       "type": "apps",
-      "disabled": true,
       "blocks": {
         "e3884db9-5e5e-43c5-8ac4-f47ffdb03792": {
           "type": "shopify:\/\/apps\/loox-product-reviews-photos\/blocks\/loox-gallery-carousel-section\/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
@@ -243,6 +253,7 @@
       "block_order": [
         "e3884db9-5e5e-43c5-8ac4-f47ffdb03792"
       ],
+      "disabled": true,
       "settings": {
         "include_margins": true
       }
@@ -320,12 +331,13 @@
     }
   },
   "order": [
+    "166378393330513b1b",
     "main",
     "1663774475734792c4",
     "df25bd33-5a42-4595-b23a-d137c502c4c1",
     "166421690781dd4bd6",
     "16638459636617b081",
-    "166378393330513b1b",
+    "beb613ec-dfc4-4677-9354-ce1cbe915386",
     "1663853527b3ea917c",
     "1663853528d0a78c4e",
     "1663941725f0739e1a",
