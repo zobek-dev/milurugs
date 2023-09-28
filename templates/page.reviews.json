@@ -2,10 +2,35 @@
   "sections": {
     "main": {
       "type": "main-reviews",
+      "disabled": true,
       "settings": {}
+    },
+    "16946368508f3fe816": {
+      "type": "apps",
+      "blocks": {
+        "2dfe862c-3c36-4f69-b185-86753fbec813": {
+          "type": "shopify:\/\/apps\/loox-product-reviews-photos\/blocks\/loox-agg-section\/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "only_photos": false,
+            "hide_thumbnails": false,
+            "product_handle": "",
+            "aggregated": true,
+            "data-limit": 8,
+            "maxwidth": 1080
+          }
+        }
+      },
+      "block_order": [
+        "2dfe862c-3c36-4f69-b185-86753fbec813"
+      ],
+      "settings": {
+        "include_margins": true,
+        "title": "Lo Que dicen nuestros Clientes"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "16946368508f3fe816"
   ]
 }

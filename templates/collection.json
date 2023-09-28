@@ -1,9 +1,10 @@
 {
   "sections": {
-    "heading":{
+    "heading": {
       "type": "collection-heading",
+      "disabled": true,
       "settings": {}
-    }, 
+    },
     "main": {
       "type": "main-collection",
       "settings": {}

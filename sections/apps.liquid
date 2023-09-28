@@ -1,4 +1,10 @@
 <div class="wrapper my-4 py-2 lg:my-8 lg:py-4">
+  {% if section.settings.title != blank %}
+    
+  <h1 class="text-2xl font-semibold uppercase mb-2 text-center">
+    {{ section.settings.title | escape }}
+  </h1>
+  {% endif %}
   {%- for block in section.blocks -%}
     {% render block %}
   {%- endfor -%}
@@ -15,6 +21,12 @@
       "id": "include_margins",
       "default": true,
       "label": "t:sections.apps.settings.include_margins.label"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Lorem ipsum dolor",
+      "label": "Título"
     }
   ],
   "blocks": [

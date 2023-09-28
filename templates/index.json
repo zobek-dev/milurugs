@@ -1,145 +1,76 @@
 {
   "sections": {
+    "1663774475734792c4": {
+      "type": "slideshow",
+      "blocks": {
+        "e88ae090-ed15-4727-86d3-666a78885ce5": {
+          "type": "slide",
+          "settings": {
+            "image_mobile": "shopify:\/\/shop_images\/03M_4940711a-030f-424d-98f1-efe351353785.png",
+            "image_tablet": "shopify:\/\/shop_images\/03T_11d841a6-3ea9-4b73-9a7a-dcd49f0a9b34.png",
+            "image_desktop": "shopify:\/\/shop_images\/03D_78a576c7-219c-4a14-b87d-d014185319ad.png",
+            "link": "https:\/\/www.milurugs.com\/collections\/all",
+            "alt_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "e88ae090-ed15-4727-86d3-666a78885ce5"
+      ],
+      "settings": {}
+    },
     "166378393330513b1b": {
       "type": "featured-collection",
       "blocks": {
         "e50beda6-2379-472a-bd76-0992f13516c0": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/living_53fe8423-87a4-4aa1-a991-2c3556cf0556.png",
+            "image": "shopify:\/\/shop_images\/Living_b6caa2bc-2d36-44ad-bc15-4ffe683674f2.png",
             "collection": "living"
-          }
-        },
-        "a51279c4-ce5f-4112-a6c3-22edc3bad663": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/comedor_1.png",
-            "collection": "comedor"
           }
         },
         "37a1729f-64f9-4580-b1ec-284242ea3586": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/dormitorio_1.png",
+            "image": "shopify:\/\/shop_images\/Dormitorio_3888b138-f11d-409f-a19d-5ec7b8b20cc8.png",
             "collection": "dormitorio"
           }
         },
         "5e39de15-ccf6-449b-8d4e-91ad009eb950": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/terraza_1.png",
+            "image": "shopify:\/\/shop_images\/terraza_f72e88d8-3cc1-40fc-80ad-a551960a7f44.png",
             "collection": "terraza"
           }
         },
         "67c92b65-6272-47d8-aca9-77cca0cef741": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/sala-de-estar_1.png",
+            "image": "shopify:\/\/shop_images\/Saladeestar_3d9ce812-cd88-473d-ab78-b3bf0744b3c2.png",
             "collection": "interior"
+          }
+        },
+        "a51279c4-ce5f-4112-a6c3-22edc3bad663": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Living_1.png",
+            "collection": "comedor"
           }
         }
       },
       "block_order": [
         "e50beda6-2379-472a-bd76-0992f13516c0",
-        "a51279c4-ce5f-4112-a6c3-22edc3bad663",
         "37a1729f-64f9-4580-b1ec-284242ea3586",
         "5e39de15-ccf6-449b-8d4e-91ad009eb950",
-        "67c92b65-6272-47d8-aca9-77cca0cef741"
+        "67c92b65-6272-47d8-aca9-77cca0cef741",
+        "a51279c4-ce5f-4112-a6c3-22edc3bad663"
       ],
-      "settings": {}
+      "settings": {
+        "title": ""
+      }
     },
     "main": {
       "type": "main-index",
-      "settings": {}
-    },
-    "1663774475734792c4": {
-      "type": "slideshow",
-      "blocks": {
-        "cb60fe55-c398-426c-808f-9258cac7be0b": {
-          "type": "slide",
-          "settings": {
-            "image_mobile": "shopify:\/\/shop_images\/003_e1383e42-fe6e-4f9b-8141-c66b03c0e788.png",
-            "image_tablet": "shopify:\/\/shop_images\/002_2200d8da-8f5a-47fe-a683-f49d005855c2.png",
-            "image_desktop": "shopify:\/\/shop_images\/004_4294ae3e-1c23-421e-9ac9-e980e5c5c21c.png",
-            "link": "shopify:\/\/collections\/tencel",
-            "alt_text": ""
-          }
-        },
-        "36eb6fe9-8826-48c7-bd3d-887879f434f7": {
-          "type": "slide",
-          "settings": {
-            "image_mobile": "shopify:\/\/shop_images\/006.png",
-            "image_tablet": "shopify:\/\/shop_images\/Mesa_de_trabajo_32.png",
-            "image_desktop": "shopify:\/\/shop_images\/005.png",
-            "link": "shopify:\/\/collections",
-            "alt_text": ""
-          }
-        },
-        "687f323f-6ed6-46b2-81f6-91a58b9f06d9": {
-          "type": "slide",
-          "settings": {
-            "image_mobile": "shopify:\/\/shop_images\/07.png",
-            "image_tablet": "shopify:\/\/shop_images\/06.png",
-            "image_desktop": "shopify:\/\/shop_images\/04.png",
-            "link": "shopify:\/\/collections\/all",
-            "alt_text": ""
-          }
-        },
-        "bee52cc6-2f64-4473-91ec-d1cad832965e": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image_mobile": "shopify:\/\/shop_images\/Web_1920_11.png",
-            "image_tablet": "shopify:\/\/shop_images\/Web_1920_9.png",
-            "image_desktop": "shopify:\/\/shop_images\/Web_1920_7.png",
-            "link": "shopify:\/\/collections\/lana",
-            "alt_text": ""
-          }
-        },
-        "2b2190ae-b050-4b44-a93b-c7f3ad59f643": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image_mobile": "shopify:\/\/shop_images\/Web_1920_13_31373b6e-0dd7-4c08-a398-fe2bc92637ab.png",
-            "image_tablet": "shopify:\/\/shop_images\/Web_1920_11_13562b51-c4cb-4ad8-8012-7d51b7f2d175.png",
-            "image_desktop": "shopify:\/\/shop_images\/Web_1920_9_7515ede1-80e3-44c2-80e9-97b239a8da74.png",
-            "link": "shopify:\/\/collections\/polipropileno",
-            "alt_text": ""
-          }
-        },
-        "5e28feeb-d091-4231-98ee-8df6667f8efa": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image_mobile": "shopify:\/\/shop_images\/banner_milurugs-07.png",
-            "image_tablet": "shopify:\/\/shop_images\/banner_milurugs-06.png",
-            "image_desktop": "shopify:\/\/shop_images\/banner_milurugs-05_ee77baef-8380-46c1-9385-92ed0235c079.png",
-            "link": "shopify:\/\/collections\/lana",
-            "alt_text": ""
-          }
-        },
-        "fc4b2a43-79f6-4349-af7e-28eb52843476": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image_mobile": "shopify:\/\/shop_images\/400x460.png",
-            "image_tablet": "shopify:\/\/shop_images\/830x600.png",
-            "image_desktop": "shopify:\/\/shop_images\/2000x700.png",
-            "link": "shopify:\/\/collections\/all",
-            "alt_text": ""
-          }
-        }
-      },
-      "block_order": [
-        "cb60fe55-c398-426c-808f-9258cac7be0b",
-        "36eb6fe9-8826-48c7-bd3d-887879f434f7",
-        "687f323f-6ed6-46b2-81f6-91a58b9f06d9",
-        "bee52cc6-2f64-4473-91ec-d1cad832965e",
-        "2b2190ae-b050-4b44-a93b-c7f3ad59f643",
-        "5e28feeb-d091-4231-98ee-8df6667f8efa",
-        "fc4b2a43-79f6-4349-af7e-28eb52843476"
-      ],
-      "disabled": true,
       "settings": {}
     },
     "df25bd33-5a42-4595-b23a-d137c502c4c1": {
@@ -202,13 +133,8 @@
     "166421690781dd4bd6": {
       "type": "featured-products",
       "settings": {
-        "coll": "living"
-      }
-    },
-    "16638459636617b081": {
-      "type": "somos-milu-home",
-      "settings": {
-        "image": "shopify:\/\/shop_images\/web2.jpg"
+        "coll": "living",
+        "title": "Alfombras más vendidas"
       }
     },
     "beb613ec-dfc4-4677-9354-ce1cbe915386": {
@@ -255,7 +181,8 @@
       ],
       "disabled": true,
       "settings": {
-        "include_margins": true
+        "include_margins": true,
+        "title": "Lorem ipsum dolor"
       }
     },
     "1663941725f0739e1a": {
@@ -278,45 +205,12 @@
         "image": "shopify:\/\/shop_images\/foto_de_newsletter_1.jpg"
       }
     },
-    "411093b9-5512-4f92-a1b8-6ad69e339e1e": {
-      "type": "instagram-feed",
-      "blocks": {
-        "cc73621d-8e5c-4f04-8835-ee9249aa41f6": {
-          "type": "shopify:\/\/apps\/instafeed-instagram-feed\/blocks\/app-block\/c447db20-095d-4a10-9725-b5977662c9d5",
-          "settings": {
-            "heading_size": 20,
-            "feed_width": 100,
-            "html_area": ""
-          }
-        }
-      },
-      "block_order": [
-        "cc73621d-8e5c-4f04-8835-ee9249aa41f6"
-      ],
-      "settings": {
-        "title": "Inspírate junto a nosotras y síguenos..."
-      }
-    },
     "1664199796f28f2656": {
       "type": "apps",
-      "blocks": {
-        "bfa2ddba-93de-4966-9616-ff2b0952c947": {
-          "type": "shopify:\/\/apps\/loox-product-reviews-photos\/blocks\/loox-agg-section\/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-          "settings": {
-            "only_photos": true,
-            "hide_thumbnails": true,
-            "product_handle": "",
-            "aggregated": false,
-            "data-limit": 12,
-            "maxwidth": 1440
-          }
-        }
-      },
-      "block_order": [
-        "bfa2ddba-93de-4966-9616-ff2b0952c947"
-      ],
+      "disabled": true,
       "settings": {
-        "include_margins": true
+        "include_margins": true,
+        "title": "Lorem ipsum dolor"
       }
     },
     "b70887e5-0711-4799-b613-3d9ac90fd4fb": {
@@ -331,19 +225,17 @@
     }
   },
   "order": [
+    "1663774475734792c4",
     "166378393330513b1b",
     "main",
-    "1663774475734792c4",
     "df25bd33-5a42-4595-b23a-d137c502c4c1",
     "166421690781dd4bd6",
-    "16638459636617b081",
     "beb613ec-dfc4-4677-9354-ce1cbe915386",
     "1663853527b3ea917c",
     "1663853528d0a78c4e",
     "1663941725f0739e1a",
     "16639567304b37bf31",
     "1664194789e027bd94",
-    "411093b9-5512-4f92-a1b8-6ad69e339e1e",
     "1664199796f28f2656",
     "b70887e5-0711-4799-b613-3d9ac90fd4fb"
   ]

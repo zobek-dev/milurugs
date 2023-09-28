@@ -13,15 +13,15 @@ class FeaturedArticles extends HTMLElement{
       slidesPerView: 1.5,
       spaceBetween: 16,
       breakpoints: {
-        640: {
-          slidesPerView: 2.8,
+        150:{
+          slidesPerView: 1.5,
+        },
+        768: {
+          slidesPerView: 3,
         },
         1024:{
-          slidesPerView: 3.2
+          slidesPerView: 4
         },
-        1600:{
-          slidesPerView: 4.2
-        }
       },
       scrollbar:{
         el: this.scrollbar
