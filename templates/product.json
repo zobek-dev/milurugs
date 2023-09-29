@@ -3,7 +3,8 @@
     "main": {
       "type": "main-product",
       "settings": {
-        "upsell_product": "antideslizante"
+        "upsell_product": "",
+        "product_impermeable": "impermeabilizador"
       }
     },
     "1664363379cde354ff": {
