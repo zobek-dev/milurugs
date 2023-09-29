@@ -6,9 +6,9 @@
         "e88ae090-ed15-4727-86d3-666a78885ce5": {
           "type": "slide",
           "settings": {
-            "image_mobile": "shopify:\/\/shop_images\/03M_4940711a-030f-424d-98f1-efe351353785.png",
-            "image_tablet": "shopify:\/\/shop_images\/03T_11d841a6-3ea9-4b73-9a7a-dcd49f0a9b34.png",
-            "image_desktop": "shopify:\/\/shop_images\/03D_78a576c7-219c-4a14-b87d-d014185319ad.png",
+            "image_mobile": "shopify:\/\/shop_images\/Mesa_de_trabajo_19.png",
+            "image_tablet": "shopify:\/\/shop_images\/Mesa_de_trabajo_18.png",
+            "image_desktop": "shopify:\/\/shop_images\/Web_1920_3_aeb8dc6c-f795-49e4-93bf-97b36a0e4e25.png",
             "link": "https:\/\/www.milurugs.com\/collections\/all",
             "alt_text": ""
           }
@@ -25,35 +25,35 @@
         "e50beda6-2379-472a-bd76-0992f13516c0": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Living_b6caa2bc-2d36-44ad-bc15-4ffe683674f2.png",
+            "image": "shopify:\/\/shop_images\/Living_6295c2b4-b5ff-4a8d-b494-29d4d6748d9f.png",
             "collection": "living"
           }
         },
         "37a1729f-64f9-4580-b1ec-284242ea3586": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Dormitorio_3888b138-f11d-409f-a19d-5ec7b8b20cc8.png",
+            "image": "shopify:\/\/shop_images\/Dormitorio_464885f0-c0de-42b8-9a91-5413fd987741.png",
             "collection": "dormitorio"
           }
         },
         "5e39de15-ccf6-449b-8d4e-91ad009eb950": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/terraza_f72e88d8-3cc1-40fc-80ad-a551960a7f44.png",
+            "image": "shopify:\/\/shop_images\/terraza_5051d93f-9d8a-4604-aec1-b657b8f5e1de.png",
             "collection": "terraza"
           }
         },
         "67c92b65-6272-47d8-aca9-77cca0cef741": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Saladeestar_3d9ce812-cd88-473d-ab78-b3bf0744b3c2.png",
+            "image": "shopify:\/\/shop_images\/Saladeestar_60dcaa84-4f98-4a42-95ef-33f4f6dc7719.png",
             "collection": "interior"
           }
         },
         "a51279c4-ce5f-4112-a6c3-22edc3bad663": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Living_1.png",
+            "image": "shopify:\/\/shop_images\/Living_1_5321f0fc-cf56-4082-aabd-afdbbf325e6e.png",
             "collection": "comedor"
           }
         }

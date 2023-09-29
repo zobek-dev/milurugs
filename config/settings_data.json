@@ -22,6 +22,37 @@
       },
       "footer": {
         "type": "footer",
+        "blocks": {
+          "024f805b-7e50-4d2e-aeca-d33e20a278a7": {
+            "type": "partner_brand",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/LOGO_protectortextil.png",
+              "name": "Protector textil",
+              "link": "https:\/\/www.protectortextil.cl\/"
+            }
+          },
+          "dec7460f-4939-4476-9a35-77846d6c654e": {
+            "type": "partner_brand",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/logo-diseno-interior-milu_Mesa_de_trabajo_1.webp",
+              "name": "Asociación de diseño e interiorismo de Chile",
+              "link": ""
+            }
+          },
+          "5be178da-4d5c-45c9-ac26-6101885938bf": {
+            "type": "partner_brand",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/image_1.png",
+              "name": "Camara de comercio de santiago",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "024f805b-7e50-4d2e-aeca-d33e20a278a7",
+          "dec7460f-4939-4476-9a35-77846d6c654e",
+          "5be178da-4d5c-45c9-ac26-6101885938bf"
+        ],
         "settings": {}
       },
       "announcement-bar": {

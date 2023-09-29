@@ -17,10 +17,17 @@
           </h3>
           <ul role="list">
             <li>
-              <a href="mailto:hola@milurugs.com" class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50" rel="noopener noreferrer">hola@milurugs.com</a>
+              <a
+                href="mailto:hola@milurugs.com"
+                class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50"
+                rel="noopener noreferrer">hola@milurugs.com</a>
             </li>
             <li>
-              <a href="https://wa.me/56992135612/?text=Hola,%20tengo%20la%20siguiente%20duda%20sobre%20las%20alfombras%20de%20milurugs" class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50" target="_blank" rel="noopener noreferrer">Escribenos aquí</a>
+              <a
+                href="https://wa.me/56992135612/?text=Hola,%20tengo%20la%20siguiente%20duda%20sobre%20las%20alfombras%20de%20milurugs"
+                class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50"
+                target="_blank"
+                rel="noopener noreferrer">Escribenos aquí</a>
             </li>
           </ul>
         </div>
@@ -29,12 +36,7 @@
             Encuentranos
           </h3>
           <ul>
-            <li>
-              <a href="https://www.google.cl/maps/place/C.+Luis+Pasteur+6411,+Vitacura,+Regi%C3%B3n+Metropolitana/@-33.3830775,-70.5746521,17z/data=!3m1!4b1!4m5!3m4!1s0x9662c929b8ebd327:0x5e19251b37f0840d!8m2!3d-33.3830775!4d-70.5724634?shorturl=1" target="_blank" rel="noopener nofererrer" class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50">
-                Luis Pasteur 6411 local 10 y 11,<br>
-                segundo piso, Vitacura, Santiago,
-              </a>
-            </li>
+            <li><a href="https://www.google.cl/maps/place/C.+Luis+Pasteur+6411,+Vitacura,+Regi%C3%B3n+Metropolitana/@-33.3830775,-70.5746521,17z/data=!3m1!4b1!4m5!3m4!1s0x9662c929b8ebd327:0x5e19251b37f0840d!8m2!3d-33.3830775!4d-70.5724634?shorturl=1" target="_blank" rel="noopener nofererrer" class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50">Luis Pasteur 6411 local 10 y 11,<br>segundo piso, Vitacura, Santiago,</a></li>
           </ul>
         </div>
       </div>
@@ -83,13 +85,25 @@
               </li>
             </ul>
           </div>
-          <div class="flex gap-x-4">
-            <div>
-              <img src="https://cdn.shopify.com/s/files/1/2423/2085/files/logo-diseno-interior-milu_Mesa_de_trabajo_1.png?v=1655987045" alt="asociación de diseño interior" width="90" height="60" loading="lazy">
-            </div> 
-            <div>
-              <img src="https://cdn.shopify.com/s/files/1/2423/2085/files/Sello_Confianza_Ecommerce_CCS-01.png?v=1655987045" alt="camara de comercio de santiago" width="50" height="67" loading="lazy">
-            </div>
+          <div>
+            <h3 class="tracking-[2.5px] uppercase font-semibold mb-2">
+              Nuestros partners
+            </h3>
+            <ul class="flex gap-x-4 items-center">
+              {% for block in section.blocks %}
+                <li>
+                  {% if block.settings.url != blank %}
+                    <a href="{{ block.settings.url }}">
+                    {% endif %}
+                    {% if block.settings.logo != blank %}
+                      {{ block.settings.logo | image_url: width: 50 | image_tag: loading: 'lazy', class: '', alt: block.settings.name }}
+                    {% endif %}
+                    {% if block.settings.url != blank %}
+                    </a>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
           </div>
         </div>
       </div>
@@ -100,8 +114,13 @@
           </h3>
           <ul role="list">
             <li class="tracking-[1.5px] text-sm">Tarjetas Débito/Crédito</li>
-            <li class="my-1"> 
-              <img src="https://cdn.shopify.com/s/files/1/2423/2085/files/mercadopago-logo_1.png?v=1655989849" alt="mercado pago" loading="lazy" width="122" height="33">
+            <li class="my-1">
+              <img
+                src="https://cdn.shopify.com/s/files/1/2423/2085/files/mercadopago-logo_1.png?v=1655989849"
+                alt="mercado pago"
+                loading="lazy"
+                width="122"
+                height="33">
             </li>
             <li class="tracking-[1.5px] text-sm">Hasta 6 coutas sin interés</li>
           </ul>
@@ -109,12 +128,41 @@
       </div>
     </div>
     <div class="mt-20 mb-2 text-center">
-      <p class="text-xs tracking-[1.5px]">&copy; {{ "now" | date: "%Y" }} MILÚRUGS | diseñado y desarrollado por <a href="https://www.mediahuella.com" target="_blank" rel="noopener noreferrer" class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50 font-bold"> Mediahuella</a></p>
+      <p class="text-xs tracking-[1.5px]">&copy; {{ "now" | date: "%Y" }} MILÚRUGS | diseñado y desarrollado por
+        <a
+          href="https://www.mediahuella.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm tracking-[1.5px] transition-all duration-200 ease-out hover:opacity-50 font-bold">
+          Mediahuella</a>
+      </p>
     </div>
   </div>
 </footer>
 {% schema %}
-{
-  "name":"footer"
-}
+  {
+    "name": "footer",
+    "settings": [],
+    "blocks": [
+      {
+        "name": "Partner",
+        "type": "partner_brand",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo"
+          }, {
+            "type": "text",
+            "id": "name",
+            "label": "Nombre del partner"
+          }, {
+            "type": "url",
+            "id": "link",
+            "label": "Url del partner"
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}
